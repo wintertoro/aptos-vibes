@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { WalletButton } from "./components/WalletButton";
+import { VotingSystem } from "./components/VotingSystem";
 
 interface Project {
   id: string;
@@ -86,6 +88,10 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
       {/* Header */}
       <header className="container mx-auto px-6 py-8">
+        <div className="flex justify-between items-start mb-8">
+          <div></div>
+          <WalletButton />
+        </div>
         <div className="text-center">
           <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
             Aptos Vibes
@@ -184,6 +190,12 @@ export default function Home() {
                     />
                   </svg>
                 </Link>
+
+                {/* Voting System */}
+                <VotingSystem 
+                  projectId={project.id} 
+                  projectTitle={project.title} 
+                />
               </div>
             </div>
           ))}

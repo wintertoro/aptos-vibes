@@ -55,32 +55,42 @@ export function VotingSystem({ projectId, projectTitle }: VotingSystemProps) {
     setIsLoading(true);
     
     try {
-      // For now, we'll simulate on-chain voting with localStorage
-      // In a real implementation, you would submit a transaction to the blockchain
-      
       const newVoteData = { ...voteData };
       const previousVote = voteData.userVote;
       
-      // Remove previous vote if exists
-      if (previousVote === 'up') {
-        newVoteData.upvotes -= 1;
-      } else if (previousVote === 'down') {
-        newVoteData.downvotes -= 1;
-      }
-      
-      // Add new vote
-      if (voteType === 'up') {
-        newVoteData.upvotes += 1;
+      // If user clicks the same vote type they already have, remove their vote (toggle off)
+      if (previousVote === voteType) {
+        if (previousVote === 'up') {
+          newVoteData.upvotes -= 1;
+        } else {
+          newVoteData.downvotes -= 1;
+        }
+        newVoteData.userVote = null;
+        localStorage.removeItem(`user_vote_${projectId}_${account.address}`);
       } else {
-        newVoteData.downvotes += 1;
+        // Remove previous vote if exists (switching votes)
+        if (previousVote === 'up') {
+          newVoteData.upvotes -= 1;
+        } else if (previousVote === 'down') {
+          newVoteData.downvotes -= 1;
+        }
+        
+        // Add new vote
+        if (voteType === 'up') {
+          newVoteData.upvotes += 1;
+        } else {
+          newVoteData.downvotes += 1;
+        }
+        
+        newVoteData.userVote = voteType;
+        localStorage.setItem(`user_vote_${projectId}_${account.address}`, voteType);
       }
       
-      newVoteData.userVote = voteType;
+      // Calculate total (can be negative)
       newVoteData.totalVotes = newVoteData.upvotes - newVoteData.downvotes;
       
       // Save to localStorage (simulating blockchain storage)
       localStorage.setItem(`votes_${projectId}`, JSON.stringify(newVoteData));
-      localStorage.setItem(`user_vote_${projectId}_${account.address}`, voteType);
       
       // Simulate blockchain transaction
       const payload = {
@@ -125,27 +135,35 @@ export function VotingSystem({ projectId, projectTitle }: VotingSystemProps) {
           <>
             <button
               onClick={() => handleVote('up')}
-              disabled={isLoading || voteData.userVote === 'up'}
+              disabled={isLoading}
               className={`p-2 rounded-lg transition-colors ${
                 voteData.userVote === 'up'
-                  ? 'bg-green-500 text-white'
+                  ? 'bg-green-500 text-white shadow-md'
                   : 'bg-gray-200 dark:bg-gray-600 hover:bg-green-100 dark:hover:bg-green-800 text-gray-600 dark:text-gray-300'
-              } ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              } ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+              title={voteData.userVote === 'up' ? 'Click to remove your upvote' : 'Click to upvote'}
             >
               👍
             </button>
             
             <button
               onClick={() => handleVote('down')}
-              disabled={isLoading || voteData.userVote === 'down'}
+              disabled={isLoading}
               className={`p-2 rounded-lg transition-colors ${
                 voteData.userVote === 'down'
-                  ? 'bg-red-500 text-white'
+                  ? 'bg-red-500 text-white shadow-md'
                   : 'bg-gray-200 dark:bg-gray-600 hover:bg-red-100 dark:hover:bg-red-800 text-gray-600 dark:text-gray-300'
-              } ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              } ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+              title={voteData.userVote === 'down' ? 'Click to remove your downvote' : 'Click to downvote'}
             >
               👎
             </button>
+            
+            {voteData.userVote && (
+              <div className="text-xs text-gray-500 dark:text-gray-400 ml-2">
+                Your vote: {voteData.userVote === 'up' ? '👍' : '👎'}
+              </div>
+            )}
           </>
         ) : (
           <div className="text-xs text-gray-500 dark:text-gray-400">

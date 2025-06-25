@@ -89,7 +89,12 @@ export default function Home() {
       {/* Header */}
       <header className="container mx-auto px-6 py-8">
         <div className="flex justify-between items-start mb-8">
-          <div></div>
+          <Link 
+            href="/docs"
+            className="px-4 py-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium border border-blue-200 hover:border-blue-300 dark:border-blue-600 dark:hover:border-blue-500 rounded-lg transition-colors"
+          >
+            📖 Docs
+          </Link>
           <WalletButton />
         </div>
         <div className="text-center">

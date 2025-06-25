@@ -14,17 +14,15 @@
   },
   "dependencies": {
     "@aptos-labs/ts-sdk": "^1.39.0",
-    "@aptos-labs/wallet-adapter-ant-design": "^3.2.1",
-    "@aptos-labs/wallet-adapter-core": "^5.7.1",
-    "@aptos-labs/wallet-adapter-react": "^3.7.1",
+    "@aptos-labs/wallet-adapter-react": "^3.8.0",
     "next": "15.3.4",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "postcss": "^8",

@@ -118,33 +118,44 @@ export default function Home() {
                 href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative bg-gray-200 dark:bg-gray-800 h-48 border-b-2 border-black dark:border-white hover:opacity-90 transition-opacity cursor-pointer"
+                className="block relative bg-gray-200 dark:bg-gray-800 h-48 border-b-2 border-black dark:border-white hover:opacity-90 transition-opacity cursor-pointer overflow-hidden"
               >
-                <div className={`absolute inset-0 flex items-center justify-center ${
-                  project.id === '1' 
-                    ? 'bg-gradient-to-br from-green-400 to-teal-600 dark:from-green-600 dark:to-teal-800' 
-                    : 'bg-gradient-to-br from-blue-400 to-purple-600 dark:from-blue-600 dark:to-purple-800'
-                }`}>
-                  <div className="text-center text-white">
-                    {project.id === '1' ? (
-                      <div className="flex flex-col items-center">
-                        <div className="text-4xl mb-2">
-                          📝
+                {project.imageUrl && !project.imageUrl.includes('placeholder') ? (
+                  <div className="absolute inset-0">
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className={`absolute inset-0 flex items-center justify-center ${
+                    project.id === '1' 
+                      ? 'bg-gradient-to-br from-green-400 to-teal-600 dark:from-green-600 dark:to-teal-800' 
+                      : 'bg-gradient-to-br from-blue-400 to-purple-600 dark:from-blue-600 dark:to-purple-800'
+                  }`}>
+                    <div className="text-center text-white">
+                      {project.id === '1' ? (
+                        <div className="flex flex-col items-center">
+                          <div className="text-4xl mb-2">
+                            📝
+                          </div>
+                          <div className="text-2xl font-bold">
+                            TODO
+                          </div>
                         </div>
-                        <div className="text-2xl font-bold">
-                          TODO
+                      ) : (
+                        <div className="text-6xl mb-2 font-bold">
+                          {project.title.split(' ').map(word => word[0]).join('')}
                         </div>
+                      )}
+                      <div className="text-xs font-mono px-4 py-1 bg-black bg-opacity-50 rounded mt-2">
+                        {project.status.toUpperCase()}
                       </div>
-                    ) : (
-                      <div className="text-6xl mb-2 font-bold">
-                        {project.title.split(' ').map(word => word[0]).join('')}
-                      </div>
-                    )}
-                    <div className="text-xs font-mono px-4 py-1 bg-black bg-opacity-50 rounded mt-2">
-                      {project.status.toUpperCase()}
                     </div>
                   </div>
-                </div>
+                )}
                 <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 text-xs font-mono">
                   #{String(index + 1).padStart(2, '0')}
                 </div>

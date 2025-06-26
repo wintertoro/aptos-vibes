@@ -33,13 +33,14 @@
   },
   {
     "id": "4",
-    "title": "Aptos Name Service",
-    "description": "Human-readable names for Aptos addresses, similar to ENS but optimized for the Aptos ecosystem.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/aptos-names",
-    "tags": ["Identity", "Utilities", "Infrastructure"],
-    "status": "concept",
-    "creator": "placeholder"
+    "title": "NFT Demo Aggregator",
+    "description": "A comprehensive NFT aggregator demo showcasing NFT collections and marketplace functionality on Aptos.",
+    "imageUrl": "/tile4.png",
+    "projectUrl": "https://nft-demo-aggregator.vercel.app/",
+    "tags": ["NFT", "Aggregator", "Marketplace", "Demo"],
+    "status": "live",
+    "creator": "@yuunlimm",
+    "creatorUrl": "https://github.com/yuunlimm"
   },
   {
     "id": "5",

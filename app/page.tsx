@@ -177,19 +177,15 @@ export default function Home() {
       {/* Main Content */}
       <main className="container mx-auto px-6 pb-16">
         {/* Terminal-style Section Header */}
-        <div className="text-center mb-12">
-          <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 inline-block">
-            <h2 className="text-2xl font-bold font-mono">
-              C:\PROJECTS&gt; DIR /W
-            </h2>
-          </div>
-          <div className="font-mono mt-4 text-sm flex justify-between items-center">
-            {/* Left side - Sort Controls */}
+        <div className="mb-12">
+          <div className="font-mono text-sm flex justify-between items-center">
+            {/* Left side - Section Header and Sort Controls */}
             <div className="flex items-center gap-4">
-              <div>
-                C:\PROJECTS&gt; DIR /W
+              <div className="border-2 border-black dark:border-white bg-white dark:bg-black px-3 py-2">
+                <h2 className="text-lg font-bold font-mono">
+                  C:\PROJECTS&gt; DIR /W
+                </h2>
               </div>
-              
               <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs">SORT:</span>

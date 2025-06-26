@@ -13,6 +13,7 @@ interface Project {
   tags: string[];
   status: 'live' | 'development' | 'concept';
   creator: string;
+  creatorUrl?: string;
 }
 
 const projects: Project[] = projectsData as Project[];
@@ -185,7 +186,16 @@ export default function Home() {
                 <div className="mb-4">
                   <div className="font-mono text-xs mb-2">CREATOR:</div>
                   <div className="font-mono text-sm">
-                    {project.creator === "@wintertoro" ? (
+                    {project.creatorUrl ? (
+                      <Link
+                        href={project.creatorUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {project.creator}
+                      </Link>
+                    ) : project.creator === "@wintertoro" ? (
                       <Link
                         href="https://github.com/wintertoro"
                         target="_blank"

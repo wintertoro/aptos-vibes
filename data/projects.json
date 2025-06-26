@@ -5,7 +5,7 @@
     "description": "A fully decentralized todo application built on Aptos blockchain with smart contract integration.",
     "imageUrl": "/tile1.png",
     "projectUrl": "https://todo-dapp-fe.vercel.app/",
-    "repoUrl": "https://github.com/wintertoro/todo-dapp",
+    "repoUrl": "https://github.com/wintertoro/todo-dapp-fe",
     "tags": ["dApp", "Productivity", "Move"],
     "status": "live",
     "creator": "@wintertoro"
@@ -28,7 +28,7 @@
     "description": "Confidential computing dashboard for Aptos Labs providing secure and private blockchain operations.",
     "imageUrl": "/tile3.png",
     "projectUrl": "https://confidential.aptoslabs.com/dashboard",
-    "repoUrl": "https://github.com/banool/aptos-confidential",
+    "repoUrl": "https://aptos.dev/en/build/smart-contracts/confidential-asset",
     "tags": ["Confidential", "Security", "Dashboard", "Aptos Labs"],
     "status": "live",
     "creator": "@dport",

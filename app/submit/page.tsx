@@ -62,43 +62,6 @@ export default function Submit() {
 
         {/* Submit Content */}
         <div className="max-w-4xl mx-auto">
-          {/* Main Submit Section */}
-          <div className="text-center mb-12">
-            <div className="retro-card max-w-3xl mx-auto p-8">
-              <pre className="font-mono text-sm mb-6">
-{`┌─────────────────────────────────────────────────┐
-│              SYSTEM MESSAGE                     │
-├─────────────────────────────────────────────────┤
-│  NEW PROJECT SUBMISSION PROTOCOL ACTIVATED     │
-│  STATUS: ACCEPTING VIBE_CODED ENTRIES          │
-└─────────────────────────────────────────────────┘`}
-              </pre>
-              <h2 className="text-2xl font-bold font-mono mb-4 uppercase">
-                &gt; SUBMIT_YOUR_PROJECT.EXE
-              </h2>
-              <p className="font-mono mb-6 text-sm leading-relaxed">
-                // Join our database of innovative Aptos projects<br/>
-                // Share your unique approach to blockchain development<br/>
-                // Inspire the community with your creative vision
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Link
-                  href="https://github.com/wintertoro/aptos-vibes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="retro-button px-6 py-3 no-underline"
-                >
-                  [SUBMIT_PROJECT]
-                </Link>
-                <Link
-                  href="/"
-                  className="retro-button px-6 py-3 no-underline"
-                >
-                  [BROWSE_PROJECTS]
-                </Link>
-              </div>
-            </div>
-          </div>
 
           {/* Submission Guidelines */}
           <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">

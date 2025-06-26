@@ -30,6 +30,7 @@ export function SubmissionForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [pullRequestUrl, setPullRequestUrl] = useState('');
 
   const availableTags = [
     'DeFi', 'NFT', 'Gaming', 'DApp', 'Tool', 'Educational', 'Infrastructure', 
@@ -112,7 +113,9 @@ export function SubmissionForm() {
       });
       
       if (response.ok) {
+        const responseData = await response.json();
         setSubmitStatus('success');
+        setPullRequestUrl(responseData.pullRequestUrl || '');
         // Reset form
         setFormData({
           title: '',
@@ -308,7 +311,20 @@ export function SubmissionForm() {
             <div className="border-2 border-green-500 bg-green-50 dark:bg-green-900 p-4">
               <div className="font-mono text-sm text-green-700 dark:text-green-300">
                 ✅ PROJECT_SUBMITTED_SUCCESSFULLY!<br/>
-                Your project has been added to the database and will appear on the main page.
+                A pull request has been created for review. Your project will appear on the main page once approved.
+                {pullRequestUrl && (
+                  <>
+                    <br/><br/>
+                    <a 
+                      href={pullRequestUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block border border-green-700 dark:border-green-300 px-3 py-1 mt-2 hover:bg-green-700 hover:text-white dark:hover:bg-green-300 dark:hover:text-black transition-colors"
+                    >
+                      [VIEW_PULL_REQUEST]
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           )}

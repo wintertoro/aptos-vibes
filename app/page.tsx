@@ -163,7 +163,7 @@ export default function Home() {
               SYSTEM: VIBE_CODED_PROJECTS_DATABASE
             </p>
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400">
-              STATUS: [ONLINE] | PROJECTS: {projects.length} | NETWORK: APTOS_MAINNET
+              STATUS: [ONLINE] | PROJECTS: {projects.length} | NETWORK: APTOS_TESTNET
             </p>
           </div>
           <p className="text-lg font-mono max-w-4xl mx-auto leading-relaxed">
@@ -179,13 +179,18 @@ export default function Home() {
         {/* Terminal-style Section Header */}
         <div className="mb-12">
           <div className="font-mono text-sm flex justify-between items-center">
-            {/* Left side - Section Header and Sort Controls */}
-            <div className="flex items-center gap-4">
-              <div className="border-2 border-black dark:border-white bg-white dark:bg-black px-3 py-2">
-                <h2 className="text-lg font-bold font-mono">
+            {/* Left side - Section Header */}
+            <div className="flex items-center">
+              <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
+                <h2 className="text-sm font-bold font-mono">
                   C:\PROJECTS&gt; DIR /W
                 </h2>
               </div>
+            </div>
+            
+            {/* Right side - Sort and Filter Controls */}
+            <div className="flex items-center gap-2">
+              {/* Sort Control */}
               <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs">SORT:</span>
@@ -206,10 +211,6 @@ export default function Home() {
                   </select>
                 </div>
               </div>
-            </div>
-            
-            {/* Right side - Filter Controls */}
-            <div className="flex items-center gap-2">
               {/* Status Filter */}
               <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
                 <div className="flex items-center gap-2">

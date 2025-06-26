@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { WalletButton } from "../components/WalletButton";
 
 export default function DocsPage() {
   return (
@@ -17,20 +18,24 @@ export default function DocsPage() {
         </pre>
       </div>
 
-      <div className="container mx-auto px-6 py-8">
-        <div className="flex items-center gap-4 mb-8">
-          <Link 
-            href="/" 
-            className="retro-button px-4 py-2 no-underline"
-          >
-            [HOME]
-          </Link>
-          <Link 
-            href="/submit"
-            className="retro-button px-4 py-2 no-underline"
-          >
-            [SUBMIT]
-          </Link>
+      {/* Header */}
+      <header className="container mx-auto px-6 py-8">
+        <div className="flex justify-between items-start mb-8">
+          <div className="flex gap-4">
+            <Link 
+              href="/" 
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [HOME]
+            </Link>
+            <Link 
+              href="/submit"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [SUBMIT]
+            </Link>
+          </div>
+          <WalletButton />
         </div>
         
         <div className="text-center mb-12">
@@ -53,7 +58,10 @@ export default function DocsPage() {
             </p>
           </div>
         </div>
+      </header>
 
+      {/* Main Content */}
+      <main className="container mx-auto px-6 pb-16">
         <div className="max-w-4xl mx-auto space-y-12">
           
           {/* What is Vibecoding */}
@@ -325,7 +333,7 @@ export default function DocsPage() {
 
 
         </div>
-      </div>
+      </main>
 
       {/* Footer */}
       <footer className="border-t-4 border-black dark:border-white bg-white dark:bg-black">

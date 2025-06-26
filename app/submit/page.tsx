@@ -61,11 +61,8 @@ export default function Submit() {
       {/* Main Content */}
       <main className="container mx-auto px-6 pb-16">
 
-        {/* Submit Form */}
-        <SubmissionForm />
-
         {/* Submission Guidelines */}
-        <div className="max-w-4xl mx-auto mt-12">
+        <div className="max-w-4xl mx-auto mb-12">
           <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
             <div className="font-mono text-sm mb-6">
               <span className="text-green-600 dark:text-green-400">submit@aptos:~$</span> cat submission_guidelines.txt
@@ -74,14 +71,15 @@ export default function Submit() {
             <div className="space-y-6 font-mono text-sm">
               <div className="border-l-4 border-black dark:border-white pl-4 mb-6">
                 <p className="leading-relaxed">
-                  // Have a vibecoded Aptos project you'd like to showcase?<br/>
-                  // We'd love to feature it in our database!
+                  // Submit your vibecoded Aptos project using our automated form below<br/>
+                  // Your submission will create a pull request for review<br/>
+                  // Projects appear on the main page once approved by maintainers
                 </p>
               </div>
 
               <div>
                 <h2 className="text-lg font-bold mb-4 uppercase">
-                  📋 SUBMISSION GUIDELINES
+                  📋 AUTOMATED SUBMISSION PROCESS
                 </h2>
               </div>
 
@@ -134,13 +132,13 @@ export default function Submit() {
                   </div>
 
                   <div className="border border-black dark:border-white p-4">
-                    <h3 className="font-bold text-red-600 dark:text-red-400 mb-2">⚡ SUBMISSION PROCESS</h3>
+                    <h3 className="font-bold text-red-600 dark:text-red-400 mb-2">⚡ AUTOMATED PROCESS</h3>
                     <ul className="text-xs space-y-1">
-                      <li>• Fork the aptos-vibes repository</li>
-                      <li>• Edit data/projects.json file</li>
-                      <li>• Add your project to the JSON array</li>
-                      <li>• Include a project thumbnail image</li>
-                      <li>• Submit a pull request</li>
+                      <li>• Fill out the submission form below</li>
+                      <li>• System validates your project data</li>
+                      <li>• Auto-creates GitHub pull request</li>
+                      <li>• Maintainers review and approve</li>
+                      <li>• Project appears on main page</li>
                     </ul>
                   </div>
                 </div>
@@ -148,44 +146,49 @@ export default function Submit() {
 
               {/* Quick Submit Guide */}
               <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-6 mt-6">
-                <h4 className="font-bold font-mono mb-2">[READY_TO_SUBMIT]</h4>
+                <h4 className="font-bold font-mono mb-2">[AUTOMATED_SUBMISSION]</h4>
                 <p className="font-mono text-sm mb-4">
-                  Adding your project is easy! Just edit one file and submit a pull request.
+                  Submit your project instantly! Our system handles the GitHub integration automatically.
                 </p>
                 <div className="space-y-3 mb-4">
                   <div className="font-mono text-xs">
-                    <span className="font-bold">STEP 1:</span> Fork the repository
+                    <span className="font-bold">STEP 1:</span> Fill out the form below with project details
                   </div>
                   <div className="font-mono text-xs">
-                    <span className="font-bold">STEP 2:</span> Edit <code className="bg-white text-black dark:bg-black dark:text-white px-1">data/projects.json</code>
+                    <span className="font-bold">STEP 2:</span> Click submit - system validates everything
                   </div>
                   <div className="font-mono text-xs">
-                    <span className="font-bold">STEP 3:</span> Add your project to the JSON array
+                    <span className="font-bold">STEP 3:</span> Pull request auto-created for review
                   </div>
                   <div className="font-mono text-xs">
-                    <span className="font-bold">STEP 4:</span> Submit pull request
+                    <span className="font-bold">STEP 4:</span> Project goes live after approval ⚡
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2">
                   <Link 
-                    href="https://github.com/wintertoro/aptos-vibes"
-                    target="_blank"
+                    href="#submission-form"
                     className="retro-button px-4 py-2 no-underline"
                   >
-                    [VIEW_REPOSITORY]
+                    [SCROLL_TO_FORM]
                   </Link>
                   <Link 
-                    href="https://github.com/wintertoro/aptos-vibes/blob/main/README.md"
+                    href="https://github.com/wintertoro/aptos-vibes/pulls"
                     target="_blank"
                     className="retro-button px-4 py-2 no-underline"
                   >
-                    [READ_GUIDE]
+                    [VIEW_SUBMISSIONS]
                   </Link>
                 </div>
               </div>
             </div>
           </div>
 
+        {/* Submit Form */}
+        <div id="submission-form">
+          <SubmissionForm />
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-12">
           {/* Quick Technical Guide */}
           <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
             <div className="font-mono text-sm mb-6">
@@ -261,6 +264,7 @@ export default function Submit() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </main>
 

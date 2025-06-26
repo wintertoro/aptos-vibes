@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { WalletButton } from "../components/WalletButton";
+import { SubmissionForm } from "../components/SubmissionForm";
 
 export default function Submit() {
   return (
@@ -60,10 +61,11 @@ export default function Submit() {
       {/* Main Content */}
       <main className="container mx-auto px-6 pb-16">
 
-        {/* Submit Content */}
-        <div className="max-w-4xl mx-auto">
+        {/* Submit Form */}
+        <SubmissionForm />
 
-          {/* Submission Guidelines */}
+        {/* Submission Guidelines */}
+        <div className="max-w-4xl mx-auto mt-12">
           <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
             <div className="font-mono text-sm mb-6">
               <span className="text-green-600 dark:text-green-400">submit@aptos:~$</span> cat submission_guidelines.txt

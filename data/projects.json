@@ -11,13 +11,13 @@
   },
   {
     "id": "2",
-    "title": "NFT Marketplace",
-    "description": "A decentralized marketplace for trading NFTs on Aptos with low fees and fast transactions.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/nft-marketplace",
-    "tags": ["NFTs", "Marketplace", "Web3"],
-    "status": "development",
-    "creator": "placeholder"
+    "title": "Aptos Billboard",
+    "description": "A decentralized highway billboard messaging system where users can post messages on virtual billboards while driving down the digital highway.",
+    "imageUrl": "https://raw.githubusercontent.com/tippi-fifestarr/highway-billboard/main/image.png",
+    "projectUrl": "https://github.com/tippi-fifestarr/highway-billboard",
+    "tags": ["dApp", "Messaging", "Social", "Interactive"],
+    "status": "live",
+    "creator": "@tippi-fifestarr"
   },
   {
     "id": "3",

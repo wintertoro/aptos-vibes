@@ -74,7 +74,7 @@ export default function Home() {
           <p className="text-lg font-mono max-w-4xl mx-auto leading-relaxed">
             // A curated collection of innovative Aptos blockchain projects<br/>
             // Each entry represents unique approaches to decentralized computing<br/>
-                            // Built with lotsa vibes, and hellla style
+                            // Built with serious vibes and hella style
           </p>
         </div>
       </header>

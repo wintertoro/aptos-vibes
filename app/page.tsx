@@ -90,15 +90,7 @@ export default function Home() {
     setCurrentPage(page);
   };
   
-  const handleSortChange = (newSortBy: 'latest' | 'vibe') => {
-    setSortBy(newSortBy);
-    setCurrentPage(1); // Reset to first page when sorting changes
-  };
-  
-  const handleDirectionChange = (newDirection: 'asc' | 'desc') => {
-    setSortDirection(newDirection);
-    setCurrentPage(1); // Reset to first page when sorting changes
-  };
+
   
   // Function to update vibe score for a project
   const updateVibeScore = (projectId: string, vibeScore: number) => {
@@ -169,63 +161,26 @@ export default function Home() {
             Page {currentPage} of {totalPages} | Showing {currentProjects.length} of {projects.length} projects
           </p>
           
-          {/* Sorting Controls */}
-          <div className="mt-6 flex justify-center">
-            <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4 inline-block max-w-2xl">
-              <div className="font-mono text-sm mb-3 text-center">SORT_PARAMETERS:</div>
-              
-              {/* Sort By Controls */}
-              <div className="mb-4">
-                <div className="font-mono text-xs mb-2">SORT_BY:</div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => handleSortChange('latest')}
-                    className={`px-3 py-2 font-mono text-xs border-2 transition-all ${
-                      sortBy === 'latest'
-                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
-                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
-                    }`}
-                  >
-                    [DATE_ADDED]
-                  </button>
-                  <button
-                    onClick={() => handleSortChange('vibe')}
-                    className={`px-3 py-2 font-mono text-xs border-2 transition-all ${
-                      sortBy === 'vibe'
-                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
-                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
-                    }`}
-                  >
-                    [VIBE_SCORE]
-                  </button>
-                </div>
-              </div>
-              
-              {/* Sort Direction Controls */}
-              <div>
-                <div className="font-mono text-xs mb-2">ORDER:</div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => handleDirectionChange('desc')}
-                    className={`px-3 py-2 font-mono text-xs border-2 transition-all ${
-                      sortDirection === 'desc'
-                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
-                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
-                    }`}
-                  >
-                    [DESC] {sortBy === 'latest' ? '↓ NEWEST→OLDEST' : '↓ HIGH→LOW'}
-                  </button>
-                  <button
-                    onClick={() => handleDirectionChange('asc')}
-                    className={`px-3 py-2 font-mono text-xs border-2 transition-all ${
-                      sortDirection === 'asc'
-                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
-                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
-                    }`}
-                  >
-                    [ASC] {sortBy === 'latest' ? '↑ OLDEST→NEWEST' : '↑ LOW→HIGH'}
-                  </button>
-                </div>
+          {/* Sorting Controls - Discreet Dropdown */}
+          <div className="mt-4 flex justify-end">
+            <div className="border border-black dark:border-white bg-white dark:bg-black p-2 inline-block">
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs">SORT:</span>
+                <select
+                  value={`${sortBy}_${sortDirection}`}
+                  onChange={(e) => {
+                    const [newSortBy, newDirection] = e.target.value.split('_') as ['latest' | 'vibe', 'asc' | 'desc'];
+                    setSortBy(newSortBy);
+                    setSortDirection(newDirection);
+                    setCurrentPage(1);
+                  }}
+                  className="font-mono text-xs bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white px-2 py-1 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
+                >
+                  <option value="latest_desc">📅 DATE: NEWEST→OLDEST</option>
+                  <option value="latest_asc">📅 DATE: OLDEST→NEWEST</option>
+                  <option value="vibe_desc">⚡ VIBE: HIGH→LOW</option>
+                  <option value="vibe_asc">⚡ VIBE: LOW→HIGH</option>
+                </select>
               </div>
             </div>
           </div>

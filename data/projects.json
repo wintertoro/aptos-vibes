@@ -22,13 +22,14 @@
   },
   {
     "id": "3",
-    "title": "Move Code Analyzer",
-    "description": "Static analysis tool for Move smart contracts with security vulnerability detection.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/move-analyzer",
-    "tags": ["Security", "Developer Tools", "Move"],
-    "status": "concept",
-    "creator": "placeholder"
+    "title": "Aptos Confidential",
+    "description": "Confidential computing dashboard for Aptos Labs providing secure and private blockchain operations.",
+    "imageUrl": "/tile3.png",
+    "projectUrl": "https://confidential.aptoslabs.com/dashboard",
+    "tags": ["Confidential", "Security", "Dashboard", "Aptos Labs"],
+    "status": "live",
+    "creator": "@dport",
+    "creatorUrl": "https://github.com/banool"
   },
   {
     "id": "4",

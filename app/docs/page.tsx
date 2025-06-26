@@ -71,6 +71,18 @@ export default function DocsPage() {
                 // with personality, style, and innovative user experiences.<br/>
                 // Combines technical excellence with creative vision.
               </p>
+              
+              <div className="mb-6 text-center">
+                <Link 
+                  href="https://github.com/wintertoro/aptos-vibes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="retro-button px-6 py-3 no-underline"
+                >
+                  [EXPLORE_VIBECODED_PROJECTS]
+                </Link>
+              </div>
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
                   <h3 className="text-lg font-bold font-mono mb-3 text-white">[CREATIVE_EXPRESSION]</h3>
@@ -305,79 +317,7 @@ export default function DocsPage() {
             </div>
           </section>
 
-          {/* Contributing */}
-          <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
-              <h2 className="text-2xl font-bold font-mono">
-                C:\DOCS&gt; TYPE CONTRIBUTING.TXT
-              </h2>
-            </div>
-            <div className="retro-card p-8">
-              <p className="font-mono text-sm leading-relaxed mb-6">
-                // Have a vibecoded Aptos project you'd like to showcase?<br/>
-                // We'd love to feature it in our database!
-              </p>
-              
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-bold font-mono mb-3">[SUBMISSION_CRITERIA]</h3>
-                  <ul className="space-y-2 font-mono text-sm">
-                    <li className="flex items-start gap-2">
-                      <span>[✓]</span>
-                      Built on or for the Aptos blockchain
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>[✓]</span>
-                      Demonstrates creative or innovative approach
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>[✓]</span>
-                      Open source or has public repository
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span>[✓]</span>
-                      Clear documentation and description
-                    </li>
-                  </ul>
-                </div>
 
-                <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-6">
-                  <h4 className="font-bold font-mono mb-2">[READY_TO_SUBMIT]</h4>
-                  <p className="font-mono text-sm mb-4">
-                    Adding your project is easy! Just edit one file and submit a pull request.
-                  </p>
-                  <div className="space-y-3 mb-4">
-                    <div className="font-mono text-xs">
-                      <span className="font-bold">STEP 1:</span> Fork the repository
-                    </div>
-                    <div className="font-mono text-xs">
-                      <span className="font-bold">STEP 2:</span> Edit <code className="bg-white text-black px-1">data/projects.json</code>
-                    </div>
-                    <div className="font-mono text-xs">
-                      <span className="font-bold">STEP 3:</span> Add your project to the JSON array
-                    </div>
-                    <div className="font-mono text-xs">
-                      <span className="font-bold">STEP 4:</span> Submit pull request
-                    </div>
-                  </div>
-                  <Link 
-                    href="https://github.com/wintertoro/aptos-vibes"
-                    target="_blank"
-                    className="retro-button px-4 py-2 no-underline mr-2"
-                  >
-                    [VIEW_REPOSITORY]
-                  </Link>
-                  <Link 
-                    href="https://github.com/wintertoro/aptos-vibes/blob/main/README.md"
-                    target="_blank"
-                    className="retro-button px-4 py-2 no-underline"
-                  >
-                    [READ_GUIDE]
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
 
           {/* Creator Credit */}
           <section className="mt-16 text-center">

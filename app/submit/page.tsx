@@ -1,0 +1,399 @@
+import Link from "next/link";
+import { WalletButton } from "../components/WalletButton";
+
+export default function Submit() {
+  return (
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white retro-crt retro-scanlines">
+      {/* ASCII Art Header */}
+      <div className="border-b-4 border-black dark:border-white">
+        <pre className="text-xs md:text-sm text-center py-4 font-mono overflow-x-auto">
+{`
+███████╗██╗   ██╗██████╗ ███╗   ███╗██╗████████╗    ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗
+██╔════╝██║   ██║██╔══██╗████╗ ████║██║╚══██╔══╝    ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝
+███████╗██║   ██║██████╔╝██╔████╔██║██║   ██║       ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   
+╚════██║██║   ██║██╔══██╗██║╚██╔╝██║██║   ██║       ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   
+███████║╚██████╔╝██████╔╝██║ ╚═╝ ██║██║   ██║       ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   
+╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝   ╚═╝       ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   
+`}
+        </pre>
+      </div>
+
+      {/* Header */}
+      <header className="container mx-auto px-6 py-8">
+        <div className="flex justify-between items-start mb-8">
+          <div className="flex gap-4">
+            <Link 
+              href="/"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [HOME]
+            </Link>
+            <Link 
+              href="/docs"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [DOCS]
+            </Link>
+            <Link 
+              href="/manifesto"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [MANIFESTO]
+            </Link>
+          </div>
+          <WalletButton />
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-6 pb-16">
+        {/* Terminal-style Header */}
+        <div className="text-center mb-12">
+          <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 inline-block">
+            <h1 className="text-2xl font-bold font-mono">
+              C:\APTOS_VIBES&gt; SUBMIT.EXE
+            </h1>
+          </div>
+          <p className="font-mono mt-4 text-sm">
+            PROJECT SUBMISSION PROTOCOL ACTIVATED
+          </p>
+        </div>
+
+        {/* Submit Content */}
+        <div className="max-w-4xl mx-auto">
+          {/* Main Submit Section */}
+          <div className="text-center mb-12">
+            <div className="retro-card max-w-3xl mx-auto p-8">
+              <pre className="font-mono text-sm mb-6">
+{`┌─────────────────────────────────────────────────┐
+│              SYSTEM MESSAGE                     │
+├─────────────────────────────────────────────────┤
+│  NEW PROJECT SUBMISSION PROTOCOL ACTIVATED     │
+│  STATUS: ACCEPTING VIBE_CODED ENTRIES          │
+└─────────────────────────────────────────────────┘`}
+              </pre>
+              <h2 className="text-2xl font-bold font-mono mb-4 uppercase">
+                &gt; SUBMIT_YOUR_PROJECT.EXE
+              </h2>
+              <p className="font-mono mb-6 text-sm leading-relaxed">
+                // Join our database of innovative Aptos projects<br/>
+                // Share your unique approach to blockchain development<br/>
+                // Inspire the community with your creative vision
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Link
+                  href="https://github.com/wintertoro/aptos-vibes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="retro-button px-6 py-3 no-underline"
+                >
+                  [SUBMIT_PROJECT]
+                </Link>
+                <Link
+                  href="/"
+                  className="retro-button px-6 py-3 no-underline"
+                >
+                  [BROWSE_PROJECTS]
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Submission Guidelines */}
+          <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
+            <div className="font-mono text-sm mb-6">
+              <span className="text-green-600 dark:text-green-400">submit@aptos:~$</span> cat submission_guidelines.txt
+            </div>
+            
+            <div className="space-y-6 font-mono text-sm">
+              <div className="border-l-4 border-black dark:border-white pl-4 mb-6">
+                <p className="leading-relaxed">
+                  // Have a vibecoded Aptos project you'd like to showcase?<br/>
+                  // We'd love to feature it in our database!
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-lg font-bold mb-4 uppercase">
+                  📋 SUBMISSION GUIDELINES
+                </h2>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="border border-black dark:border-white p-4">
+                    <h3 className="font-bold text-green-600 dark:text-green-400 mb-2">✅ WHAT WE ACCEPT</h3>
+                    <ul className="text-xs space-y-1">
+                      <li>• Aptos-based dApps and smart contracts</li>
+                      <li>• Move language projects</li>
+                      <li>• Developer tools for Aptos ecosystem</li>
+                      <li>• Educational resources and tutorials</li>
+                      <li>• Creative blockchain experiments</li>
+                    </ul>
+                  </div>
+
+                  <div className="border border-black dark:border-white p-4">
+                    <h3 className="font-bold text-blue-600 dark:text-blue-400 mb-2">🎯 SUBMISSION CRITERIA</h3>
+                    <ul className="text-xs space-y-1">
+                      <li className="flex items-start gap-2">
+                        <span>[✓]</span>
+                        Built on or for the Aptos blockchain
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>[✓]</span>
+                        Demonstrates creative or innovative approach
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>[✓]</span>
+                        Open source or has public repository
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>[✓]</span>
+                        Clear documentation and description
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="border border-black dark:border-white p-4">
+                    <h3 className="font-bold text-purple-600 dark:text-purple-400 mb-2">📝 REQUIRED INFO</h3>
+                    <ul className="text-xs space-y-1">
+                      <li>• Project name and description</li>
+                      <li>• Live demo URL (if applicable)</li>
+                      <li>• GitHub repository link</li>
+                      <li>• Creator/team information</li>
+                      <li>• Project status (live/dev/concept)</li>
+                    </ul>
+                  </div>
+
+                  <div className="border border-black dark:border-white p-4">
+                    <h3 className="font-bold text-red-600 dark:text-red-400 mb-2">⚡ SUBMISSION PROCESS</h3>
+                    <ul className="text-xs space-y-1">
+                      <li>• Fork the aptos-vibes repository</li>
+                      <li>• Edit data/projects.json file</li>
+                      <li>• Add your project to the JSON array</li>
+                      <li>• Include a project thumbnail image</li>
+                      <li>• Submit a pull request</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Submit Guide */}
+              <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-6 mt-6">
+                <h4 className="font-bold font-mono mb-2">[READY_TO_SUBMIT]</h4>
+                <p className="font-mono text-sm mb-4">
+                  Adding your project is easy! Just edit one file and submit a pull request.
+                </p>
+                <div className="space-y-3 mb-4">
+                  <div className="font-mono text-xs">
+                    <span className="font-bold">STEP 1:</span> Fork the repository
+                  </div>
+                  <div className="font-mono text-xs">
+                    <span className="font-bold">STEP 2:</span> Edit <code className="bg-white text-black dark:bg-black dark:text-white px-1">data/projects.json</code>
+                  </div>
+                  <div className="font-mono text-xs">
+                    <span className="font-bold">STEP 3:</span> Add your project to the JSON array
+                  </div>
+                  <div className="font-mono text-xs">
+                    <span className="font-bold">STEP 4:</span> Submit pull request
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Link 
+                    href="https://github.com/wintertoro/aptos-vibes"
+                    target="_blank"
+                    className="retro-button px-4 py-2 no-underline"
+                  >
+                    [VIEW_REPOSITORY]
+                  </Link>
+                  <Link 
+                    href="https://github.com/wintertoro/aptos-vibes/blob/main/README.md"
+                    target="_blank"
+                    className="retro-button px-4 py-2 no-underline"
+                  >
+                    [READ_GUIDE]
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Technical Requirements */}
+          <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
+            <div className="font-mono text-sm mb-6">
+              <span className="text-green-600 dark:text-green-400">submit@aptos:~$</span> cat technical_requirements.md
+            </div>
+
+            <div className="space-y-6 font-mono text-sm">
+              <h2 className="text-lg font-bold mb-4 uppercase">
+                🔧 TECHNICAL REQUIREMENTS
+              </h2>
+
+              <div className="space-y-4">
+                <div className="border-l-4 border-green-500 pl-4">
+                  <h3 className="font-bold mb-2">PROJECT DATA FORMAT</h3>
+                  <div className="bg-black text-green-400 p-3 text-xs overflow-x-auto">
+                    <div>&#123;</div>
+                    <div>&nbsp;&nbsp;"id": "unique-project-id",</div>
+                    <div>&nbsp;&nbsp;"title": "Your Project Name",</div>
+                    <div>&nbsp;&nbsp;"description": "Brief project description",</div>
+                    <div>&nbsp;&nbsp;"imageUrl": "/path/to/thumbnail.png",</div>
+                    <div>&nbsp;&nbsp;"projectUrl": "https://your-live-demo.com",</div>
+                    <div>&nbsp;&nbsp;"repoUrl": "https://github.com/user/repo",</div>
+                    <div>&nbsp;&nbsp;"tags": ["aptos", "defi", "nft"],</div>
+                    <div>&nbsp;&nbsp;"status": "live",</div>
+                    <div>&nbsp;&nbsp;"creator": "@yourusername",</div>
+                    <div>&nbsp;&nbsp;"creatorUrl": "https://github.com/yourusername",</div>
+                    <div>&nbsp;&nbsp;"dateAdded": "2024-12-XX"</div>
+                    <div>&#125;</div>
+                  </div>
+                </div>
+
+                <div className="border-l-4 border-blue-500 pl-4">
+                  <h3 className="font-bold mb-2">IMAGE SPECIFICATIONS</h3>
+                  <ul className="text-xs space-y-1">
+                    <li>• Format: PNG, JPG, or WebP</li>
+                    <li>• Dimensions: 400x300px (4:3 aspect ratio)</li>
+                    <li>• File size: Under 500KB</li>
+                    <li>• Place in: /public/ directory</li>
+                    <li>• Naming: descriptive-project-name.png</li>
+                  </ul>
+                </div>
+
+                <div className="border-l-4 border-purple-500 pl-4">
+                  <h3 className="font-bold mb-2">STATUS DEFINITIONS</h3>
+                  <ul className="text-xs space-y-1">
+                    <li>• <strong>"live"</strong>: Deployed and actively usable</li>
+                    <li>• <strong>"development"</strong>: In active development</li>
+                    <li>• <strong>"concept"</strong>: Proof of concept or prototype</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Community Standards */}
+          <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
+            <h2 className="text-lg font-bold mb-6 text-center font-mono uppercase">
+              🤝 COMMUNITY STANDARDS
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-4 font-mono text-sm">
+              <div className="border border-black dark:border-white p-4">
+                <h3 className="font-bold text-green-600 dark:text-green-400 mb-2">🌟 QUALITY</h3>
+                <p className="text-xs">Projects should demonstrate technical excellence and attention to detail.</p>
+              </div>
+              
+              <div className="border border-black dark:border-white p-4">
+                <h3 className="font-bold text-blue-600 dark:text-blue-400 mb-2">🎨 CREATIVITY</h3>
+                <p className="text-xs">We value unique approaches and innovative solutions to blockchain challenges.</p>
+              </div>
+              
+              <div className="border border-black dark:border-white p-4">
+                <h3 className="font-bold text-purple-600 dark:text-purple-400 mb-2">🔒 SECURITY</h3>
+                <p className="text-xs">All smart contracts should follow Aptos security best practices.</p>
+              </div>
+              
+              <div className="border border-black dark:border-white p-4">
+                <h3 className="font-bold text-red-600 dark:text-red-400 mb-2">📚 DOCUMENTATION</h3>
+                <p className="text-xs">Clear README files and code comments help the community learn.</p>
+              </div>
+              
+              <div className="border border-black dark:border-white p-4">
+                <h3 className="font-bold text-yellow-600 dark:text-yellow-400 mb-2">🚀 INNOVATION</h3>
+                <p className="text-xs">Push the boundaries of what's possible on Aptos blockchain.</p>
+              </div>
+              
+              <div className="border border-black dark:border-white p-4">
+                <h3 className="font-bold text-indigo-600 dark:text-indigo-400 mb-2">💫 VIBES</h3>
+                <p className="text-xs">Projects should embody the spirit of creative, passionate development.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Final CTA */}
+          <div className="text-center">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-8 inline-block max-w-2xl">
+              <h2 className="text-xl font-bold font-mono mb-4 uppercase">
+                &gt; READY_TO_SUBMIT.EXE
+              </h2>
+              <p className="font-mono mb-6 text-sm leading-relaxed">
+                Got a project that embodies the vibe code philosophy?<br/>
+                Ready to inspire the Aptos community?<br/>
+                Let's make the ecosystem more vibey together!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="https://github.com/wintertoro/aptos-vibes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="retro-button px-6 py-3 no-underline"
+                >
+                  [FORK_REPOSITORY]
+                </Link>
+                <Link
+                  href="/manifesto"
+                  className="retro-button px-6 py-3 no-underline"
+                >
+                  [READ_MANIFESTO]
+                </Link>
+              </div>
+              <div className="mt-6 font-mono text-xs text-gray-600 dark:text-gray-400">
+                // Building the future, one vibe at a time
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t-4 border-black dark:border-white bg-white dark:bg-black">
+        <div className="container mx-auto px-6 py-8">
+          <div className="text-center">
+            <div className="flex flex-col md:flex-row justify-between items-center font-mono text-sm">
+              <div className="mb-4 md:mb-0">
+                vibecoded by{' '}
+                <Link
+                  href="https://github.com/wintertoro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline font-bold"
+                >
+                  @wintertoro
+                </Link>
+              </div>
+              <div className="flex gap-6">
+                <Link
+                  href="https://aptos.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  [APTOS_DOCS]
+                </Link>
+                <Link
+                  href="https://github.com/aptos-labs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  [GITHUB]
+                </Link>
+                <Link
+                  href="https://discord.gg/aptoslabs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  [DISCORD]
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+} 

@@ -119,12 +119,26 @@ export default function Home() {
       {/* Header */}
       <header className="container mx-auto px-6 py-8">
         <div className="flex justify-between items-start mb-8">
-          <Link 
-            href="/docs"
-            className="retro-button px-4 py-2 no-underline"
-          >
-            [DOCS]
-          </Link>
+          <div className="flex gap-4">
+            <Link 
+              href="/docs"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [DOCS]
+            </Link>
+            <Link 
+              href="/manifesto"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [MANIFESTO]
+            </Link>
+            <Link 
+              href="/submit"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [SUBMIT]
+            </Link>
+          </div>
           <WalletButton />
         </div>
         <div className="text-center">
@@ -156,14 +170,14 @@ export default function Home() {
               C:\PROJECTS&gt; DIR /W
             </h2>
           </div>
-          <p className="font-mono mt-4 text-sm">
-            Directory of C:\APTOS_VIBES\FEATURED_PROJECTS<br/>
-            Page {currentPage} of {totalPages} | Showing {currentProjects.length} of {projects.length} projects
-          </p>
-          
-          {/* Sorting Controls - Discreet Dropdown */}
-          <div className="mt-4 flex justify-end">
-            <div className="border border-black dark:border-white bg-white dark:bg-black p-2 inline-block">
+          <div className="font-mono mt-4 text-sm flex justify-between items-center">
+            <div>
+              Directory of C:\APTOS_VIBES\FEATURED_PROJECTS<br/>
+              Page {currentPage} of {totalPages} | Showing {currentProjects.length} of {projects.length} projects
+            </div>
+            
+            {/* Sorting Controls - Aligned with Directory Info */}
+            <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
               <div className="flex items-center gap-2">
                 <span className="font-mono text-xs">SORT:</span>
                 <select
@@ -174,7 +188,7 @@ export default function Home() {
                     setSortDirection(newDirection);
                     setCurrentPage(1);
                   }}
-                  className="font-mono text-xs bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white px-2 py-1 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
+                  className="font-mono text-xs bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white px-1 py-0 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
                 >
                   <option value="latest_desc">📅 DATE: NEWEST→OLDEST</option>
                   <option value="latest_asc">📅 DATE: OLDEST→NEWEST</option>
@@ -339,20 +353,20 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Pagination Controls - Terminal Style */}
+        {/* Pagination Controls - Thinner Terminal Style */}
         {totalPages > 1 && (
-          <div className="mt-12 text-center">
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-6 inline-block max-w-4xl">
-              <div className="font-mono text-sm mb-4">
-                C:\PAGINATION&gt; DIR /PAGE {currentPage}
+          <div className="mt-8 text-center">
+            <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-3 inline-block">
+              <div className="font-mono text-xs mb-2">
+                C:\PAGINATION&gt; /PAGE {currentPage}
               </div>
               
-              <div className="flex flex-wrap justify-center items-center gap-2 mb-4">
+              <div className="flex justify-center items-center gap-1 mb-2">
                 {/* Previous Button */}
                 <button
                   onClick={goToPrevPage}
                   disabled={currentPage === 1}
-                  className={`px-4 py-2 font-mono text-sm border-2 transition-all ${
+                  className={`px-2 py-1 font-mono text-xs border transition-all ${
                     currentPage === 1 
                       ? 'border-gray-400 text-gray-400 cursor-not-allowed' 
                       : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
@@ -366,7 +380,7 @@ export default function Home() {
                   <button
                     key={page}
                     onClick={() => goToPage(page)}
-                    className={`px-3 py-2 font-mono text-sm border-2 transition-all ${
+                    className={`px-2 py-1 font-mono text-xs border transition-all ${
                       page === currentPage
                         ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
                         : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
@@ -380,7 +394,7 @@ export default function Home() {
                 <button
                   onClick={goToNextPage}
                   disabled={currentPage === totalPages}
-                  className={`px-4 py-2 font-mono text-sm border-2 transition-all ${
+                  className={`px-2 py-1 font-mono text-xs border transition-all ${
                     currentPage === totalPages 
                       ? 'border-gray-400 text-gray-400 cursor-not-allowed' 
                       : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
@@ -397,43 +411,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* Call to Action - Terminal Style */}
-        <div className="mt-16 text-center">
-          <div className="retro-card max-w-3xl mx-auto p-8">
-            <pre className="font-mono text-sm mb-6">
-{`┌─────────────────────────────────────────────────┐
-│              SYSTEM MESSAGE                     │
-├─────────────────────────────────────────────────┤
-│  NEW PROJECT SUBMISSION PROTOCOL ACTIVATED     │
-│  STATUS: ACCEPTING VIBE_CODED ENTRIES          │
-└─────────────────────────────────────────────────┘`}
-            </pre>
-            <h2 className="text-2xl font-bold font-mono mb-4 uppercase">
-              &gt; SUBMIT_YOUR_PROJECT.EXE
-            </h2>
-            <p className="font-mono mb-6 text-sm leading-relaxed">
-              // Join our database of innovative Aptos projects<br/>
-              // Share your unique approach to blockchain development<br/>
-              // Inspire the community with your creative vision
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://github.com/wintertoro/aptos-vibes"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="retro-button px-6 py-3 no-underline"
-              >
-                [SUBMIT_PROJECT]
-              </Link>
-              <Link
-                href="/docs"
-                className="retro-button px-6 py-3 no-underline"
-              >
-                [BROWSE_MORE]
-              </Link>
-            </div>
-          </div>
-        </div>
+
       </main>
 
       {/* Footer - Terminal Style */}

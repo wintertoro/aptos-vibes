@@ -4,19 +4,16 @@ version = "1.0.0"
 authors = ["Aptos Vibes Team"]
 
 [addresses]
-aptos_vibes = "_"
-
-[dev-addresses]
-aptos_vibes = "0x42"
+aptos_vibes = "0x1"
 
 [dependencies.AptosFramework]
 git = "https://github.com/aptos-labs/aptos-core.git"
-rev = "mainnet"
+rev = "b9f89a1"
 subdir = "aptos-move/framework/aptos-framework"
 
 [dependencies.AptosStdlib]
 git = "https://github.com/aptos-labs/aptos-core.git"
-rev = "mainnet"
+rev = "b9f89a1"
 subdir = "aptos-move/framework/aptos-stdlib"
 
-[dev-dependencies] 
+[dev-dependencies]

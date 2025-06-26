@@ -2,45 +2,85 @@ import Link from "next/link";
 
 export default function DocsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white retro-crt retro-scanlines">
+      {/* ASCII Art Header */}
+      <div className="border-b-4 border-black dark:border-white">
+        <pre className="text-xs md:text-sm text-center py-4 font-mono overflow-x-auto">
+{`
+██████╗  ██████╗  ██████╗███████╗    ███████╗██╗   ██╗███████╗████████╗███████╗███╗   ███╗
+██╔══██╗██╔═══██╗██╔════╝██╔════╝    ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
+██║  ██║██║   ██║██║     ███████╗    ███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
+██║  ██║██║   ██║██║     ╚════██║    ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
+██████╔╝╚██████╔╝╚██████╗███████║    ███████║   ██║   ███████║   ██║   ███████╗██║ ╚═╝ ██║
+╚═════╝  ╚═════╝  ╚═════╝╚══════╝    ╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝╚═╝     ╚═╝
+`}
+        </pre>
+      </div>
+
       <div className="container mx-auto px-6 py-8">
         <div className="flex items-center gap-4 mb-8">
           <Link 
             href="/" 
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+            className="retro-button px-4 py-2 no-underline"
           >
-            ← Back to Showcase
+            [BACK_TO_MAIN]
           </Link>
         </div>
         
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
-            Aptos Vibes Documentation
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Learn about vibecoding, explore Aptos development tools, and discover how to showcase your projects.
-          </p>
+          <Link
+            href="https://github.com/wintertoro/aptos-vibes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block hover:opacity-80 transition-opacity"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold font-mono mb-4 retro-typewriter hover:underline cursor-pointer">
+              &gt; SYSTEM_DOCUMENTATION.TXT
+            </h1>
+          </Link>
+          <div className="border-2 border-black dark:border-white p-6 mb-6 bg-white dark:bg-black max-w-4xl mx-auto">
+            <p className="text-lg font-mono">
+              APTOS_VIBES_DOCUMENTATION_SYSTEM v1.0
+            </p>
+            <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mt-2">
+              COMPREHENSIVE GUIDE TO VIBECODING AND BLOCKCHAIN DEVELOPMENT
+            </p>
+          </div>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-12">
           
           {/* What is Vibecoding */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">What is Vibecoding? ✨</h2>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                <strong>Vibecoding</strong> is a philosophy of blockchain development that emphasizes creativity, passion, and unique approaches to building on Aptos. It goes beyond functional code to craft applications with personality, style, and innovative user experiences.
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+              <h2 className="text-2xl font-bold font-mono">
+                C:\DOCS&gt; TYPE VIBECODING.TXT
+              </h2>
+            </div>
+            <div className="retro-card p-8">
+              <pre className="font-mono text-sm mb-6">
+{`┌─────────────────────────────────────────────────────────────────────┐
+│                           VIBECODING.TXT                            │
+├─────────────────────────────────────────────────────────────────────┤
+│  A PHILOSOPHY OF BLOCKCHAIN DEVELOPMENT                             │
+│  EMPHASIZING CREATIVITY, PASSION, AND UNIQUE APPROACHES            │
+└─────────────────────────────────────────────────────────────────────┘`}
+              </pre>
+              <p className="font-mono text-sm leading-relaxed mb-6">
+                // VIBECODING: Beyond functional code to craft applications<br/>
+                // with personality, style, and innovative user experiences.<br/>
+                // Combines technical excellence with creative vision.
               </p>
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-3">🎨 Creative Expression</h3>
-                  <p className="text-blue-800 dark:text-blue-200">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                  <h3 className="text-lg font-bold font-mono mb-3 text-white">[CREATIVE_EXPRESSION]</h3>
+                  <p className="font-mono text-sm text-white">
                     Express creativity through unique UI/UX design, innovative smart contract patterns, and novel blockchain interactions.
                   </p>
                 </div>
-                <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-3">⚡ Technical Excellence</h3>
-                  <p className="text-purple-800 dark:text-purple-200">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                  <h3 className="text-lg font-bold font-mono mb-3 text-white">[TECHNICAL_EXCELLENCE]</h3>
+                  <p className="font-mono text-sm text-white">
                     Maintain high technical standards while leveraging Aptos' Move language and advanced blockchain features.
                   </p>
                 </div>
@@ -50,61 +90,67 @@ export default function DocsPage() {
 
           {/* Aptos Resources */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Aptos Development Resources 🛠️</h2>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+              <h2 className="text-2xl font-bold font-mono">
+                C:\DOCS&gt; DIR APTOS_RESOURCES
+              </h2>
+            </div>
+            <div className="retro-card p-8">
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">🚀 Aptos NPM MCP</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  The Aptos NPM Model Context Protocol (MCP) provides essential tools and resources for Aptos development. This powerful toolkit helps developers build, test, and deploy vibecoded projects efficiently.
+                <h3 className="text-xl font-bold font-mono mb-4">[APTOS_NPM_MCP]</h3>
+                <p className="font-mono text-sm mb-4 leading-relaxed">
+                  // The Aptos NPM Model Context Protocol (MCP) provides essential<br/>
+                  // tools and resources for Aptos development. This powerful toolkit<br/>
+                  // helps developers build, test, and deploy vibecoded projects efficiently.
                 </p>
                 <Link 
                   href="https://github.com/aptos-labs/aptos-npm-mcp/blob/main/README.md"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-colors"
+                  className="retro-button px-6 py-3 no-underline"
                 >
-                  📖 Explore Aptos NPM MCP
+                  [EXPLORE_APTOS_NPM_MCP]
                 </Link>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">📚 Official Docs</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                <div className="border border-black dark:border-white p-4">
+                  <h4 className="font-bold font-mono mb-2">[OFFICIAL_DOCS]</h4>
+                  <p className="text-xs font-mono mb-3">
                     Comprehensive guides and API references
                   </p>
                   <Link 
                     href="https://aptos.dev" 
                     target="_blank"
-                    className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                    className="font-mono text-xs hover:underline"
                   >
-                    Visit Aptos Docs →
+                    &gt; VISIT_APTOS_DOCS
                   </Link>
                 </div>
-                <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">💬 Community</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                <div className="border border-black dark:border-white p-4">
+                  <h4 className="font-bold font-mono mb-2">[COMMUNITY]</h4>
+                  <p className="text-xs font-mono mb-3">
                     Join the developer community
                   </p>
                   <Link 
                     href="https://discord.gg/aptoslabs" 
                     target="_blank"
-                    className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                    className="font-mono text-xs hover:underline"
                   >
-                    Join Discord →
+                    &gt; JOIN_DISCORD
                   </Link>
                 </div>
-                <div className="p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">🔧 GitHub</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                <div className="border border-black dark:border-white p-4">
+                  <h4 className="font-bold font-mono mb-2">[GITHUB]</h4>
+                  <p className="text-xs font-mono mb-3">
                     Core Aptos blockchain source code
                   </p>
                   <Link 
                     href="https://github.com/aptos-labs" 
                     target="_blank"
-                    className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                    className="font-mono text-xs hover:underline"
                   >
-                    Browse Code →
+                    &gt; BROWSE_CODE
                   </Link>
                 </div>
               </div>
@@ -113,55 +159,147 @@ export default function DocsPage() {
 
           {/* Using the Showcase */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Using the Showcase 🌟</h2>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+              <h2 className="text-2xl font-bold font-mono">
+                C:\DOCS&gt; TYPE USAGE_GUIDE.TXT
+              </h2>
+            </div>
+            <div className="retro-card p-8">
               
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">🗳️ Voting System</h3>
+                <h3 className="text-xl font-bold font-mono mb-4">[VOTING_SYSTEM_PROTOCOL]</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg w-8 h-8 flex items-center justify-center">
-                      <span className="text-blue-600 dark:text-blue-400 font-bold">1</span>
+                    <div className="border-2 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-2 w-8 h-8 flex items-center justify-center font-mono text-xs">
+                      1
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 dark:text-white">Connect Your Wallet</h4>
-                      <p className="text-gray-600 dark:text-gray-400">Click "Connect Wallet" to link your Aptos wallet (Petra, Martian, etc.)</p>
+                      <h4 className="font-bold font-mono">CONNECT_WALLET.EXE</h4>
+                      <p className="font-mono text-sm">Click [CONNECT_WALLET] to link your Aptos wallet (Petra, Martian, etc.)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg w-8 h-8 flex items-center justify-center">
-                      <span className="text-blue-600 dark:text-blue-400 font-bold">2</span>
+                    <div className="border-2 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-2 w-8 h-8 flex items-center justify-center font-mono text-xs">
+                      2
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 dark:text-white">Vote on Projects</h4>
-                      <p className="text-gray-600 dark:text-gray-400">Each wallet can vote once per project: 👍 (upvote) or 👎 (downvote)</p>
+                      <h4 className="font-bold font-mono">VOTE_ON_PROJECTS.EXE</h4>
+                      <p className="font-mono text-sm">Each wallet can vote once per project: [+] (upvote) or [-] (downvote)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg w-8 h-8 flex items-center justify-center">
-                      <span className="text-blue-600 dark:text-blue-400 font-bold">3</span>
+                    <div className="border-2 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-2 w-8 h-8 flex items-center justify-center font-mono text-xs">
+                      3
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 dark:text-white">Manage Your Votes</h4>
-                      <p className="text-gray-600 dark:text-gray-400">Switch votes or remove them by clicking the same button again</p>
+                      <h4 className="font-bold font-mono">MANAGE_VOTES.EXE</h4>
+                      <p className="font-mono text-sm">Switch votes or remove them by clicking the same button again</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">📊 Vibe Scores</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  Each project displays a <strong>Vibe Score</strong> calculated as: upvotes - downvotes
+                <h3 className="text-xl font-bold font-mono mb-4">[VIBE_SCORE_CALCULATION]</h3>
+                <p className="font-mono text-sm mb-4">
+                  Each project displays a VIBE_SCORE calculated as: UPVOTES - DOWNVOTES
                 </p>
-                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                <div className="border-2 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-4">
                   <div className="flex items-center gap-4 text-sm font-mono">
-                    <span className="text-green-600">↑15 upvotes</span>
+                    <span>UP:15</span>
                     <span>-</span>
-                    <span className="text-red-600">↓3 downvotes</span>
+                    <span>DN:3</span>
                     <span>=</span>
-                    <span className="font-bold text-green-600">+12 Vibe Score</span>
+                    <span className="font-bold">SCORE:+12</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Smart Contract */}
+          <section>
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+              <h2 className="text-2xl font-bold font-mono">
+                C:\DOCS&gt; TYPE SMART_CONTRACT.TXT
+              </h2>
+            </div>
+            <div className="retro-card p-8">
+              <p className="font-mono text-sm leading-relaxed mb-6">
+                // The Aptos Vibes voting system is powered by a fully on-chain<br/>
+                // Move smart contract deployed on Aptos testnet.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-6">
+                  <h3 className="text-lg font-bold font-mono mb-3">[CONTRACT_DEPLOYED_SUCCESSFULLY]</h3>
+                  <div className="space-y-3 text-sm font-mono">
+
+                    <div className="flex items-center gap-2">
+                      <span>NETWORK:</span>
+                      <span className="bg-white text-black dark:bg-black dark:text-white px-2 py-1">
+                        APTOS_TESTNET
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span>MODULE:</span>
+                      <code className="bg-white text-black dark:bg-black dark:text-white px-2 py-1">
+                        aptos_vibes::vibe_voting
+                      </code>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold font-mono mb-3">[BLOCKCHAIN_EXPLORER]</h3>
+                  <p className="font-mono text-sm mb-4">
+                    View the contract deployment transaction and explore the on-chain data:
+                  </p>
+                  <Link 
+                    href="https://explorer.aptoslabs.com/txn/0x39550b287726cc809799113654709972a65172888e03930cce4de59ba7719af5?network=testnet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="retro-button px-6 py-3 no-underline"
+                  >
+                    [VIEW_DEPLOYMENT_TRANSACTION]
+                  </Link>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold font-mono mb-3">[CONTRACT_FUNCTIONS]</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="border border-black dark:border-white p-4">
+                      <h4 className="font-bold font-mono mb-2">[VOTING_FUNCTIONS]</h4>
+                      <ul className="text-xs font-mono space-y-1">
+                        <li>&gt; upvote(project_id)</li>
+                        <li>&gt; downvote(project_id)</li>
+                        <li>&gt; One vote per wallet enforcement</li>
+                        <li>&gt; Vote switching and removal</li>
+                      </ul>
+                    </div>
+                    <div className="border border-black dark:border-white p-4">
+                      <h4 className="font-bold font-mono mb-2">[VIEW_FUNCTIONS]</h4>
+                      <ul className="text-xs font-mono space-y-1">
+                        <li>&gt; get_project_votes(id)</li>
+                        <li>&gt; get_user_vote(user, id)</li>
+                        <li>&gt; get_vibe_score(id)</li>
+                        <li>&gt; Real-time vote counting</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-6">
+                  <h4 className="font-bold font-mono mb-2 text-white">[TECHNICAL_IMPLEMENTATION]</h4>
+                  <p className="font-mono text-sm mb-4 text-white">
+                    Built with Move language leveraging Aptos' advanced features including:
+                  </p>
+                  <ul className="text-xs font-mono space-y-1 text-white">
+                    <li>&gt; Resource-oriented programming for secure state management</li>
+                    <li>&gt; Event emission for transparent voting activity</li>
+                    <li>&gt; Efficient storage using Aptos Tables</li>
+                    <li>&gt; Gas-optimized transaction processing</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -169,49 +307,92 @@ export default function DocsPage() {
 
           {/* Contributing */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Contributing Your Project 🤝</h2>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                Have a vibecoded Aptos project you'd like to showcase? We'd love to feature it!
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+              <h2 className="text-2xl font-bold font-mono">
+                C:\DOCS&gt; TYPE CONTRIBUTING.TXT
+              </h2>
+            </div>
+            <div className="retro-card p-8">
+              <p className="font-mono text-sm leading-relaxed mb-6">
+                // Have a vibecoded Aptos project you'd like to showcase?<br/>
+                // We'd love to feature it in our database!
               </p>
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">📋 Submission Criteria</h3>
-                  <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                  <h3 className="text-lg font-bold font-mono mb-3">[SUBMISSION_CRITERIA]</h3>
+                  <ul className="space-y-2 font-mono text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-green-500 mt-1">✓</span>
+                      <span>[✓]</span>
                       Built on or for the Aptos blockchain
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-green-500 mt-1">✓</span>
+                      <span>[✓]</span>
                       Demonstrates creative or innovative approach
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-green-500 mt-1">✓</span>
+                      <span>[✓]</span>
                       Open source or has public repository
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-green-500 mt-1">✓</span>
+                      <span>[✓]</span>
                       Clear documentation and description
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-                  <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">💡 Ready to Submit?</h4>
-                  <p className="text-blue-800 dark:text-blue-200 mb-4">
-                    Fork our repository, add your project, and submit a pull request!
+                <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-6">
+                  <h4 className="font-bold font-mono mb-2">[READY_TO_SUBMIT]</h4>
+                  <p className="font-mono text-sm mb-4">
+                    Adding your project is easy! Just edit one file and submit a pull request.
                   </p>
+                  <div className="space-y-3 mb-4">
+                    <div className="font-mono text-xs">
+                      <span className="font-bold">STEP 1:</span> Fork the repository
+                    </div>
+                    <div className="font-mono text-xs">
+                      <span className="font-bold">STEP 2:</span> Edit <code className="bg-white text-black px-1">data/projects.json</code>
+                    </div>
+                    <div className="font-mono text-xs">
+                      <span className="font-bold">STEP 3:</span> Add your project to the JSON array
+                    </div>
+                    <div className="font-mono text-xs">
+                      <span className="font-bold">STEP 4:</span> Submit pull request
+                    </div>
+                  </div>
                   <Link 
                     href="https://github.com/wintertoro/aptos-vibes"
                     target="_blank"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+                    className="retro-button px-4 py-2 no-underline mr-2"
                   >
-                    🚀 View Repository
+                    [VIEW_REPOSITORY]
+                  </Link>
+                  <Link 
+                    href="https://github.com/wintertoro/aptos-vibes/blob/main/README.md"
+                    target="_blank"
+                    className="retro-button px-4 py-2 no-underline"
+                  >
+                    [READ_GUIDE]
                   </Link>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Creator Credit */}
+          <section className="mt-16 text-center">
+            <div className="border-t-2 border-black dark:border-white pt-8">
+              <p className="font-mono text-sm text-gray-600 dark:text-gray-400">
+                vibecoded by{' '}
+                <Link
+                  href="https://github.com/wintertoro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline text-black dark:text-white font-bold"
+                >
+                  @wintertoro
+                </Link>
+              </p>
             </div>
           </section>
         </div>

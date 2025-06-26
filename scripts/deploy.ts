@@ -2,6 +2,14 @@ import { Account, Aptos, AptosConfig, Network } from "@aptos-labs/ts-sdk";
 import fs from "fs";
 import path from "path";
 
+// Helper function to pad addresses to 64 characters
+function padAddress(address: string): string {
+  // Remove 0x prefix if present
+  const cleanAddress = address.startsWith('0x') ? address.slice(2) : address;
+  // Pad to 64 characters and add 0x prefix
+  return '0x' + cleanAddress.padStart(64, '0');
+}
+
 async function deployContract() {
   console.log("🚀 Starting contract deployment...");
 
@@ -13,26 +21,40 @@ async function deployContract() {
   // In production, you'd want to use a secure private key
   const account = Account.generate();
   
-  console.log(`📍 Deploying from account: ${account.accountAddress}`);
+  // Get properly formatted address
+  const contractAddress = padAddress(account.accountAddress.toString());
+  
+  console.log(`📍 Deploying from account: ${contractAddress}`);
   console.log(`🔑 Private key: ${account.privateKey}`);
   console.log("⚠️  IMPORTANT: Save this private key securely! You'll need it to manage the contract.");
 
   try {
-    // Fund the account using testnet faucet
-    console.log("💰 Funding account from faucet...");
-    await aptos.fundAccount({
-      accountAddress: account.accountAddress,
-      amount: 100000000, // 1 APT
+    // Manual funding required - automatic faucet is no longer available
+    console.log("💰 Please fund the account manually:");
+    console.log(`   1. Go to: https://aptos.dev/network/faucet`);
+    console.log(`   2. Enter address: ${contractAddress}`);
+    console.log(`   3. Request testnet APT tokens`);
+    console.log(`   4. Wait for confirmation, then press Enter to continue...`);
+    
+    // Wait for user input
+    process.stdin.setRawMode?.(true);
+    process.stdin.resume();
+    await new Promise((resolve) => {
+      process.stdin.once('data', () => {
+        process.stdin.setRawMode?.(false);
+        process.stdin.pause();
+        resolve(true);
+      });
     });
 
-    console.log("✅ Account funded successfully");
+    console.log("✅ Continuing with deployment...");
 
     // Read the compiled Move bytecode
     const packageMetadata = fs.readFileSync(
       path.join(__dirname, "../move/build/aptos_vibes/package-metadata.bcs")
     );
     const byteCode = fs.readFileSync(
-      path.join(__dirname, "../move/build/aptos_vibes/bytecode_modules/voting.mv")
+      path.join(__dirname, "../move/build/aptos_vibes/bytecode_modules/vibe_voting.mv")
     );
 
     console.log("📦 Publishing Move package...");
@@ -55,7 +77,7 @@ async function deployContract() {
 
     console.log("🎉 Contract deployed successfully!");
     console.log(`📄 Transaction hash: ${response.hash}`);
-    console.log(`🏠 Contract address: ${account.accountAddress}`);
+    console.log(`🏠 Contract address: ${contractAddress}`);
 
     // Initialize the voting system
     console.log("🔧 Initializing voting system...");
@@ -63,7 +85,7 @@ async function deployContract() {
     const initTransaction = await aptos.transaction.build.simple({
       sender: account.accountAddress,
       data: {
-        function: `${account.accountAddress}::voting::initialize`,
+        function: `${contractAddress}::vibe_voting::initialize`,
         functionArguments: [],
       },
     });
@@ -88,7 +110,7 @@ async function deployContract() {
       const projectTransaction = await aptos.transaction.build.simple({
         sender: account.accountAddress,
         data: {
-          function: `${account.accountAddress}::voting::initialize_project`,
+          function: `${contractAddress}::vibe_voting::initialize_project`,
           functionArguments: [projectId],
         },
       });
@@ -107,16 +129,18 @@ async function deployContract() {
 
     console.log("\n🎯 DEPLOYMENT COMPLETE!");
     console.log("=".repeat(50));
-    console.log(`Contract Address: ${account.accountAddress}`);
+    console.log(`Contract Address: ${contractAddress}`);
     console.log(`Network: Testnet`);
     console.log("=".repeat(50));
     console.log("\n📝 Next steps:");
-    console.log(`1. Update CONTRACT_CONFIG.MODULE_ADDRESS in app/config/contract.ts to: "${account.accountAddress}"`);
+    console.log(`1. Update CONTRACT_CONFIG.MODULE_ADDRESS in app/config/contract.ts to: padAddress("${contractAddress}")`);
     console.log("2. Save the private key securely for future contract management");
     console.log("3. Test the voting functionality on the frontend");
+    console.log("\n🔧 Copy this line to update your config:");
+    console.log(`MODULE_ADDRESS: padAddress("${contractAddress}"),`);
 
     return {
-      contractAddress: account.accountAddress.toString(),
+      contractAddress,
       privateKey: account.privateKey.toString(),
       deploymentHash: response.hash,
     };
@@ -128,16 +152,14 @@ async function deployContract() {
 }
 
 // Run deployment if this script is executed directly
-if (require.main === module) {
-  deployContract()
-    .then((result) => {
-      console.log("\n✅ Deployment successful!");
-      process.exit(0);
-    })
-    .catch((error) => {
-      console.error("\n❌ Deployment failed:", error);
-      process.exit(1);
-    });
-}
+deployContract()
+  .then((result) => {
+    console.log("\n✅ Deployment successful!");
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error("\n❌ Deployment failed:", error);
+    process.exit(1);
+  });
 
 export { deployContract }; 

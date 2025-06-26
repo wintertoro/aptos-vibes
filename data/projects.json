@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "title": "Todo dApp",
+    "description": "A fully decentralized todo application built on Aptos blockchain with smart contract integration.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://todo-dapp-fe.vercel.app/",
+    "tags": ["dApp", "Productivity", "Move"],
+    "status": "live",
+    "creator": "@wintertoro"
+  },
+  {
+    "id": "2",
+    "title": "NFT Marketplace",
+    "description": "A decentralized marketplace for trading NFTs on Aptos with low fees and fast transactions.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/nft-marketplace",
+    "tags": ["NFTs", "Marketplace", "Web3"],
+    "status": "development",
+    "creator": "placeholder"
+  },
+  {
+    "id": "3",
+    "title": "Move Code Analyzer",
+    "description": "Static analysis tool for Move smart contracts with security vulnerability detection.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/move-analyzer",
+    "tags": ["Security", "Developer Tools", "Move"],
+    "status": "concept",
+    "creator": "placeholder"
+  },
+  {
+    "id": "4",
+    "title": "Aptos Name Service",
+    "description": "Human-readable names for Aptos addresses, similar to ENS but optimized for the Aptos ecosystem.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/aptos-names",
+    "tags": ["Identity", "Utilities", "Infrastructure"],
+    "status": "concept",
+    "creator": "placeholder"
+  },
+  {
+    "id": "5",
+    "title": "Cross-Chain Bridge",
+    "description": "Secure asset bridging between Aptos and other major blockchains with minimal slippage.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/cross-bridge",
+    "tags": ["Bridge", "Cross-chain", "Infrastructure"],
+    "status": "concept",
+    "creator": "placeholder"
+  },
+  {
+    "id": "6",
+    "title": "Governance Dashboard",
+    "description": "Community governance platform for Aptos ecosystem projects with voting and proposal management.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/governance-hub",
+    "tags": ["Governance", "DAO", "Community"],
+    "status": "concept",
+    "creator": "placeholder"
+  }
+] 

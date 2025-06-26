@@ -34,12 +34,7 @@ export default function Submit() {
             >
               [DOCS]
             </Link>
-            <Link 
-              href="/manifesto"
-              className="retro-button px-4 py-2 no-underline"
-            >
-              [MANIFESTO]
-            </Link>
+
           </div>
           <WalletButton />
         </div>
@@ -220,95 +215,45 @@ export default function Submit() {
             </div>
           </div>
 
-          {/* Technical Requirements */}
+          {/* Quick Technical Guide */}
           <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
             <div className="font-mono text-sm mb-6">
-              <span className="text-green-600 dark:text-green-400">submit@aptos:~$</span> cat technical_requirements.md
+              <span className="text-green-600 dark:text-green-400">submit@aptos:~$</span> cat quick_guide.md
             </div>
 
             <div className="space-y-6 font-mono text-sm">
               <h2 className="text-lg font-bold mb-4 uppercase">
-                🔧 TECHNICAL REQUIREMENTS
+                ⚡ QUICK TECHNICAL GUIDE
               </h2>
 
-              <div className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="border-l-4 border-green-500 pl-4">
                   <h3 className="font-bold mb-2">PROJECT DATA FORMAT</h3>
                   <div className="bg-black text-green-400 p-3 text-xs overflow-x-auto">
                     <div>&#123;</div>
-                    <div>&nbsp;&nbsp;"id": "unique-project-id",</div>
-                    <div>&nbsp;&nbsp;"title": "Your Project Name",</div>
-                    <div>&nbsp;&nbsp;"description": "Brief project description",</div>
-                    <div>&nbsp;&nbsp;"imageUrl": "/path/to/thumbnail.png",</div>
-                    <div>&nbsp;&nbsp;"projectUrl": "https://your-live-demo.com",</div>
+                    <div>&nbsp;&nbsp;"id": "unique-id",</div>
+                    <div>&nbsp;&nbsp;"title": "Project Name",</div>
+                    <div>&nbsp;&nbsp;"description": "Brief description",</div>
+                    <div>&nbsp;&nbsp;"imageUrl": "/thumbnail.png",</div>
+                    <div>&nbsp;&nbsp;"projectUrl": "https://demo.com",</div>
                     <div>&nbsp;&nbsp;"repoUrl": "https://github.com/user/repo",</div>
-                    <div>&nbsp;&nbsp;"tags": ["aptos", "defi", "nft"],</div>
+                    <div>&nbsp;&nbsp;"tags": ["aptos", "defi"],</div>
                     <div>&nbsp;&nbsp;"status": "live",</div>
-                    <div>&nbsp;&nbsp;"creator": "@yourusername",</div>
-                    <div>&nbsp;&nbsp;"creatorUrl": "https://github.com/yourusername",</div>
-                    <div>&nbsp;&nbsp;"dateAdded": "2024-12-XX"</div>
+                    <div>&nbsp;&nbsp;"creator": "@username"</div>
                     <div>&#125;</div>
                   </div>
                 </div>
 
                 <div className="border-l-4 border-blue-500 pl-4">
-                  <h3 className="font-bold mb-2">IMAGE SPECIFICATIONS</h3>
+                  <h3 className="font-bold mb-2">REQUIREMENTS</h3>
                   <ul className="text-xs space-y-1">
-                    <li>• Format: PNG, JPG, or WebP</li>
-                    <li>• Dimensions: 400x300px (4:3 aspect ratio)</li>
-                    <li>• File size: Under 500KB</li>
-                    <li>• Place in: /public/ directory</li>
-                    <li>• Naming: descriptive-project-name.png</li>
+                    <li>• <strong>Image:</strong> 400x300px, under 500KB</li>
+                    <li>• <strong>Status:</strong> "live", "development", or "concept"</li>
+                    <li>• <strong>Tags:</strong> Relevant categories (dApp, DeFi, NFT, etc.)</li>
+                    <li>• <strong>Links:</strong> Working demo + GitHub repo</li>
+                    <li>• <strong>Quality:</strong> Clean code, good documentation</li>
                   </ul>
                 </div>
-
-                <div className="border-l-4 border-purple-500 pl-4">
-                  <h3 className="font-bold mb-2">STATUS DEFINITIONS</h3>
-                  <ul className="text-xs space-y-1">
-                    <li>• <strong>"live"</strong>: Deployed and actively usable</li>
-                    <li>• <strong>"development"</strong>: In active development</li>
-                    <li>• <strong>"concept"</strong>: Proof of concept or prototype</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Community Standards */}
-          <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
-            <h2 className="text-lg font-bold mb-6 text-center font-mono uppercase">
-              🤝 COMMUNITY STANDARDS
-            </h2>
-            
-            <div className="grid md:grid-cols-3 gap-4 font-mono text-sm">
-              <div className="border border-black dark:border-white p-4">
-                <h3 className="font-bold text-green-600 dark:text-green-400 mb-2">🌟 QUALITY</h3>
-                <p className="text-xs">Projects should demonstrate technical excellence and attention to detail.</p>
-              </div>
-              
-              <div className="border border-black dark:border-white p-4">
-                <h3 className="font-bold text-blue-600 dark:text-blue-400 mb-2">🎨 CREATIVITY</h3>
-                <p className="text-xs">We value unique approaches and innovative solutions to blockchain challenges.</p>
-              </div>
-              
-              <div className="border border-black dark:border-white p-4">
-                <h3 className="font-bold text-purple-600 dark:text-purple-400 mb-2">🔒 SECURITY</h3>
-                <p className="text-xs">All smart contracts should follow Aptos security best practices.</p>
-              </div>
-              
-              <div className="border border-black dark:border-white p-4">
-                <h3 className="font-bold text-red-600 dark:text-red-400 mb-2">📚 DOCUMENTATION</h3>
-                <p className="text-xs">Clear README files and code comments help the community learn.</p>
-              </div>
-              
-              <div className="border border-black dark:border-white p-4">
-                <h3 className="font-bold text-yellow-600 dark:text-yellow-400 mb-2">🚀 INNOVATION</h3>
-                <p className="text-xs">Push the boundaries of what's possible on Aptos blockchain.</p>
-              </div>
-              
-              <div className="border border-black dark:border-white p-4">
-                <h3 className="font-bold text-indigo-600 dark:text-indigo-400 mb-2">💫 VIBES</h3>
-                <p className="text-xs">Projects should embody the spirit of creative, passionate development.</p>
               </div>
             </div>
           </div>
@@ -320,9 +265,9 @@ export default function Submit() {
                 &gt; READY_TO_SUBMIT.EXE
               </h2>
               <p className="font-mono mb-6 text-sm leading-relaxed">
-                Got a project that embodies the vibe code philosophy?<br/>
-                Ready to inspire the Aptos community?<br/>
-                Let's make the ecosystem more vibey together!
+                Got an innovative Aptos project to showcase?<br/>
+                Ready to inspire the community?<br/>
+                Let's build the ecosystem together!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
@@ -334,10 +279,10 @@ export default function Submit() {
                   [FORK_REPOSITORY]
                 </Link>
                 <Link
-                  href="/manifesto"
+                  href="/docs"
                   className="retro-button px-6 py-3 no-underline"
                 >
-                  [READ_MANIFESTO]
+                  [VIEW_DOCS]
                 </Link>
               </div>
               <div className="mt-6 font-mono text-xs text-gray-600 dark:text-gray-400">

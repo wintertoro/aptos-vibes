@@ -43,36 +43,55 @@ const getStatusSymbol = (status: Project['status']) => {
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<'latest' | 'vibe'>('latest');
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const [projectVibeScores, setProjectVibeScores] = useState<Record<string, number>>({});
+  const [statusFilter, setStatusFilter] = useState<'all' | 'live' | 'development' | 'concept'>('all');
+  const [tagFilter, setTagFilter] = useState<string>('all');
   const projectsPerPage = 6;
   
-  // Sort projects based on selected criteria and direction
-  const sortedProjects = [...projects].sort((a, b) => {
-    let comparison = 0;
-    
-    if (sortBy === 'latest') {
-      comparison = new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
-    } else if (sortBy === 'vibe') {
-      const scoreA = projectVibeScores[a.id] || 0;
-      const scoreB = projectVibeScores[b.id] || 0;
-      if (scoreB !== scoreA) {
-        comparison = scoreB - scoreA; // Higher vibe scores first for desc
-      } else {
-        // If vibe scores are equal, sort by latest as secondary
-        comparison = new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+  // Get all unique tags for filter options
+  const allTags = Array.from(new Set(projects.flatMap(project => project.tags))).sort();
+  
+  // Filter and sort projects based on selected criteria
+  const filteredAndSortedProjects = [...projects]
+    .filter(project => {
+      // Status filter
+      if (statusFilter !== 'all' && project.status !== statusFilter) {
+        return false;
       }
-    }
-    
-    // Apply sort direction
-    return sortDirection === 'desc' ? comparison : -comparison;
-  });
+      
+      // Tag filter
+      if (tagFilter !== 'all' && !project.tags.includes(tagFilter)) {
+        return false;
+      }
+      
+      return true;
+    })
+    .sort((a, b) => {
+      let comparison = 0;
+      
+      if (sortBy === 'latest') {
+        comparison = new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+      } else if (sortBy === 'vibe') {
+        const scoreA = projectVibeScores[a.id] || 0;
+        const scoreB = projectVibeScores[b.id] || 0;
+        if (scoreB !== scoreA) {
+          comparison = scoreB - scoreA; // Higher vibe scores first for desc
+        } else {
+          // If vibe scores are equal, sort by latest as secondary
+          comparison = new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+        }
+      }
+      
+      // Apply sort direction
+      return sortDirection === 'desc' ? comparison : -comparison;
+    });
   
   // Calculate pagination
-  const totalPages = Math.ceil(sortedProjects.length / projectsPerPage);
+  const totalPages = Math.ceil(filteredAndSortedProjects.length / projectsPerPage);
   const startIndex = (currentPage - 1) * projectsPerPage;
   const endIndex = startIndex + projectsPerPage;
-  const currentProjects = sortedProjects.slice(startIndex, endIndex);
+  const currentProjects = filteredAndSortedProjects.slice(startIndex, endIndex);
   
   const goToNextPage = () => {
     if (currentPage < totalPages) {
@@ -127,12 +146,6 @@ export default function Home() {
               [DOCS]
             </Link>
             <Link 
-              href="/manifesto"
-              className="retro-button px-4 py-2 no-underline"
-            >
-              [MANIFESTO]
-            </Link>
-            <Link 
               href="/submit"
               className="retro-button px-4 py-2 no-underline"
             >
@@ -171,30 +184,77 @@ export default function Home() {
             </h2>
           </div>
           <div className="font-mono mt-4 text-sm flex justify-between items-center">
-            <div>
-              Directory of C:\APTOS_VIBES\FEATURED_PROJECTS<br/>
-              Page {currentPage} of {totalPages} | Showing {currentProjects.length} of {projects.length} projects
+            {/* Left side - Sort Controls */}
+            <div className="flex items-center gap-4">
+              <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs">SORT:</span>
+                  <select
+                    value={`${sortBy}_${sortDirection}`}
+                    onChange={(e) => {
+                      const [newSortBy, newDirection] = e.target.value.split('_') as ['latest' | 'vibe', 'asc' | 'desc'];
+                      setSortBy(newSortBy);
+                      setSortDirection(newDirection);
+                      setCurrentPage(1);
+                    }}
+                    className="font-mono text-xs bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white px-1 py-0 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
+                  >
+                    <option value="latest_desc">📅 DATE: NEWEST→OLDEST</option>
+                    <option value="latest_asc">📅 DATE: OLDEST→NEWEST</option>
+                    <option value="vibe_desc">⚡ VIBE: HIGH→LOW</option>
+                    <option value="vibe_asc">⚡ VIBE: LOW→HIGH</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div>
+                Directory of C:\APTOS_VIBES\FEATURED_PROJECTS<br/>
+                Page {currentPage} of {totalPages} | Showing {currentProjects.length} of {filteredAndSortedProjects.length} projects
+              </div>
             </div>
             
-            {/* Sorting Controls - Aligned with Directory Info */}
-            <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs">SORT:</span>
-                <select
-                  value={`${sortBy}_${sortDirection}`}
-                  onChange={(e) => {
-                    const [newSortBy, newDirection] = e.target.value.split('_') as ['latest' | 'vibe', 'asc' | 'desc'];
-                    setSortBy(newSortBy);
-                    setSortDirection(newDirection);
-                    setCurrentPage(1);
-                  }}
-                  className="font-mono text-xs bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white px-1 py-0 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
-                >
-                  <option value="latest_desc">📅 DATE: NEWEST→OLDEST</option>
-                  <option value="latest_asc">📅 DATE: OLDEST→NEWEST</option>
-                  <option value="vibe_desc">⚡ VIBE: HIGH→LOW</option>
-                  <option value="vibe_asc">⚡ VIBE: LOW→HIGH</option>
-                </select>
+            {/* Right side - Filter Controls */}
+            <div className="flex items-center gap-2">
+              {/* Status Filter */}
+              <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs">STATUS:</span>
+                  <select
+                    value={statusFilter}
+                    onChange={(e) => {
+                      setStatusFilter(e.target.value as 'all' | 'live' | 'development' | 'concept');
+                      setCurrentPage(1);
+                    }}
+                    className="font-mono text-xs bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white px-1 py-0 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
+                  >
+                    <option value="all">🌐 ALL</option>
+                    <option value="live">✅ LIVE</option>
+                    <option value="development">🔧 DEV</option>
+                    <option value="concept">💡 IDEA</option>
+                  </select>
+                </div>
+              </div>
+              
+              {/* Tag Filter */}
+              <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs">TAG:</span>
+                  <select
+                    value={tagFilter}
+                    onChange={(e) => {
+                      setTagFilter(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                    className="font-mono text-xs bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white px-1 py-0 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
+                  >
+                    <option value="all">🏷️ ALL</option>
+                    {allTags.map(tag => (
+                      <option key={tag} value={tag}>
+                        {tag.toUpperCase()}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -405,7 +465,7 @@ export default function Home() {
               </div>
 
               <div className="font-mono text-xs text-gray-600 dark:text-gray-400">
-                [{currentProjects.length} FILES] [{projects.length - endIndex} REMAINING]
+                [{currentProjects.length} FILES] [{filteredAndSortedProjects.length - endIndex} REMAINING]
               </div>
             </div>
           </div>

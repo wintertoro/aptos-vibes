@@ -25,6 +25,12 @@ export default function DocsPage() {
           >
             [BACK_TO_MAIN]
           </Link>
+          <Link 
+            href="/submit"
+            className="retro-button px-4 py-2 no-underline"
+          >
+            [SUBMIT]
+          </Link>
         </div>
         
         <div className="text-center mb-12">
@@ -71,17 +77,6 @@ export default function DocsPage() {
                 // with personality, style, and innovative user experiences.<br/>
                 // Combines technical excellence with creative vision.
               </p>
-              
-              <div className="mb-6 text-center">
-                <Link 
-                  href="https://github.com/wintertoro/aptos-vibes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="retro-button px-6 py-3 no-underline"
-                >
-                  [EXPLORE_VIBECODED_PROJECTS]
-                </Link>
-              </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
@@ -115,14 +110,24 @@ export default function DocsPage() {
                   // tools and resources for Aptos development. This powerful toolkit<br/>
                   // helps developers build, test, and deploy vibecoded projects efficiently.
                 </p>
-                <Link 
-                  href="https://github.com/aptos-labs/aptos-npm-mcp/blob/main/README.md"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="retro-button px-6 py-3 no-underline"
-                >
-                  [EXPLORE_APTOS_NPM_MCP]
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link 
+                    href="https://github.com/aptos-labs/aptos-npm-mcp/blob/main/README.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="retro-button px-6 py-3 no-underline"
+                  >
+                    [EXPLORE_APTOS_NPM_MCP]
+                  </Link>
+                  <Link 
+                    href="https://github.com/wintertoro/aptos-vibes"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="retro-button px-6 py-3 no-underline"
+                  >
+                    [APTOS_VIBES_GH_REPO]
+                  </Link>
+                </div>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">

@@ -8,7 +8,8 @@
     "repoUrl": "https://github.com/wintertoro/todo-dapp-fe",
     "tags": ["dApp", "Productivity", "Move"],
     "status": "live",
-    "creator": "@wintertoro"
+    "creator": "@wintertoro",
+    "dateAdded": "2024-01-15"
   },
   {
     "id": "2",
@@ -20,7 +21,8 @@
     "tags": ["dApp", "Messaging", "Social", "Interactive"],
     "status": "live",
     "creator": "@tippi-fifestarr",
-    "creatorUrl": "https://github.com/tippi-fifestarr/"
+    "creatorUrl": "https://github.com/tippi-fifestarr/",
+    "dateAdded": "2024-02-20"
   },
   {
     "id": "3",
@@ -32,7 +34,8 @@
     "tags": ["Confidential", "Security", "Dashboard", "Aptos Labs"],
     "status": "live",
     "creator": "@dport",
-    "creatorUrl": "https://github.com/banool"
+    "creatorUrl": "https://github.com/banool",
+    "dateAdded": "2024-03-10"
   },
   {
     "id": "4",
@@ -44,7 +47,8 @@
     "tags": ["NFT", "Aggregator", "Marketplace", "Demo"],
     "status": "live",
     "creator": "@yuunlimm",
-    "creatorUrl": "https://github.com/yuunlimm"
+    "creatorUrl": "https://github.com/yuunlimm",
+    "dateAdded": "2024-04-05"
   },
   {
     "id": "5",
@@ -56,7 +60,8 @@
     "tags": ["Game", "Dice", "Interactive", "Move"],
     "status": "live",
     "creator": "@gregnazario",
-    "creatorUrl": "https://github.com/gregnazario"
+    "creatorUrl": "https://github.com/gregnazario",
+    "dateAdded": "2024-06-25"
   },
   {
     "id": "6",
@@ -67,7 +72,8 @@
     "repoUrl": "https://github.com/aptos-vibes/governance-hub",
     "tags": ["Governance", "DAO", "Community"],
     "status": "concept",
-    "creator": "placeholder"
+    "creator": "placeholder",
+    "dateAdded": "2024-05-12"
   },
   {
     "id": "7",
@@ -77,62 +83,8 @@
     "projectUrl": "https://github.com/aptos-vibes/defi-pool",
     "repoUrl": "https://github.com/aptos-vibes/defi-pool",
     "tags": ["DeFi", "AMM", "Liquidity", "Swap"],
-    "status": "development",
-    "creator": "@defi-builder"
-  },
-  {
-    "id": "8",
-    "title": "Social Media dApp",
-    "description": "Decentralized social networking platform with tokenized content and community governance.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/social-dapp",
-    "repoUrl": "https://github.com/aptos-vibes/social-dapp",
-    "tags": ["Social", "Content", "Community", "Tokenization"],
     "status": "concept",
-    "creator": "@social-dev"
-  },
-  {
-    "id": "9",
-    "title": "Gaming Marketplace",
-    "description": "P2P marketplace for trading gaming assets, NFTs, and in-game currencies on Aptos blockchain.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/gaming-market",
-    "repoUrl": "https://github.com/aptos-vibes/gaming-market",
-    "tags": ["Gaming", "NFT", "Marketplace", "P2P"],
-    "status": "live",
-    "creator": "@game-studio"
-  },
-  {
-    "id": "10",
-    "title": "Identity Verification",
-    "description": "Zero-knowledge proof based identity verification system for privacy-preserving authentication.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/identity-zk",
-    "repoUrl": "https://github.com/aptos-vibes/identity-zk",
-    "tags": ["Identity", "ZK-Proof", "Privacy", "Auth"],
-    "status": "development",
-    "creator": "@privacy-team"
-  },
-  {
-    "id": "11",
-    "title": "Supply Chain Tracker",
-    "description": "Transparent supply chain management system with real-time tracking and verification capabilities.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/supply-chain",
-    "repoUrl": "https://github.com/aptos-vibes/supply-chain",
-    "tags": ["Supply Chain", "Tracking", "Verification", "Enterprise"],
-    "status": "concept",
-    "creator": "@logistics-pro"
-  },
-  {
-    "id": "12",
-    "title": "Oracle Network",
-    "description": "Decentralized oracle network providing real-world data feeds to Aptos smart contracts.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/oracle-network",
-    "repoUrl": "https://github.com/aptos-vibes/oracle-network",
-    "tags": ["Oracle", "Data Feed", "Smart Contract", "Infrastructure"],
-    "status": "live",
-    "creator": "@oracle-labs"
+    "creator": "@defi-builder",
+    "dateAdded": "2024-06-26"
   }
 ] 

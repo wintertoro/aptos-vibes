@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { WalletButton } from "./components/WalletButton";
-import { VotingSystem } from "./components/VotingSystem";
+import { VotingSystemWrapper } from "./components/VotingSystemWrapper";
 import projectsData from "../data/projects.json";
 
 interface Project {
@@ -18,6 +18,11 @@ interface Project {
   status: 'live' | 'development' | 'concept';
   creator: string;
   creatorUrl?: string;
+  dateAdded: string;
+}
+
+interface ProjectWithVibeScore extends Project {
+  vibeScore: number;
 }
 
 const projects: Project[] = projectsData as Project[];
@@ -37,13 +42,37 @@ const getStatusSymbol = (status: Project['status']) => {
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState<'latest' | 'vibe'>('latest');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
+  const [projectVibeScores, setProjectVibeScores] = useState<Record<string, number>>({});
   const projectsPerPage = 6;
   
+  // Sort projects based on selected criteria and direction
+  const sortedProjects = [...projects].sort((a, b) => {
+    let comparison = 0;
+    
+    if (sortBy === 'latest') {
+      comparison = new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+    } else if (sortBy === 'vibe') {
+      const scoreA = projectVibeScores[a.id] || 0;
+      const scoreB = projectVibeScores[b.id] || 0;
+      if (scoreB !== scoreA) {
+        comparison = scoreB - scoreA; // Higher vibe scores first for desc
+      } else {
+        // If vibe scores are equal, sort by latest as secondary
+        comparison = new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+      }
+    }
+    
+    // Apply sort direction
+    return sortDirection === 'desc' ? comparison : -comparison;
+  });
+  
   // Calculate pagination
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const totalPages = Math.ceil(sortedProjects.length / projectsPerPage);
   const startIndex = (currentPage - 1) * projectsPerPage;
   const endIndex = startIndex + projectsPerPage;
-  const currentProjects = projects.slice(startIndex, endIndex);
+  const currentProjects = sortedProjects.slice(startIndex, endIndex);
   
   const goToNextPage = () => {
     if (currentPage < totalPages) {
@@ -59,6 +88,24 @@ export default function Home() {
   
   const goToPage = (page: number) => {
     setCurrentPage(page);
+  };
+  
+  const handleSortChange = (newSortBy: 'latest' | 'vibe') => {
+    setSortBy(newSortBy);
+    setCurrentPage(1); // Reset to first page when sorting changes
+  };
+  
+  const handleDirectionChange = (newDirection: 'asc' | 'desc') => {
+    setSortDirection(newDirection);
+    setCurrentPage(1); // Reset to first page when sorting changes
+  };
+  
+  // Function to update vibe score for a project
+  const updateVibeScore = (projectId: string, vibeScore: number) => {
+    setProjectVibeScores(prev => ({
+      ...prev,
+      [projectId]: vibeScore
+    }));
   };
 
   return (
@@ -121,6 +168,67 @@ export default function Home() {
             Directory of C:\APTOS_VIBES\FEATURED_PROJECTS<br/>
             Page {currentPage} of {totalPages} | Showing {currentProjects.length} of {projects.length} projects
           </p>
+          
+          {/* Sorting Controls */}
+          <div className="mt-6 flex justify-center">
+            <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4 inline-block max-w-2xl">
+              <div className="font-mono text-sm mb-3 text-center">SORT_PARAMETERS:</div>
+              
+              {/* Sort By Controls */}
+              <div className="mb-4">
+                <div className="font-mono text-xs mb-2">SORT_BY:</div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => handleSortChange('latest')}
+                    className={`px-3 py-2 font-mono text-xs border-2 transition-all ${
+                      sortBy === 'latest'
+                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
+                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                    }`}
+                  >
+                    [DATE_ADDED]
+                  </button>
+                  <button
+                    onClick={() => handleSortChange('vibe')}
+                    className={`px-3 py-2 font-mono text-xs border-2 transition-all ${
+                      sortBy === 'vibe'
+                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
+                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                    }`}
+                  >
+                    [VIBE_SCORE]
+                  </button>
+                </div>
+              </div>
+              
+              {/* Sort Direction Controls */}
+              <div>
+                <div className="font-mono text-xs mb-2">ORDER:</div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => handleDirectionChange('desc')}
+                    className={`px-3 py-2 font-mono text-xs border-2 transition-all ${
+                      sortDirection === 'desc'
+                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
+                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                    }`}
+                  >
+                    [DESC] {sortBy === 'latest' ? '↓ NEWEST→OLDEST' : '↓ HIGH→LOW'}
+                  </button>
+                  <button
+                    onClick={() => handleDirectionChange('asc')}
+                    className={`px-3 py-2 font-mono text-xs border-2 transition-all ${
+                      sortDirection === 'asc'
+                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
+                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                    }`}
+                  >
+                    [ASC] {sortBy === 'latest' ? '↑ OLDEST→NEWEST' : '↑ LOW→HIGH'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Projects Grid */}
@@ -265,9 +373,10 @@ export default function Home() {
 
                 {/* Voting System */}
                 <div className="border-t-2 border-black dark:border-white pt-4">
-                  <VotingSystem 
+                  <VotingSystemWrapper 
                     projectId={project.id} 
-                    projectTitle={project.title} 
+                    projectTitle={project.title}
+                    onVibeScoreUpdate={updateVibeScore}
                   />
                 </div>
               </div>

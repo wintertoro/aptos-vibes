@@ -8,12 +8,12 @@ export default function Submit() {
       <div className="border-b-4 border-black dark:border-white">
         <pre className="text-xs md:text-sm text-center py-4 font-mono overflow-x-auto">
 {`
-███████╗██╗   ██╗██████╗ ███╗   ███╗██╗████████╗    ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗
-██╔════╝██║   ██║██╔══██╗████╗ ████║██║╚══██╔══╝    ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝
-███████╗██║   ██║██████╔╝██╔████╔██║██║   ██║       ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   
-╚════██║██║   ██║██╔══██╗██║╚██╔╝██║██║   ██║       ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   
-███████║╚██████╔╝██████╔╝██║ ╚═╝ ██║██║   ██║       ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   
-╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝   ╚═╝       ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   
+ █████╗ ██████╗ ████████╗ ██████╗ ███████╗    ██╗   ██╗██╗██████╗ ███████╗███████╗
+██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔════╝    ██║   ██║██║██╔══██╗██╔════╝██╔════╝
+███████║██████╔╝   ██║   ██║   ██║███████╗    ██║   ██║██║██████╔╝█████╗  ███████╗
+██╔══██║██╔═══╝    ██║   ██║   ██║╚════██║    ╚██╗ ██╔╝██║██╔══██╗██╔══╝  ╚════██║
+██║  ██║██║        ██║   ╚██████╔╝███████║     ╚████╔╝ ██║██████╔╝███████╗███████║
+╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚══════╝      ╚═══╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
 `}
         </pre>
       </div>
@@ -34,25 +34,31 @@ export default function Submit() {
             >
               [DOCS]
             </Link>
-
           </div>
           <WalletButton />
+        </div>
+        <div className="text-center">
+          <h1 className="text-4xl md:text-6xl font-bold font-mono mb-4 retro-typewriter">
+            &gt; SUBMIT_PROJECT.EXE
+          </h1>
+          <div className="border-2 border-black dark:border-white p-6 mb-6 bg-white dark:bg-black">
+            <p className="text-xl font-mono mb-2">
+              SYSTEM: PROJECT_SUBMISSION_PROTOCOL
+            </p>
+            <p className="text-sm font-mono text-gray-600 dark:text-gray-400">
+              STATUS: [ACCEPTING_ENTRIES] | QUEUE: OPEN | TARGET: APTOS_ECOSYSTEM
+            </p>
+          </div>
+          <p className="text-lg font-mono max-w-4xl mx-auto leading-relaxed">
+            // Share your innovative Aptos blockchain projects<br/>
+            // Join our curated database of vibecoded applications<br/>
+            // Inspire the community with your creative vision
+          </p>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="container mx-auto px-6 pb-16">
-        {/* Terminal-style Header */}
-        <div className="text-center mb-12">
-          <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 inline-block">
-            <h1 className="text-2xl font-bold font-mono">
-              C:\APTOS_VIBES&gt; SUBMIT.EXE
-            </h1>
-          </div>
-          <p className="font-mono mt-4 text-sm">
-            PROJECT SUBMISSION PROTOCOL ACTIVATED
-          </p>
-        </div>
 
         {/* Submit Content */}
         <div className="max-w-4xl mx-auto">

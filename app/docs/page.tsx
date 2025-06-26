@@ -7,12 +7,12 @@ export default function DocsPage() {
       <div className="border-b-4 border-black dark:border-white">
         <pre className="text-xs md:text-sm text-center py-4 font-mono overflow-x-auto">
 {`
-██████╗  ██████╗  ██████╗███████╗    ███████╗██╗   ██╗███████╗████████╗███████╗███╗   ███╗
-██╔══██╗██╔═══██╗██╔════╝██╔════╝    ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
-██║  ██║██║   ██║██║     ███████╗    ███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
-██║  ██║██║   ██║██║     ╚════██║    ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
-██████╔╝╚██████╔╝╚██████╗███████║    ███████║   ██║   ███████║   ██║   ███████╗██║ ╚═╝ ██║
-╚═════╝  ╚═════╝  ╚═════╝╚══════╝    ╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝╚═╝     ╚═╝
+ █████╗ ██████╗ ████████╗ ██████╗ ███████╗    ██╗   ██╗██╗██████╗ ███████╗███████╗
+██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔════╝    ██║   ██║██║██╔══██╗██╔════╝██╔════╝
+███████║██████╔╝   ██║   ██║   ██║███████╗    ██║   ██║██║██████╔╝█████╗  ███████╗
+██╔══██║██╔═══╝    ██║   ██║   ██║╚════██║    ╚██╗ ██╔╝██║██╔══██╗██╔══╝  ╚════██║
+██║  ██║██║        ██║   ╚██████╔╝███████║     ╚████╔╝ ██║██████╔╝███████╗███████║
+╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚══════╝      ╚═══╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
 `}
         </pre>
       </div>
@@ -23,7 +23,7 @@ export default function DocsPage() {
             href="/" 
             className="retro-button px-4 py-2 no-underline"
           >
-            [BACK_TO_MAIN]
+            [HOME]
           </Link>
           <Link 
             href="/submit"
@@ -324,24 +324,55 @@ export default function DocsPage() {
 
 
 
-          {/* Creator Credit */}
-          <section className="mt-16 text-center">
-            <div className="border-t-2 border-black dark:border-white pt-8">
-              <p className="font-mono text-sm text-gray-600 dark:text-gray-400">
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="border-t-4 border-black dark:border-white bg-white dark:bg-black">
+        <div className="container mx-auto px-6 py-8">
+          <div className="text-center">
+            <div className="flex flex-col md:flex-row justify-between items-center font-mono text-sm">
+              <div className="mb-4 md:mb-0">
                 vibecoded by{' '}
                 <Link
                   href="https://github.com/wintertoro"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline text-black dark:text-white font-bold"
+                  className="hover:underline font-bold"
                 >
                   @wintertoro
                 </Link>
-              </p>
+              </div>
+              <div className="flex gap-6">
+                <Link
+                  href="https://aptos.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  [APTOS_DOCS]
+                </Link>
+                <Link
+                  href="https://github.com/aptos-labs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  [GITHUB]
+                </Link>
+                <Link
+                  href="https://discord.gg/aptoslabs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  [DISCORD]
+                </Link>
+              </div>
             </div>
-          </section>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 } 

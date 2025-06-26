@@ -156,7 +156,7 @@ export default function Home() {
         </div>
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold font-mono mb-4 retro-typewriter">
-            &gt; APTOS_VIBES.EXE
+            &gt; FEATURED_PROJECTS.EXE
           </h1>
           <div className="border-2 border-black dark:border-white p-6 mb-6 bg-white dark:bg-black">
             <p className="text-xl font-mono mb-2">
@@ -186,6 +186,10 @@ export default function Home() {
           <div className="font-mono mt-4 text-sm flex justify-between items-center">
             {/* Left side - Sort Controls */}
             <div className="flex items-center gap-4">
+              <div>
+                C:\PROJECTS&gt; DIR /W
+              </div>
+              
               <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs">SORT:</span>
@@ -205,11 +209,6 @@ export default function Home() {
                     <option value="vibe_asc">⚡ VIBE: LOW→HIGH</option>
                   </select>
                 </div>
-              </div>
-              
-              <div>
-                Directory of C:\APTOS_VIBES\FEATURED_PROJECTS<br/>
-                Page {currentPage} of {totalPages} | Showing {currentProjects.length} of {filteredAndSortedProjects.length} projects
               </div>
             </div>
             
@@ -413,60 +412,54 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Pagination Controls - Thinner Terminal Style */}
+        {/* Pagination Controls */}
         {totalPages > 1 && (
           <div className="mt-8 text-center">
-            <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-3 inline-block">
-              <div className="font-mono text-xs mb-2">
-                C:\PAGINATION&gt; /PAGE {currentPage}
-              </div>
-              
-              <div className="flex justify-center items-center gap-1 mb-2">
-                {/* Previous Button */}
+            <div className="flex justify-center items-center gap-1 mb-2">
+              {/* Previous Button */}
+              <button
+                onClick={goToPrevPage}
+                disabled={currentPage === 1}
+                className={`px-2 py-1 font-mono text-xs border transition-all ${
+                  currentPage === 1 
+                    ? 'border-gray-400 text-gray-400 cursor-not-allowed' 
+                    : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                }`}
+              >
+                &lt; PREV
+              </button>
+
+              {/* Page Numbers */}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                 <button
-                  onClick={goToPrevPage}
-                  disabled={currentPage === 1}
+                  key={page}
+                  onClick={() => goToPage(page)}
                   className={`px-2 py-1 font-mono text-xs border transition-all ${
-                    currentPage === 1 
-                      ? 'border-gray-400 text-gray-400 cursor-not-allowed' 
+                    page === currentPage
+                      ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
                       : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
                   }`}
                 >
-                  &lt; PREV
+                  {String(page).padStart(2, '0')}
                 </button>
+              ))}
 
-                {/* Page Numbers */}
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                  <button
-                    key={page}
-                    onClick={() => goToPage(page)}
-                    className={`px-2 py-1 font-mono text-xs border transition-all ${
-                      page === currentPage
-                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
-                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
-                    }`}
-                  >
-                    {String(page).padStart(2, '0')}
-                  </button>
-                ))}
+              {/* Next Button */}
+              <button
+                onClick={goToNextPage}
+                disabled={currentPage === totalPages}
+                className={`px-2 py-1 font-mono text-xs border transition-all ${
+                  currentPage === totalPages 
+                    ? 'border-gray-400 text-gray-400 cursor-not-allowed' 
+                    : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                }`}
+              >
+                NEXT &gt;
+              </button>
+            </div>
 
-                {/* Next Button */}
-                <button
-                  onClick={goToNextPage}
-                  disabled={currentPage === totalPages}
-                  className={`px-2 py-1 font-mono text-xs border transition-all ${
-                    currentPage === totalPages 
-                      ? 'border-gray-400 text-gray-400 cursor-not-allowed' 
-                      : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
-                  }`}
-                >
-                  NEXT &gt;
-                </button>
-              </div>
-
-              <div className="font-mono text-xs text-gray-600 dark:text-gray-400">
-                [{currentProjects.length} FILES] [{filteredAndSortedProjects.length - endIndex} REMAINING]
-              </div>
+            <div className="font-mono text-xs text-gray-600 dark:text-gray-400">
+              [{currentProjects.length} FILES] [{filteredAndSortedProjects.length - endIndex} REMAINING]
             </div>
           </div>
         )}

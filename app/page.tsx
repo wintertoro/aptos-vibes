@@ -195,29 +195,31 @@ export default function Home() {
 
                 {/* Creator Field */}
                 <div className="mb-4">
-                  <div className="font-mono text-xs mb-2">CREATOR:</div>
-                  <div className="font-mono text-sm">
-                    {project.creatorUrl ? (
-                      <Link
-                        href={project.creatorUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:underline"
-                      >
-                        {project.creator}
-                      </Link>
-                    ) : project.creator === "@wintertoro" ? (
-                      <Link
-                        href="https://github.com/wintertoro"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:underline"
-                      >
-                        {project.creator}
-                      </Link>
-                    ) : (
-                      <span>{project.creator}</span>
-                    )}
+                  <div className="font-mono text-xs flex items-center">
+                    <span className="mr-2">CREATOR:</span>
+                    <span className="text-sm">
+                      {project.creatorUrl ? (
+                        <Link
+                          href={project.creatorUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          {project.creator}
+                        </Link>
+                      ) : project.creator === "@wintertoro" ? (
+                        <Link
+                          href="https://github.com/wintertoro"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          {project.creator}
+                        </Link>
+                      ) : (
+                        <span>{project.creator}</span>
+                      )}
+                    </span>
                   </div>
                 </div>
 

@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { WalletButton } from "./components/WalletButton";
 import { VotingSystem } from "./components/VotingSystem";
 import projectsData from "../data/projects.json";
@@ -33,6 +36,31 @@ const getStatusSymbol = (status: Project['status']) => {
 };
 
 export default function Home() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 6;
+  
+  // Calculate pagination
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const startIndex = (currentPage - 1) * projectsPerPage;
+  const endIndex = startIndex + projectsPerPage;
+  const currentProjects = projects.slice(startIndex, endIndex);
+  
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  
+  const goToPrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white retro-crt retro-scanlines">
       {/* ASCII Art Header */}
@@ -90,13 +118,14 @@ export default function Home() {
             </h2>
           </div>
           <p className="font-mono mt-4 text-sm">
-            Directory of C:\APTOS_VIBES\FEATURED_PROJECTS
+            Directory of C:\APTOS_VIBES\FEATURED_PROJECTS<br/>
+            Page {currentPage} of {totalPages} | Showing {currentProjects.length} of {projects.length} projects
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <div
               key={project.id}
               className="border-2 border-black dark:border-white bg-white dark:bg-black p-0 overflow-hidden hover:bg-black hover:text-white transition-all duration-300 group shadow-lg"
@@ -104,7 +133,7 @@ export default function Home() {
               {/* ASCII Art Project Header */}
               <div className="bg-black text-white p-4 font-mono text-xs">
                 <div className="flex justify-between items-center mb-2">
-                  <span>FILE_{String(index + 1).padStart(2, '0')}.EXE</span>
+                  <span>FILE_{String(startIndex + index + 1).padStart(2, '0')}.EXE</span>
                   <span className="retro-blink">{getStatusSymbol(project.status)}</span>
                 </div>
                 <div className="border border-white p-2">
@@ -158,7 +187,7 @@ export default function Home() {
                   </div>
                 )}
                 <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 text-xs font-mono">
-                  #{String(index + 1).padStart(2, '0')}
+                  #{String(startIndex + index + 1).padStart(2, '0')}
                 </div>
                 {/* Hover indicator */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black bg-opacity-20">
@@ -245,6 +274,64 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        {/* Pagination Controls - Terminal Style */}
+        {totalPages > 1 && (
+          <div className="mt-12 text-center">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-6 inline-block max-w-4xl">
+              <div className="font-mono text-sm mb-4">
+                C:\PAGINATION&gt; DIR /PAGE {currentPage}
+              </div>
+              
+              <div className="flex flex-wrap justify-center items-center gap-2 mb-4">
+                {/* Previous Button */}
+                <button
+                  onClick={goToPrevPage}
+                  disabled={currentPage === 1}
+                  className={`px-4 py-2 font-mono text-sm border-2 transition-all ${
+                    currentPage === 1 
+                      ? 'border-gray-400 text-gray-400 cursor-not-allowed' 
+                      : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                  }`}
+                >
+                  &lt; PREV
+                </button>
+
+                {/* Page Numbers */}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => goToPage(page)}
+                    className={`px-3 py-2 font-mono text-sm border-2 transition-all ${
+                      page === currentPage
+                        ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white'
+                        : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                    }`}
+                  >
+                    {String(page).padStart(2, '0')}
+                  </button>
+                ))}
+
+                {/* Next Button */}
+                <button
+                  onClick={goToNextPage}
+                  disabled={currentPage === totalPages}
+                  className={`px-4 py-2 font-mono text-sm border-2 transition-all ${
+                    currentPage === totalPages 
+                      ? 'border-gray-400 text-gray-400 cursor-not-allowed' 
+                      : 'border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer'
+                  }`}
+                >
+                  NEXT &gt;
+                </button>
+              </div>
+
+              <div className="font-mono text-xs text-gray-600 dark:text-gray-400">
+                [{currentProjects.length} FILES] [{projects.length - endIndex} REMAINING]
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Call to Action - Terminal Style */}
         <div className="mt-16 text-center">

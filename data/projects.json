@@ -68,5 +68,71 @@
     "tags": ["Governance", "DAO", "Community"],
     "status": "concept",
     "creator": "placeholder"
+  },
+  {
+    "id": "7",
+    "title": "DeFi Liquidity Pool",
+    "description": "Automated market maker protocol for seamless token swapping and liquidity provision on Aptos.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/defi-pool",
+    "repoUrl": "https://github.com/aptos-vibes/defi-pool",
+    "tags": ["DeFi", "AMM", "Liquidity", "Swap"],
+    "status": "development",
+    "creator": "@defi-builder"
+  },
+  {
+    "id": "8",
+    "title": "Social Media dApp",
+    "description": "Decentralized social networking platform with tokenized content and community governance.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/social-dapp",
+    "repoUrl": "https://github.com/aptos-vibes/social-dapp",
+    "tags": ["Social", "Content", "Community", "Tokenization"],
+    "status": "concept",
+    "creator": "@social-dev"
+  },
+  {
+    "id": "9",
+    "title": "Gaming Marketplace",
+    "description": "P2P marketplace for trading gaming assets, NFTs, and in-game currencies on Aptos blockchain.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/gaming-market",
+    "repoUrl": "https://github.com/aptos-vibes/gaming-market",
+    "tags": ["Gaming", "NFT", "Marketplace", "P2P"],
+    "status": "live",
+    "creator": "@game-studio"
+  },
+  {
+    "id": "10",
+    "title": "Identity Verification",
+    "description": "Zero-knowledge proof based identity verification system for privacy-preserving authentication.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/identity-zk",
+    "repoUrl": "https://github.com/aptos-vibes/identity-zk",
+    "tags": ["Identity", "ZK-Proof", "Privacy", "Auth"],
+    "status": "development",
+    "creator": "@privacy-team"
+  },
+  {
+    "id": "11",
+    "title": "Supply Chain Tracker",
+    "description": "Transparent supply chain management system with real-time tracking and verification capabilities.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/supply-chain",
+    "repoUrl": "https://github.com/aptos-vibes/supply-chain",
+    "tags": ["Supply Chain", "Tracking", "Verification", "Enterprise"],
+    "status": "concept",
+    "creator": "@logistics-pro"
+  },
+  {
+    "id": "12",
+    "title": "Oracle Network",
+    "description": "Decentralized oracle network providing real-world data feeds to Aptos smart contracts.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-vibes/oracle-network",
+    "repoUrl": "https://github.com/aptos-vibes/oracle-network",
+    "tags": ["Oracle", "Data Feed", "Smart Contract", "Infrastructure"],
+    "status": "live",
+    "creator": "@oracle-labs"
   }
 ] 

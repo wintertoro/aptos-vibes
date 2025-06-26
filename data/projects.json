@@ -14,10 +14,11 @@
     "title": "Aptos Billboard",
     "description": "A decentralized highway billboard messaging system where users can post messages on virtual billboards while driving down the digital highway.",
     "imageUrl": "https://raw.githubusercontent.com/tippi-fifestarr/highway-billboard/main/image.png",
-    "projectUrl": "https://github.com/tippi-fifestarr/highway-billboard",
+    "projectUrl": "https://aptos-billboard.vercel.app/",
     "tags": ["dApp", "Messaging", "Social", "Interactive"],
     "status": "live",
-    "creator": "@tippi-fifestarr"
+    "creator": "@tippi-fifestarr",
+    "creatorUrl": "https://github.com/tippi-fifestarr/"
   },
   {
     "id": "3",

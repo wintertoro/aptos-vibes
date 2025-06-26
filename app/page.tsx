@@ -10,6 +10,7 @@ interface Project {
   description: string;
   imageUrl: string;
   projectUrl: string;
+  repoUrl: string;
   tags: string[];
   status: 'live' | 'development' | 'concept';
   creator: string;
@@ -225,12 +226,12 @@ export default function Home() {
 
                 {/* Project Link */}
                 <Link
-                  href={project.projectUrl}
+                  href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block font-mono text-sm mb-4 hover:underline"
                 >
-                  &gt; EXECUTE_PROJECT.BAT
+                  &gt; GITHUB_REPO
                 </Link>
 
                 {/* Voting System */}

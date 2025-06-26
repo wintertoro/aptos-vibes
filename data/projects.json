@@ -5,6 +5,7 @@
     "description": "A fully decentralized todo application built on Aptos blockchain with smart contract integration.",
     "imageUrl": "/tile1.png",
     "projectUrl": "https://todo-dapp-fe.vercel.app/",
+    "repoUrl": "https://github.com/wintertoro/todo-dapp",
     "tags": ["dApp", "Productivity", "Move"],
     "status": "live",
     "creator": "@wintertoro"
@@ -15,6 +16,7 @@
     "description": "A decentralized highway billboard messaging system where users can post messages on virtual billboards while driving down the digital highway.",
     "imageUrl": "/tile2.png",
     "projectUrl": "https://aptos-billboard.vercel.app/",
+    "repoUrl": "https://github.com/tippi-fifestarr/aptos-billboard",
     "tags": ["dApp", "Messaging", "Social", "Interactive"],
     "status": "live",
     "creator": "@tippi-fifestarr",
@@ -26,6 +28,7 @@
     "description": "Confidential computing dashboard for Aptos Labs providing secure and private blockchain operations.",
     "imageUrl": "/tile3.png",
     "projectUrl": "https://confidential.aptoslabs.com/dashboard",
+    "repoUrl": "https://github.com/banool/aptos-confidential",
     "tags": ["Confidential", "Security", "Dashboard", "Aptos Labs"],
     "status": "live",
     "creator": "@dport",
@@ -37,6 +40,7 @@
     "description": "A comprehensive NFT aggregator demo showcasing NFT collections and marketplace functionality on Aptos.",
     "imageUrl": "/tile4.png",
     "projectUrl": "https://nft-demo-aggregator.vercel.app/",
+    "repoUrl": "https://github.com/yuunlimm/nft-demo-aggregator",
     "tags": ["NFT", "Aggregator", "Marketplace", "Demo"],
     "status": "live",
     "creator": "@yuunlimm",
@@ -44,13 +48,15 @@
   },
   {
     "id": "5",
-    "title": "Cross-Chain Bridge",
-    "description": "Secure asset bridging between Aptos and other major blockchains with minimal slippage.",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/cross-bridge",
-    "tags": ["Bridge", "Cross-chain", "Infrastructure"],
-    "status": "concept",
-    "creator": "placeholder"
+    "title": "Aptos Arena - Pig Game",
+    "description": "A classic Pig dice game implementation built on Aptos blockchain. Roll dice, accumulate points, and compete in the arena to reach 50 points first!",
+    "imageUrl": "/tile5.png",
+    "projectUrl": "https://hack-and-hang-june-2025.vercel.app/",
+    "repoUrl": "https://github.com/aptos-labs/hack-and-hang-june-2025",
+    "tags": ["Game", "Dice", "Interactive", "Move"],
+    "status": "live",
+    "creator": "@gregnazario",
+    "creatorUrl": "https://github.com/gregnazario"
   },
   {
     "id": "6",
@@ -58,6 +64,7 @@
     "description": "Community governance platform for Aptos ecosystem projects with voting and proposal management.",
     "imageUrl": "/api/placeholder/400/300",
     "projectUrl": "https://github.com/aptos-vibes/governance-hub",
+    "repoUrl": "https://github.com/aptos-vibes/governance-hub",
     "tags": ["Governance", "DAO", "Community"],
     "status": "concept",
     "creator": "placeholder"

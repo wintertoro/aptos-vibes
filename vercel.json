@@ -1,0 +1,8 @@
+{
+  "public": true,
+  "functions": {
+    "app/api/submit-project/route.ts": {
+      "runtime": "nodejs18.x"
+    }
+  }
+} 

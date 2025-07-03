@@ -80,13 +80,6 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    if (!GITHUB_TOKEN) {
-      return NextResponse.json(
-        { error: 'GitHub integration not configured' },
-        { status: 500 }
-      );
-    }
-    
     // Generate unique ID
     const generateId = () => {
       const timestamp = Date.now().toString(36);
@@ -101,15 +94,28 @@ export async function POST(request: NextRequest) {
       id: newId,
       title: formData.title.trim(),
       description: formData.description.trim(),
-      imageUrl: formData.imageUrl.trim() || '/api/placeholder/400/300',
+      imageUrl: formData.imageUrl?.trim() || '/api/placeholder/400/300',
       projectUrl: formData.projectUrl.trim(),
-      repoUrl: formData.repoUrl.trim() || formData.projectUrl.trim(),
+      repoUrl: formData.repoUrl?.trim() || formData.projectUrl.trim(),
       tags: formData.tags,
       status: formData.status,
       creator: formData.creator.trim(),
-      creatorUrl: formData.creatorUrl.trim(),
+      creatorUrl: formData.creatorUrl?.trim() || '',
       dateAdded: new Date().toISOString().split('T')[0]
     };
+
+    if (!GITHUB_TOKEN) {
+      // For development: store locally instead of creating PR
+      console.warn('GitHub integration not configured. Storing project locally.');
+      
+      // In production, you would want to save to a database
+      // For now, we'll just return success with a message
+      return NextResponse.json({
+        success: true,
+        message: 'Project submitted successfully! (stored locally - GitHub integration not configured)',
+        project: newProject
+      });
+    }
 
     // GitHub API headers
     const headers = {

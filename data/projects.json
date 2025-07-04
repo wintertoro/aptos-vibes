@@ -6,7 +6,11 @@
     "imageUrl": "/tile1.png",
     "projectUrl": "https://todo-dapp-fe.vercel.app/",
     "repoUrl": "https://github.com/wintertoro/todo-dapp-fe",
-    "tags": ["dApp", "Productivity", "Move"],
+    "tags": [
+      "dApp",
+      "Productivity",
+      "Move"
+    ],
     "status": "live",
     "creator": "@wintertoro",
     "dateAdded": "2024-01-15"
@@ -18,7 +22,12 @@
     "imageUrl": "/tile2.png",
     "projectUrl": "https://aptos-billboard.vercel.app/",
     "repoUrl": "https://github.com/tippi-fifestarr/aptos-billboard",
-    "tags": ["dApp", "Messaging", "Social", "Interactive"],
+    "tags": [
+      "dApp",
+      "Messaging",
+      "Social",
+      "Interactive"
+    ],
     "status": "live",
     "creator": "@tippi-fifestarr",
     "creatorUrl": "https://github.com/tippi-fifestarr/",
@@ -31,7 +40,12 @@
     "imageUrl": "/tile3.png",
     "projectUrl": "https://confidential.aptoslabs.com/dashboard",
     "repoUrl": "https://aptos.dev/en/build/smart-contracts/confidential-asset",
-    "tags": ["Confidential", "Security", "Dashboard", "Aptos Labs"],
+    "tags": [
+      "Confidential",
+      "Security",
+      "Dashboard",
+      "Aptos Labs"
+    ],
     "status": "live",
     "creator": "@dport",
     "creatorUrl": "https://github.com/banool",
@@ -44,7 +58,12 @@
     "imageUrl": "/tile4.png",
     "projectUrl": "https://nft-demo-aggregator.vercel.app/",
     "repoUrl": "https://github.com/yuunlimm/nft-demo-aggregator",
-    "tags": ["NFT", "Aggregator", "Marketplace", "Demo"],
+    "tags": [
+      "NFT",
+      "Aggregator",
+      "Marketplace",
+      "Demo"
+    ],
     "status": "live",
     "creator": "@yuunlimm",
     "creatorUrl": "https://github.com/yuunlimm",
@@ -57,7 +76,12 @@
     "imageUrl": "/tile5.png",
     "projectUrl": "https://hack-and-hang-june-2025.vercel.app/",
     "repoUrl": "https://github.com/aptos-labs/hack-and-hang-june-2025",
-    "tags": ["Game", "Dice", "Interactive", "Move"],
+    "tags": [
+      "Game",
+      "Dice",
+      "Interactive",
+      "Move"
+    ],
     "status": "live",
     "creator": "@gregnazario",
     "creatorUrl": "https://github.com/gregnazario",
@@ -70,7 +94,11 @@
     "imageUrl": "/api/placeholder/400/300",
     "projectUrl": "https://github.com/aptos-vibes/governance-hub",
     "repoUrl": "https://github.com/aptos-vibes/governance-hub",
-    "tags": ["Governance", "DAO", "Community"],
+    "tags": [
+      "Governance",
+      "DAO",
+      "Community"
+    ],
     "status": "concept",
     "creator": "placeholder",
     "dateAdded": "2024-05-12"
@@ -82,9 +110,30 @@
     "imageUrl": "/api/placeholder/400/300",
     "projectUrl": "https://github.com/aptos-vibes/defi-pool",
     "repoUrl": "https://github.com/aptos-vibes/defi-pool",
-    "tags": ["DeFi", "AMM", "Liquidity", "Swap"],
+    "tags": [
+      "DeFi",
+      "AMM",
+      "Liquidity",
+      "Swap"
+    ],
     "status": "concept",
     "creator": "@defi-builder",
     "dateAdded": "2024-06-26"
+  },
+  {
+    "id": "mco754t2-7j4ar",
+    "title": "Final Production Test",
+    "description": "Testing GitHub integration after redeploy",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://final-production-test.example.com",
+    "repoUrl": "https://final-production-test.example.com",
+    "tags": [
+      "production",
+      "github"
+    ],
+    "status": "live",
+    "creator": "Production Tester",
+    "creatorUrl": "",
+    "dateAdded": "2025-07-04"
   }
-] 
+]

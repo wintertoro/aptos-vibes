@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { Aptos, AptosConfig, Network, MoveValue } from "@aptos-labs/ts-sdk";
 import { CONTRACT_CONFIG, NETWORK_CONFIG } from "../config/contract";
@@ -29,12 +29,14 @@ export function VotingSystem({ projectId }: VotingSystemProps) {
   const [transactionState, setTransactionState] = useState<TransactionState>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   
-  // Initialize Aptos client
-  const aptosConfig = new AptosConfig({ 
-    network: Network.TESTNET,
-    fullnode: NETWORK_CONFIG.NODE_URL,
-  });
-  const aptos = new Aptos(aptosConfig);
+  // Initialize Aptos client with useMemo to prevent recreation on every render
+  const aptos = useMemo(() => {
+    const aptosConfig = new AptosConfig({ 
+      network: Network.TESTNET,
+      fullnode: NETWORK_CONFIG.NODE_URL,
+    });
+    return new Aptos(aptosConfig);
+  }, []); // Empty dependency array since config never changes
 
   // Load vote data from smart contract
   const loadVoteData = useCallback(async () => {

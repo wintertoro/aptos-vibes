@@ -129,6 +129,13 @@ export default function HowToMCPPage() {
                       </Link>
                     </div>
                     <div className="border border-black dark:border-white p-3">
+                      <h4 className="font-bold font-mono text-sm mb-1">Git</h4>
+                      <p className="font-mono text-xs">Version control for cloning MCP repository</p>
+                      <Link href="https://git-scm.com" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                        &gt; Download Git
+                      </Link>
+                    </div>
+                    <div className="border border-black dark:border-white p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Aptos CLI</h4>
                       <p className="font-mono text-xs">Command-line tool for Aptos development</p>
                       <Link href="https://aptos.dev/tools/install-cli" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
@@ -141,17 +148,17 @@ export default function HowToMCPPage() {
                   <h3 className="text-xl font-bold font-mono mb-4">[AI_ASSISTANT]</h3>
                   <div className="space-y-3">
                     <div className="border border-black dark:border-white p-3">
-                      <h4 className="font-bold font-mono text-sm mb-1">Claude Desktop</h4>
-                      <p className="font-mono text-xs">Anthropic&apos;s AI assistant with MCP support</p>
-                      <Link href="https://claude.ai/download" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
-                        &gt; Download Claude
+                      <h4 className="font-bold font-mono text-sm mb-1">Cursor IDE (Recommended)</h4>
+                      <p className="font-mono text-xs">Official AI-powered code editor with MCP support</p>
+                      <Link href="https://cursor.sh" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                        &gt; Download Cursor
                       </Link>
                     </div>
                     <div className="border border-black dark:border-white p-3">
-                      <h4 className="font-bold font-mono text-sm mb-1">Cursor IDE</h4>
-                      <p className="font-mono text-xs">AI-powered code editor (alternative option)</p>
-                      <Link href="https://cursor.sh" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
-                        &gt; Download Cursor
+                      <h4 className="font-bold font-mono text-sm mb-1">Claude Desktop (Alternative)</h4>
+                      <p className="font-mono text-xs">Anthropic&apos;s AI assistant with MCP support</p>
+                      <Link href="https://claude.ai/download" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                        &gt; Download Claude
                       </Link>
                     </div>
                   </div>
@@ -169,25 +176,89 @@ export default function HowToMCPPage() {
             </div>
             <div className="retro-card p-8">
               
-              <div className="mb-8">
-                <h3 className="text-xl font-bold font-mono mb-4">[STEP 1: INSTALL APTOS NPM MCP]</h3>
-                <div className="bg-black text-green-400 p-4 font-mono text-sm mb-4 overflow-x-auto">
-                  <div className="mb-2"># Install globally via npm</div>
-                  <div className="text-white">npm install -g @aptos-labs/aptos-npm-mcp</div>
+              {/* Cursor IDE Setup (Official) */}
+              <div className="mb-12">
+                <div className="border-2 border-green-500 bg-green-50 dark:bg-green-900 p-4 mb-6">
+                  <h3 className="text-xl font-bold font-mono mb-2 text-green-700 dark:text-green-300">🎯 OFFICIAL CURSOR IDE SETUP</h3>
+                  <p className="font-mono text-sm text-green-700 dark:text-green-300">
+                    Recommended method from the official Aptos NPM MCP repository
+                  </p>
                 </div>
-                <p className="font-mono text-sm mb-4">
-                  This installs the Aptos MCP server that provides AI assistants with<br/>
-                  access to Aptos development tools and documentation.
-                </p>
-              </div>
 
-              <div className="mb-8">
-                <h3 className="text-xl font-bold font-mono mb-4">[STEP 2: CONFIGURE CLAUDE DESKTOP]</h3>
+                <h3 className="text-xl font-bold font-mono mb-4">[STEP 1: CLONE THE MCP REPOSITORY]</h3>
+                <div className="bg-black text-green-400 p-4 font-mono text-sm mb-4 overflow-x-auto">
+                  <div className="mb-2 text-gray-400"># Clone the official Aptos NPM MCP repository</div>
+                  <div className="text-white">git clone git@github.com:aptos-labs/aptos-npm-mcp.git</div>
+                  <div className="text-white">cd aptos-npm-mcp</div>
+                  <div className="text-white">npm install</div>
+                </div>
+
+                <h3 className="text-xl font-bold font-mono mb-4 mt-8">[STEP 2: CONFIGURE CURSOR IDE]</h3>
                 <p className="font-mono text-sm mb-4">
-                  Add the following configuration to your Claude Desktop config file:
+                  Create MCP configuration in your project directory:
                 </p>
                 <div className="bg-black text-green-400 p-4 font-mono text-xs mb-4 overflow-x-auto">
-                  <div className="mb-1 text-gray-400"># Config file location:</div>
+                  <div className="mb-1 text-gray-400"># In your project root folder, create .cursor directory</div>
+                  <div className="text-white">mkdir .cursor</div>
+                  <div className="mb-3 text-gray-400"># Create mcp.json configuration file</div>
+                  
+                  <div className="text-white">&#123;</div>
+                  <div className="text-white">&nbsp;&nbsp;&quot;mcpServers&quot;: &#123;</div>
+                  <div className="text-white">&nbsp;&nbsp;&nbsp;&nbsp;&quot;aptos-build-mcp&quot;: &#123;</div>
+                  <div className="text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;command&quot;: &quot;npx&quot;,</div>
+                  <div className="text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;args&quot;: [&quot;tsx&quot;, &quot;&lt;path-to-mcp-server&gt;/src/server.ts&quot;],</div>
+                  <div className="text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;stdio&quot;</div>
+                  <div className="text-white">&nbsp;&nbsp;&nbsp;&nbsp;&#125;</div>
+                  <div className="text-white">&nbsp;&nbsp;&#125;</div>
+                  <div className="text-white">&#125;</div>
+                </div>
+                <div className="border-l-4 border-yellow-500 pl-4 mb-6">
+                  <p className="font-mono text-xs text-yellow-700 dark:text-yellow-300">
+                    ⚠️ Replace &lt;path-to-mcp-server&gt; with the actual path to your cloned MCP repository
+                  </p>
+                </div>
+
+                <h3 className="text-xl font-bold font-mono mb-4 mt-8">[STEP 3: VERIFY CURSOR MCP CONNECTION]</h3>
+                <div className="space-y-4">
+                  <div className="border border-black dark:border-white p-4">
+                    <h4 className="font-bold font-mono text-sm mb-2">1. Check Cursor Settings</h4>
+                    <p className="font-mono text-xs mb-2">Navigate to: Cursor → Settings → Cursor Settings</p>
+                    <p className="font-mono text-xs">Look for &quot;MCP&quot; or &quot;Tools &amp; Integrations&quot; section</p>
+                  </div>
+                  <div className="border border-black dark:border-white p-4">
+                    <h4 className="font-bold font-mono text-sm mb-2">2. Enable MCP</h4>
+                    <p className="font-mono text-xs mb-2">Ensure MCP is enabled with green indicator</p>
+                    <p className="font-mono text-xs">Click refresh icon to update MCP servers</p>
+                  </div>
+                  <div className="border border-black dark:border-white p-4">
+                    <h4 className="font-bold font-mono text-sm mb-2">3. Test Connection</h4>
+                    <p className="font-mono text-xs mb-2">Set AI dropdown to &quot;Agent&quot; and &quot;claude-4-sonnet&quot;</p>
+                    <p className="font-mono text-xs">Ask: &quot;are you using mcp?&quot; to verify connection</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Claude Desktop Setup (Alternative) */}
+              <div className="mb-8">
+                <div className="border-2 border-blue-500 bg-blue-50 dark:bg-blue-900 p-4 mb-6">
+                  <h3 className="text-xl font-bold font-mono mb-2 text-blue-700 dark:text-blue-300">🔧 CLAUDE DESKTOP SETUP (ALTERNATIVE)</h3>
+                  <p className="font-mono text-sm text-blue-700 dark:text-blue-300">
+                    Alternative method using NPM package installation
+                  </p>
+                </div>
+
+                <h3 className="text-xl font-bold font-mono mb-4">[STEP A: INSTALL APTOS NPM MCP]</h3>
+                <div className="bg-black text-green-400 p-4 font-mono text-sm mb-4 overflow-x-auto">
+                  <div className="mb-2 text-gray-400"># Install globally via npm</div>
+                  <div className="text-white">npm install -g @aptos-labs/aptos-npm-mcp</div>
+                </div>
+
+                <h3 className="text-xl font-bold font-mono mb-4 mt-6">[STEP B: CONFIGURE CLAUDE DESKTOP]</h3>
+                <p className="font-mono text-sm mb-4">
+                  Add configuration to Claude Desktop config file:
+                </p>
+                <div className="bg-black text-green-400 p-4 font-mono text-xs mb-4 overflow-x-auto">
+                  <div className="mb-1 text-gray-400"># Config file locations:</div>
                   <div className="mb-1 text-gray-400"># macOS: ~/Library/Application Support/Claude/claude_desktop_config.json</div>
                   <div className="mb-1 text-gray-400"># Windows: %APPDATA%\Claude\claude_desktop_config.json</div>
                   <div className="mb-3 text-gray-400"># Linux: ~/.config/Claude/claude_desktop_config.json</div>
@@ -201,20 +272,12 @@ export default function HowToMCPPage() {
                   <div className="text-white">&nbsp;&nbsp;&#125;</div>
                   <div className="text-white">&#125;</div>
                 </div>
-              </div>
 
-              <div className="mb-8">
-                <h3 className="text-xl font-bold font-mono mb-4">[STEP 3: RESTART CLAUDE]</h3>
-                <p className="font-mono text-sm mb-4">
-                  Restart Claude Desktop to load the MCP configuration. You should see<br/>
-                  a small tool icon indicating MCP is connected.
-                </p>
-                
-                <div className="border-2 border-green-500 bg-green-50 dark:bg-green-900 p-4">
+                <div className="border-2 border-green-500 bg-green-50 dark:bg-green-900 p-4 mt-6">
                   <h4 className="font-bold font-mono text-sm text-green-700 dark:text-green-300 mb-2">✅ SUCCESS INDICATORS:</h4>
                   <ul className="font-mono text-xs text-green-700 dark:text-green-300 space-y-1">
-                    <li>• MCP tool icon appears in Claude interface</li>
-                    <li>• Claude can access Aptos documentation</li>
+                    <li>• MCP tool icon appears in interface</li>
+                    <li>• AI can access Aptos documentation</li>
                     <li>• Smart contract templates available</li>
                     <li>• Deployment commands work</li>
                   </ul>
@@ -234,50 +297,76 @@ export default function HowToMCPPage() {
             <div className="retro-card p-8">
               
               <div className="mb-8">
-                <h3 className="text-xl font-bold font-mono mb-4">[EXAMPLE PROMPTS]</h3>
+                <h3 className="text-xl font-bold font-mono mb-4">[OFFICIAL EXAMPLE PROMPTS]</h3>
                 <p className="font-mono text-sm mb-6">
-                  Once MCP is set up, you can use these prompts with Claude:
+                  From the official Aptos NPM MCP repository. Use these exact prompts for best results:
                 </p>
                 
                 <div className="space-y-6">
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-2 text-blue-600 dark:text-blue-400">[PROJECT_CREATION]</h4>
+                    <h4 className="font-bold font-mono text-sm mb-2 text-green-600 dark:text-green-400">[FULL END-TO-END DAPP]</h4>
                     <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
-                      &quot;Create a new Aptos DApp for employee recognition with token rewards&quot;
+                      &quot;Help me build a todo list dapp on Aptos. Build the smart contract to handle the dapp logic and help me with deploying the contract, the frontend for the UI and wallet connection for users to be able to connect with their wallet.&quot;
                     </div>
                     <p className="font-mono text-xs">
-                      Generates project structure, smart contracts, and frontend boilerplate
+                      Generates complete dApp: smart contract + deployment + frontend + wallet integration
                     </p>
                   </div>
 
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-2 text-purple-600 dark:text-purple-400">[SMART_CONTRACT]</h4>
+                    <h4 className="font-bold font-mono text-sm mb-2 text-blue-600 dark:text-blue-400">[FRONTEND ONLY]</h4>
                     <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
-                      &quot;Write a Move smart contract for voting with one vote per address&quot;
+                      &quot;Help me build a frontend for a todo list dapp on Aptos. Build the UI and wallet connection for users to be able to connect with their wallet.&quot;
                     </div>
                     <p className="font-mono text-xs">
-                      Creates secure Move code following Aptos best practices
+                      Creates frontend with UI components and wallet connectivity
                     </p>
                   </div>
 
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-2 text-green-600 dark:text-green-400">[DEPLOYMENT]</h4>
+                    <h4 className="font-bold font-mono text-sm mb-2 text-purple-600 dark:text-purple-400">[SMART CONTRACT ONLY]</h4>
                     <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
-                      &quot;Deploy this contract to Aptos testnet and create a frontend interface&quot;
+                      &quot;Help me build a smart contract for a todo list dapp on Aptos. Build the smart contract to handle the dapp logic. Also, help with deploying the contract.&quot;
                     </div>
                     <p className="font-mono text-xs">
-                      Handles deployment process and generates TypeScript integration
+                      Creates Move smart contract with deployment assistance
                     </p>
                   </div>
 
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-2 text-red-600 dark:text-red-400">[DEBUGGING]</h4>
+                    <h4 className="font-bold font-mono text-sm mb-2 text-red-600 dark:text-red-400">[HACKATHON EXAMPLES]</h4>
                     <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
-                      &quot;Debug this Move error: &#39;FUNCTION_NOT_FOUND&#39; in my voting contract&quot;
+                      &quot;Help me build an employee recognition dapp on Aptos with token rewards for achievements and peer nominations.&quot;
                     </div>
                     <p className="font-mono text-xs">
-                      Analyzes errors and suggests fixes with Aptos-specific context
+                      Perfect for Vibe Hack - creates workplace-focused dApps
                     </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-xl font-bold font-mono mb-4">[BEST PRACTICES FOR PROMPTING]</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="border border-black dark:border-white p-4">
+                    <h4 className="font-bold font-mono text-sm mb-3 text-green-600 dark:text-green-400">✅ DO THIS</h4>
+                    <ul className="font-mono text-xs space-y-1">
+                      <li>• Be specific about your dApp functionality</li>
+                      <li>• Mention both frontend and smart contract needs</li>
+                      <li>• Ask for deployment help explicitly</li>
+                      <li>• Request wallet connection setup</li>
+                      <li>• Specify if you need testnet deployment</li>
+                    </ul>
+                  </div>
+                  <div className="border border-black dark:border-white p-4">
+                    <h4 className="font-bold font-mono text-sm mb-3 text-red-600 dark:text-red-400">❌ AVOID THIS</h4>
+                    <ul className="font-mono text-xs space-y-1">
+                      <li>• Generic &quot;build me a dApp&quot; requests</li>
+                      <li>• Asking for mainnet deployment</li>
+                      <li>• Requesting non-Aptos blockchain features</li>
+                      <li>• Vague functional requirements</li>
+                      <li>• Forgetting about wallet integration</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -445,35 +534,9 @@ export default function HowToMCPPage() {
       <footer className="border-t-4 border-black dark:border-white bg-white dark:bg-black">
         <div className="container mx-auto px-6 py-8">
           <div className="text-center">
-            <div className="flex flex-col md:flex-row justify-between items-center font-mono text-sm">
-              <div className="mb-4 md:mb-0">
+                        <div className="flex flex-col md:flex-row justify-center items-center font-mono text-sm">
+              <div>
                 Aptos Vibe Hack 2025 - Internal Company Hackathon
-              </div>
-              <div className="flex gap-6">
-                <Link
-                  href="https://github.com/aptos-labs/aptos-npm-mcp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [MCP_GUIDE]
-                </Link>
-                <Link
-                  href="https://aptos.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [APTOS_DOCS]
-                </Link>
-                <Link
-                  href="https://discord.gg/aptoslabs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [DISCORD]
-                </Link>
               </div>
             </div>
             <div className="mt-4 text-xs font-mono text-gray-600 dark:text-gray-400">

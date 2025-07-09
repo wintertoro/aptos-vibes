@@ -480,35 +480,9 @@ export default function Home() {
       <footer className="border-t-4 border-black dark:border-white bg-white dark:bg-black">
         <div className="container mx-auto px-6 py-8">
           <div className="text-center">
-            <div className="flex flex-col md:flex-row justify-between items-center font-mono text-sm">
-              <div className="mb-4 md:mb-0">
+                        <div className="flex flex-col md:flex-row justify-center items-center font-mono text-sm">
+              <div>
                 Aptos Vibe Hack 2025 - Internal Company Hackathon
-              </div>
-              <div className="flex gap-6">
-                <a
-                  href="https://github.com/aptos-labs/aptos-npm-mcp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [MCP_GUIDE]
-                </a>
-                <a
-                  href="https://aptos.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [APTOS_DOCS]
-                </a>
-                <a
-                  href="https://discord.gg/aptoslabs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [DISCORD]
-                </a>
               </div>
             </div>
             <div className="mt-4 text-xs font-mono text-gray-600 dark:text-gray-400">

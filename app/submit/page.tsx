@@ -290,28 +290,12 @@ export default function Submit() {
               </div>
               <div className="flex gap-6">
                 <Link
-                  href="https://aptos.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [APTOS_DOCS]
-                </Link>
-                <Link
                   href="https://github.com/aptos-labs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline"
                 >
                   [GITHUB]
-                </Link>
-                <Link
-                  href="https://discord.gg/aptoslabs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [DISCORD]
                 </Link>
               </div>
             </div>

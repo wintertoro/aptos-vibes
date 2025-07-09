@@ -1,19 +1,21 @@
 [
   {
     "id": "1",
-    "title": "AptosChat - Decentralized Team Communication",
-    "description": "A Web3 alternative to Slack built on Aptos! Real-time messaging with token rewards for helpful contributions and on-chain message verification.",
+    "title": "AptosRaise - Decentralized Fundraising Platform",
+    "description": "A transparent Web3 fundraising platform built on Aptos! Enable creators and projects to raise funds with smart contract escrow, milestone-based releases, and contributor governance.",
     "imageUrl": "/tile1.png",
-    "projectUrl": "https://aptos-chat-demo.vercel.app/",
-    "repoUrl": "https://github.com/internal/aptos-chat",
+    "projectUrl": "https://fundraising-eta.vercel.app/",
+    "repoUrl": "https://github.com/0xmaayan",
     "tags": [
       "dApp",
-      "Communication", 
-      "Social",
-      "Token Rewards"
+      "DeFi", 
+      "Fundraising",
+      "Smart Contracts",
+      "Governance"
     ],
     "status": "live",
-    "creator": "@alice_dev",
+    "creator": "@0xmaayan",
+    "creatorUrl": "https://github.com/0xmaayan",
     "dateAdded": "2025-07-28"
   }
 ]

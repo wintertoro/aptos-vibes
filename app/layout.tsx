@@ -1,33 +1,28 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { WalletProvider } from "./components/WalletProvider";
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "Aptos Vibes - Showcase of Vibe Coded Projects",
-  description: "Discover innovative Aptos blockchain projects crafted with unique vibes and creative energy.",
+  title: "Aptos Vibe Hack 2025 | Internal Company Hackathon",
+  description: "Internal Aptos company-wide Vibe Coding hackathon. 100 APT prize! Submit your innovative DApp built with Vibe Coding on Aptos testnet. Labs + Foundation welcome!",
+  keywords: "Aptos, hackathon, vibe coding, blockchain, Move, DApp, internal, company, 100 APT",
+  authors: [{ name: "Aptos Labs" }],
   openGraph: {
-    title: "Aptos Vibes - Featured Projects",
-    description: "A curated collection of innovative Aptos blockchain projects built with serious vibes and hella style",
-    url: "https://aptos-vibes.vercel.app",
-    siteName: "Aptos Vibes",
-    images: [
-      {
-        url: "/mainthumb.png",
-        width: 1200,
-        height: 630,
-        alt: "Aptos Vibes - Featured Blockchain Projects",
-      },
-    ],
-    locale: "en_US",
+    title: "Aptos Vibe Hack 2025",
+    description: "Internal company hackathon - 100 APT prize for the best Vibe Coded DApp!",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Aptos Vibes - Featured Projects",
-    description: "A curated collection of innovative Aptos blockchain projects built with serious vibes and hella style",
-    images: ["/mainthumb.png"],
-  },
-  metadataBase: new URL("https://aptos-vibes.vercel.app"),
 };
 
 export default function RootLayout({

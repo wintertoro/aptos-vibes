@@ -125,12 +125,12 @@ export default function Home() {
       <div className="border-b-4 border-black dark:border-white">
         <pre className="text-xs md:text-sm text-center py-4 font-mono overflow-x-auto">
 {`
- █████╗ ██████╗ ████████╗ ██████╗ ███████╗    ██╗   ██╗██╗██████╗ ███████╗███████╗
-██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔════╝    ██║   ██║██║██╔══██╗██╔════╝██╔════╝
-███████║██████╔╝   ██║   ██║   ██║███████╗    ██║   ██║██║██████╔╝█████╗  ███████╗
-██╔══██║██╔═══╝    ██║   ██║   ██║╚════██║    ╚██╗ ██╔╝██║██╔══██╗██╔══╝  ╚════██║
-██║  ██║██║        ██║   ╚██████╔╝███████║     ╚████╔╝ ██║██████╔╝███████╗███████║
-╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚══════╝      ╚═══╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
+ █████╗ ██████╗ ████████╗ ██████╗ ███████╗    ██╗   ██╗██╗██████╗ ███████╗    ██╗  ██╗ █████╗  ██████╗██╗  ██╗
+██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔════╝    ██║   ██║██║██╔══██╗██╔════╝    ██║  ██║██╔══██╗██╔════╝██║ ██╔╝
+███████║██████╔╝   ██║   ██║   ██║███████╗    ██║   ██║██║██████╔╝█████╗      ███████║███████║██║     █████╔╝ 
+██╔══██║██╔═══╝    ██║   ██║   ██║╚════██║    ╚██╗ ██╔╝██║██╔══██╗██╔══╝      ██╔══██║██╔══██║██║     ██╔═██╗ 
+██║  ██║██║        ██║   ╚██████╔╝███████║     ╚████╔╝ ██║██████╔╝███████╗    ██║  ██║██║  ██║╚██████╗██║  ██╗
+╚═╝  ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚══════╝      ╚═══╝  ╚═╝╚═════╝ ╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
 `}
         </pre>
       </div>
@@ -139,12 +139,16 @@ export default function Home() {
       <header className="container mx-auto px-6 py-8">
         <div className="flex justify-between items-start mb-8">
           <div className="flex gap-4">
-            <Link 
-              href="/docs"
+            <a 
+              href="#readme"
               className="retro-button px-4 py-2 no-underline"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+              }}
             >
-              [DOCS]
-            </Link>
+              [README]
+            </a>
             <Link 
               href="/submit"
               className="retro-button px-4 py-2 no-underline"
@@ -156,20 +160,31 @@ export default function Home() {
         </div>
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold font-mono mb-4 retro-typewriter">
-            &gt; FEATURED_PROJECTS.EXE
+            &gt; HACKATHON_SUBMISSIONS.EXE
           </h1>
           <div className="border-2 border-black dark:border-white p-6 mb-6 bg-white dark:bg-black">
             <p className="text-xl font-mono mb-2">
-              SYSTEM: VIBE_CODED_PROJECTS_DATABASE
+              APTOS INTERNAL VIBE CODING HACKATHON 2025
             </p>
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400">
-              STATUS: [ONLINE] | PROJECTS: {projects.length} | NETWORK: APTOS_TESTNET
+              🏆 100 APT PRIZE | 7/28-3/31 VIBE DAYS | 08/01 10AM PT DEADLINE
+            </p>
+            <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mt-2">
+              STATUS: [OPEN] | SUBMISSIONS: {projects.length} | NETWORK: APTOS_TESTNET
+            </p>
+          </div>
+          <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-6 mb-6">
+            <p className="text-lg font-mono mb-4">
+              💡 7/28-3/31 VIBE DAYS | 08/01 10AM PT - HIGHEST VOTES WIN
+            </p>
+            <p className="text-2xl font-mono font-bold">
+              🎉 100 APT PRIZE!!! BRAGGING RIGHTS! FAME! GLORY! FUN! 🎉
             </p>
           </div>
           <p className="text-lg font-mono max-w-4xl mx-auto leading-relaxed">
-            // A curated collection of innovative Aptos blockchain projects<br/>
-            // Each entry represents unique approaches to decentralized computing<br/>
-                            // Built with serious vibes and hella style
+            // Company-wide Vibe Coding Hackathon for all Aptos employees<br/>
+            // Labs + Foundation welcome! Ship something fun, useful, weird, or lovable<br/>
+            // Join #vibe-hack-2025 on Slack to chat and solicit votes!
           </p>
         </div>
       </header>
@@ -183,7 +198,7 @@ export default function Home() {
             <div className="flex items-center">
               <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
                 <h2 className="text-sm font-bold font-mono">
-                  C:\PROJECTS&gt; DIR /W
+                  C:\HACKATHON_SUBMISSIONS&gt; DIR /W
                 </h2>
               </div>
             </div>
@@ -464,48 +479,150 @@ export default function Home() {
 
       </main>
 
-      {/* Footer - Terminal Style */}
+      {/* README Section */}
+      <section id="readme" className="border-t-4 border-black dark:border-white bg-white dark:bg-black">
+        <div className="container mx-auto px-6 py-16">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold font-mono mb-4 retro-typewriter">
+              &gt; README.TXT
+            </h2>
+            <div className="border-2 border-black dark:border-white p-6 bg-white dark:bg-black max-w-4xl mx-auto">
+              <p className="text-lg font-mono">
+                APTOS VIBE HACK 2025 DOCUMENTATION
+              </p>
+              <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mt-2">
+                INTERNAL COMPANY HACKATHON GUIDE AND RULES
+              </p>
+            </div>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+            <div className="retro-card p-6">
+              <h3 className="text-xl font-bold font-mono mb-4">[HACKATHON_RULES]</h3>
+              <ul className="font-mono text-sm space-y-2">
+                <li>✅ Use only Vibe Coding</li>
+                <li>✅ Deploy DApp to testnet</li>
+                <li>✅ Submit via this portal</li>
+                <li>🗳️ All employees can vote</li>
+                <li>🏁 Deadline: Aug 01, 10AM PT</li>
+                <li>🏆 Prize: 100 APT</li>
+              </ul>
+            </div>
+
+            <div className="retro-card p-6">
+              <h3 className="text-xl font-bold font-mono mb-4">[TIMELINE]</h3>
+              <div className="font-mono text-sm space-y-2">
+                <div className="flex justify-between">
+                  <span>Vibe Days:</span>
+                  <span>7/28 - 3/31</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Voting Ends:</span>
+                  <span>08/01 09:59 AM PT</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Winner Announced:</span>
+                  <span>08/01 10:00 AM PT</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="retro-card p-6">
+              <h3 className="text-xl font-bold font-mono mb-4">[RESOURCES]</h3>
+              <div className="space-y-2">
+                <a 
+                  href="https://github.com/aptos-labs/aptos-npm-mcp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block font-mono text-sm hover:underline"
+                >
+                  &gt; Aptos NPM MCP Guide
+                </a>
+                <a 
+                  href="https://www.notion.so/MCP-Feedback-22b8b846eb7280debf3ad4ab2046674f"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block font-mono text-sm hover:underline"
+                >
+                  &gt; MCP Feedback Form
+                </a>
+                <a 
+                  href="https://aptos.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block font-mono text-sm hover:underline"
+                >
+                  &gt; Aptos Documentation
+                </a>
+              </div>
+            </div>
+
+            <div className="retro-card p-6">
+              <h3 className="text-xl font-bold font-mono mb-4">[SUPPORT]</h3>
+              <div className="font-mono text-sm space-y-2">
+                <div>💬 Slack: #vibe-hack-2025</div>
+                <div>🛠️ MCP Support: Feedback Form</div>
+                <div>🆘 Technical Issues: Dev Team</div>
+                <div>📝 Submissions: Organizers</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-8 max-w-4xl mx-auto">
+              <p className="text-2xl font-mono font-bold mb-4">
+                🎉 LET'S BUILD SOMETHING AMAZING! 🎉
+              </p>
+              <p className="font-mono text-sm">
+                This is your chance to showcase creativity, learn new tech, and compete for awesome prizes!<br/>
+                Whether you're building your first DApp or you're a blockchain veteran,<br/>
+                we can't wait to see what you create with Vibe Coding on Aptos!
+              </p>
+              <p className="font-mono text-lg mt-4 font-bold">
+                GOOD LUCK, AND MAY THE BEST VIBES WIN! 🚀
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
       <footer className="border-t-4 border-black dark:border-white bg-white dark:bg-black">
         <div className="container mx-auto px-6 py-8">
           <div className="text-center">
             <div className="flex flex-col md:flex-row justify-between items-center font-mono text-sm">
               <div className="mb-4 md:mb-0">
-                vibecoded by{' '}
-                <Link
-                  href="https://github.com/wintertoro"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline font-bold"
-                >
-                  @wintertoro
-                </Link>
+                Aptos Vibe Hack 2025 - Internal Company Hackathon
               </div>
               <div className="flex gap-6">
-                <Link
+                <a
+                  href="https://github.com/aptos-labs/aptos-npm-mcp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  [MCP_GUIDE]
+                </a>
+                <a
                   href="https://aptos.dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline"
                 >
                   [APTOS_DOCS]
-                </Link>
-                <Link
-                  href="https://github.com/aptos-labs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  [GITHUB]
-                </Link>
-                <Link
+                </a>
+                <a
                   href="https://discord.gg/aptoslabs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline"
                 >
                   [DISCORD]
-                </Link>
+                </a>
               </div>
+            </div>
+            <div className="mt-4 text-xs font-mono text-gray-600 dark:text-gray-400">
+              Powered by Aptos blockchain and Move smart contracts | Built with serious vibes and hella style
             </div>
           </div>
         </div>

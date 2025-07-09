@@ -1,139 +1,126 @@
 [
   {
     "id": "1",
-    "title": "Todo dApp",
-    "description": "A fully decentralized todo application built on Aptos blockchain with smart contract integration.",
+    "title": "AptosChat - Decentralized Team Communication",
+    "description": "A Web3 alternative to Slack built on Aptos! Real-time messaging with token rewards for helpful contributions and on-chain message verification.",
     "imageUrl": "/tile1.png",
-    "projectUrl": "https://todo-dapp-fe.vercel.app/",
-    "repoUrl": "https://github.com/wintertoro/todo-dapp-fe",
+    "projectUrl": "https://aptos-chat-demo.vercel.app/",
+    "repoUrl": "https://github.com/internal/aptos-chat",
     "tags": [
       "dApp",
-      "Productivity",
-      "Move"
+      "Communication", 
+      "Social",
+      "Token Rewards"
     ],
     "status": "live",
-    "creator": "@wintertoro",
-    "dateAdded": "2024-01-15"
+    "creator": "@alice_dev",
+    "dateAdded": "2025-07-28"
   },
   {
-    "id": "2",
-    "title": "Aptos Billboard",
-    "description": "A decentralized highway billboard messaging system where users can post messages on virtual billboards while driving down the digital highway.",
+    "id": "2", 
+    "title": "MoodBoard - Employee Sentiment Tracker",
+    "description": "Anonymous mood tracking for team wellness with NFT rewards for participation. Uses zero-knowledge proofs to ensure privacy while tracking company morale.",
     "imageUrl": "/tile2.png",
-    "projectUrl": "https://aptos-billboard.vercel.app/",
-    "repoUrl": "https://github.com/tippi-fifestarr/aptos-billboard",
+    "projectUrl": "https://mood-board-aptos.vercel.app/",
+    "repoUrl": "https://github.com/internal/mood-board",
     "tags": [
       "dApp",
-      "Messaging",
-      "Social",
-      "Interactive"
+      "Wellness",
+      "NFT",
+      "Privacy",
+      "ZK"
     ],
     "status": "live",
-    "creator": "@tippi-fifestarr",
-    "creatorUrl": "https://github.com/tippi-fifestarr/",
-    "dateAdded": "2024-02-20"
+    "creator": "@bob_designer",
+    "creatorUrl": "https://github.com/bob-designer/",
+    "dateAdded": "2025-07-29"
   },
   {
     "id": "3",
-    "title": "Aptos Confidential",
-    "description": "Confidential computing dashboard for Aptos Labs providing secure and private blockchain operations.",
+    "title": "AptosOffice - Virtual Workspace Metaverse", 
+    "description": "3D virtual office space where remote employees can meet, collaborate, and earn office tokens for participation. Built with Three.js and Aptos smart contracts.",
     "imageUrl": "/tile3.png",
-    "projectUrl": "https://confidential.aptoslabs.com/dashboard",
-    "repoUrl": "https://aptos.dev/en/build/smart-contracts/confidential-asset",
+    "projectUrl": "https://aptos-office.vercel.app/",
+    "repoUrl": "https://github.com/internal/aptos-office",
     "tags": [
-      "Confidential",
-      "Security",
-      "Dashboard",
-      "Aptos Labs"
+      "Metaverse",
+      "3D",
+      "Remote Work",
+      "Tokens"
     ],
-    "status": "live",
-    "creator": "@dport",
-    "creatorUrl": "https://github.com/banool",
-    "dateAdded": "2024-03-10"
+    "status": "live", 
+    "creator": "@charlie_3d",
+    "creatorUrl": "https://github.com/charlie3d",
+    "dateAdded": "2025-07-30"
   },
   {
     "id": "4",
-    "title": "NFT Demo Aggregator",
-    "description": "A comprehensive NFT aggregator demo showcasing NFT collections and marketplace functionality on Aptos.",
-    "imageUrl": "/tile4.png",
-    "projectUrl": "https://nft-demo-aggregator.vercel.app/",
-    "repoUrl": "https://github.com/yuunlimm/nft-demo-aggregator",
+    "title": "SkillSwap - Internal Knowledge Exchange",
+    "description": "Peer-to-peer skill sharing platform where employees can teach and learn from each other, earning skill tokens and building reputation on-chain.",
+    "imageUrl": "/tile4.png", 
+    "projectUrl": "https://skillswap-aptos.vercel.app/",
+    "repoUrl": "https://github.com/internal/skillswap",
     "tags": [
-      "NFT",
-      "Aggregator",
-      "Marketplace",
-      "Demo"
+      "Education",
+      "P2P",
+      "Reputation",
+      "DAO"
     ],
     "status": "live",
-    "creator": "@yuunlimm",
-    "creatorUrl": "https://github.com/yuunlimm",
-    "dateAdded": "2024-04-05"
+    "creator": "@diana_educator",
+    "creatorUrl": "https://github.com/diana-educator",
+    "dateAdded": "2025-07-31"
   },
   {
     "id": "5",
-    "title": "Aptos Arena - Pig Game",
-    "description": "A classic Pig dice game implementation built on Aptos blockchain. Roll dice, accumulate points, and compete in the arena to reach 50 points first!",
+    "title": "CarbonCredit - Company Sustainability Tracker",
+    "description": "Track and gamify company carbon footprint reduction. Employees earn green tokens for eco-friendly actions and can vote on sustainability initiatives.",
     "imageUrl": "/tile5.png",
-    "projectUrl": "https://hack-and-hang-june-2025.vercel.app/",
-    "repoUrl": "https://github.com/aptos-labs/hack-and-hang-june-2025",
+    "projectUrl": "https://carbon-credit-aptos.vercel.app/",
+    "repoUrl": "https://github.com/internal/carbon-credit",
     "tags": [
-      "Game",
-      "Dice",
-      "Interactive",
-      "Move"
+      "Sustainability",
+      "Gamification", 
+      "Voting",
+      "Environmental"
     ],
     "status": "live",
-    "creator": "@gregnazario",
-    "creatorUrl": "https://github.com/gregnazario",
-    "dateAdded": "2024-06-25"
+    "creator": "@eve_green",
+    "creatorUrl": "https://github.com/eve-green",
+    "dateAdded": "2025-08-01"
   },
   {
     "id": "6",
-    "title": "Governance Dashboard",
-    "description": "Community governance platform for Aptos ecosystem projects with voting and proposal management.",
+    "title": "PeerBonus - Decentralized Recognition System",
+    "description": "Let employees recognize and reward each other with bonus tokens. Built-in transparency and fairness through blockchain verification.",
     "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/governance-hub",
-    "repoUrl": "https://github.com/aptos-vibes/governance-hub",
+    "projectUrl": "https://peer-bonus.vercel.app/",
+    "repoUrl": "https://github.com/internal/peer-bonus",
     "tags": [
-      "Governance",
-      "DAO",
-      "Community"
+      "HR",
+      "Recognition",
+      "Tokens",
+      "Transparency"
     ],
-    "status": "concept",
-    "creator": "placeholder",
-    "dateAdded": "2024-05-12"
+    "status": "development",
+    "creator": "@frank_hr",
+    "dateAdded": "2025-07-30"
   },
   {
     "id": "7",
-    "title": "DeFi Liquidity Pool",
-    "description": "Automated market maker protocol for seamless token swapping and liquidity provision on Aptos.",
+    "title": "IdeaDAO - Innovation Governance",
+    "description": "Democratic idea submission and voting platform for company innovations. Stake tokens on ideas you believe in and get rewarded if they're implemented.",
     "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-vibes/defi-pool",
-    "repoUrl": "https://github.com/aptos-vibes/defi-pool",
+    "projectUrl": "https://idea-dao.vercel.app/",
+    "repoUrl": "https://github.com/internal/idea-dao",
     "tags": [
-      "DeFi",
-      "AMM",
-      "Liquidity",
-      "Swap"
+      "DAO",
+      "Innovation",
+      "Governance",
+      "Staking"
     ],
     "status": "concept",
-    "creator": "@defi-builder",
-    "dateAdded": "2024-06-26"
-  },
-  {
-    "id": "mct4fbaz-3ql6e",
-    "title": "FundMe",
-    "description": "Create campaigns, raise funds, and make a difference on the Aptos blockchain",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://fundraising-eta.vercel.app/",
-    "repoUrl": "https://fundraising-eta.vercel.app/",
-    "tags": [
-      "Marketplace",
-      "DApp"
-    ],
-    "status": "live",
-    "creator": "@0xmaayan",
-    "creatorUrl": "",
-    "dateAdded": "2025-07-07"
+    "creator": "@grace_product",
+    "dateAdded": "2025-07-29"
   }
 ]

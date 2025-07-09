@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { Aptos, AptosConfig, Network, MoveValue } from "@aptos-labs/ts-sdk";
 import { CONTRACT_CONFIG, NETWORK_CONFIG } from "../config/contract";
 
 interface VotingSystemProps {
   projectId: string;
-  projectTitle: string;
 }
 
 interface VoteData {
@@ -19,7 +18,7 @@ interface VoteData {
 
 type TransactionState = 'idle' | 'pending' | 'success' | 'error';
 
-export function VotingSystem({ projectId, projectTitle }: VotingSystemProps) {
+export function VotingSystem({ projectId }: VotingSystemProps) {
   const { connected, account, signAndSubmitTransaction } = useWallet();
   const [voteData, setVoteData] = useState<VoteData>({
     upvotes: 0,
@@ -38,7 +37,7 @@ export function VotingSystem({ projectId, projectTitle }: VotingSystemProps) {
   const aptos = new Aptos(aptosConfig);
 
   // Load vote data from smart contract
-  const loadVoteData = async () => {
+  const loadVoteData = useCallback(async () => {
     try {
       if (!account) {
         // Load public vote counts without user vote
@@ -101,7 +100,7 @@ export function VotingSystem({ projectId, projectTitle }: VotingSystemProps) {
         userVote: null,
       });
     }
-  };
+  }, [account, projectId, aptos]);
 
   // Handle voting transactions
   const handleVote = async (voteType: 'up' | 'down') => {
@@ -148,9 +147,10 @@ export function VotingSystem({ projectId, projectTitle }: VotingSystemProps) {
       // Reset transaction state after a delay
       setTimeout(() => setTransactionState('idle'), 2000);
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Voting transaction failed:", error);
-      setErrorMessage(error.message || "Transaction failed");
+      const errorMsg = error instanceof Error ? error.message : "Transaction failed";
+      setErrorMessage(errorMsg);
       setTransactionState('error');
       
       // Reset error state after a delay
@@ -164,7 +164,7 @@ export function VotingSystem({ projectId, projectTitle }: VotingSystemProps) {
   // Load data on component mount and when wallet connection changes
   useEffect(() => {
     loadVoteData();
-  }, [connected, account, projectId]);
+  }, [loadVoteData]);
 
   // Get button states
   const getButtonState = (voteType: 'up' | 'down') => {

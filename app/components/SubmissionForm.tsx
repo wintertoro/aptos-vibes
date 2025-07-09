@@ -133,7 +133,7 @@ export function SubmissionForm() {
         setErrorMessage(errorData.error || 'Failed to submit project');
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setErrorMessage('Network error. Please try again.');
       setSubmitStatus('error');
     } finally {

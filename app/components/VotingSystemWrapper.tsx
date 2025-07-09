@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { Aptos, AptosConfig, Network, MoveValue } from "@aptos-labs/ts-sdk";
 import { CONTRACT_CONFIG, NETWORK_CONFIG } from "../config/contract";
 
 interface VotingSystemWrapperProps {
   projectId: string;
-  projectTitle: string;
   onVibeScoreUpdate: (projectId: string, vibeScore: number) => void;
 }
 
@@ -20,7 +19,7 @@ interface VoteData {
 
 type TransactionState = 'idle' | 'pending' | 'success' | 'error';
 
-export function VotingSystemWrapper({ projectId, projectTitle, onVibeScoreUpdate }: VotingSystemWrapperProps) {
+export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSystemWrapperProps) {
   const { connected, account, signAndSubmitTransaction } = useWallet();
   const [voteData, setVoteData] = useState<VoteData>({
     upvotes: 0,
@@ -39,7 +38,7 @@ export function VotingSystemWrapper({ projectId, projectTitle, onVibeScoreUpdate
   const aptos = new Aptos(aptosConfig);
 
   // Load vote data from smart contract
-  const loadVoteData = async () => {
+  const loadVoteData = useCallback(async () => {
     try {
       if (!account) {
         // Load public vote counts without user vote
@@ -51,14 +50,14 @@ export function VotingSystemWrapper({ projectId, projectTitle, onVibeScoreUpdate
         });
 
         const [upvotes, downvotes] = result as [number, number];
-        const newVoteData = {
+        const vibeScore = upvotes - downvotes;
+        setVoteData({
           upvotes,
           downvotes,
-          totalVotes: upvotes - downvotes,
+          totalVotes: vibeScore,
           userVote: null,
-        };
-        setVoteData(newVoteData);
-        onVibeScoreUpdate(projectId, newVoteData.totalVotes);
+        });
+        onVibeScoreUpdate(projectId, vibeScore);
         return;
       }
 
@@ -88,27 +87,26 @@ export function VotingSystemWrapper({ projectId, projectTitle, onVibeScoreUpdate
         userVote = 'down';
       }
 
-      const newVoteData = {
+      const vibeScore = upvotes - downvotes;
+      setVoteData({
         upvotes,
         downvotes,
-        totalVotes: upvotes - downvotes,
+        totalVotes: vibeScore,
         userVote,
-      };
-      setVoteData(newVoteData);
-      onVibeScoreUpdate(projectId, newVoteData.totalVotes);
+      });
+      onVibeScoreUpdate(projectId, vibeScore);
     } catch (error) {
       console.error("Error loading vote data:", error);
       // Fallback to zero values if contract not initialized
-      const fallbackData = {
+      setVoteData({
         upvotes: 0,
         downvotes: 0,
         totalVotes: 0,
         userVote: null,
-      };
-      setVoteData(fallbackData);
-      onVibeScoreUpdate(projectId, fallbackData.totalVotes);
+      });
+      onVibeScoreUpdate(projectId, 0);
     }
-  };
+  }, [account, projectId, aptos, onVibeScoreUpdate]);
 
   // Handle voting transactions
   const handleVote = async (voteType: 'up' | 'down') => {
@@ -155,9 +153,10 @@ export function VotingSystemWrapper({ projectId, projectTitle, onVibeScoreUpdate
       // Reset transaction state after a delay
       setTimeout(() => setTransactionState('idle'), 2000);
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Voting transaction failed:", error);
-      setErrorMessage(error.message || "Transaction failed");
+      const errorMsg = error instanceof Error ? error.message : "Transaction failed";
+      setErrorMessage(errorMsg);
       setTransactionState('error');
       
       // Reset error state after a delay
@@ -171,7 +170,7 @@ export function VotingSystemWrapper({ projectId, projectTitle, onVibeScoreUpdate
   // Load data on component mount and when wallet connection changes
   useEffect(() => {
     loadVoteData();
-  }, [connected, account, projectId]);
+  }, [loadVoteData]);
 
   // Get button states
   const getButtonState = (voteType: 'up' | 'down') => {

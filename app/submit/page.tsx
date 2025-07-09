@@ -24,16 +24,22 @@ export default function Submit() {
         <div className="flex justify-between items-start mb-8">
           <div className="flex gap-4">
             <Link 
-              href="/"
+              href="/" 
               className="retro-button px-4 py-2 no-underline"
             >
               [HOME]
             </Link>
             <Link 
-              href="/docs"
+              href="/readme"
               className="retro-button px-4 py-2 no-underline"
             >
-              [DOCS]
+              [README]
+            </Link>
+            <Link 
+              href="/how-to-mcp"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [HOW TO MCP]
             </Link>
           </div>
           <WalletButton />
@@ -51,9 +57,9 @@ export default function Submit() {
             </p>
           </div>
           <p className="text-lg font-mono max-w-4xl mx-auto leading-relaxed">
-            // Share your innovative Aptos blockchain projects<br/>
-            // Join our curated database of vibecoded applications<br/>
-            // Inspire the community with your creative vision
+            {/* Share your innovative Aptos blockchain projects */}<br/>
+            {/* Join our curated database of vibecoded applications */}<br/>
+            {/* Inspire the community with your creative vision */}
           </p>
         </div>
       </header>
@@ -71,9 +77,9 @@ export default function Submit() {
             <div className="space-y-6 font-mono text-sm">
               <div className="border-l-4 border-black dark:border-white pl-4 mb-6">
                 <p className="leading-relaxed">
-                  // Submit your vibecoded Aptos project using our automated form below<br/>
-                  // Your submission will create a pull request for review<br/>
-                  // Projects appear on the main page once approved by maintainers
+                  {/* Submit your vibecoded Aptos project using our automated form below */}<br/>
+                  {/* Your submission will create a pull request for review */}<br/>
+                  {/* Projects appear on the main page once approved by maintainers */}
                 </p>
               </div>
 
@@ -205,15 +211,15 @@ export default function Submit() {
                   <h3 className="font-bold mb-2">PROJECT DATA FORMAT</h3>
                   <div className="bg-black text-green-400 p-3 text-xs overflow-x-auto">
                     <div>&#123;</div>
-                    <div>&nbsp;&nbsp;"id": "unique-id",</div>
-                    <div>&nbsp;&nbsp;"title": "Project Name",</div>
-                    <div>&nbsp;&nbsp;"description": "Brief description",</div>
-                    <div>&nbsp;&nbsp;"imageUrl": "/thumbnail.png",</div>
-                    <div>&nbsp;&nbsp;"projectUrl": "https://demo.com",</div>
-                    <div>&nbsp;&nbsp;"repoUrl": "https://github.com/user/repo",</div>
-                    <div>&nbsp;&nbsp;"tags": ["aptos", "defi"],</div>
-                    <div>&nbsp;&nbsp;"status": "live",</div>
-                    <div>&nbsp;&nbsp;"creator": "@username"</div>
+                    <div>&nbsp;&nbsp;&quot;id&quot;: &quot;unique-id&quot;,</div>
+                    <div>&nbsp;&nbsp;&quot;title&quot;: &quot;Project Name&quot;,</div>
+                    <div>&nbsp;&nbsp;&quot;description&quot;: &quot;Brief description&quot;,</div>
+                    <div>&nbsp;&nbsp;&quot;imageUrl&quot;: &quot;/thumbnail.png&quot;,</div>
+                    <div>&nbsp;&nbsp;&quot;projectUrl&quot;: &quot;https://demo.com&quot;,</div>
+                    <div>&nbsp;&nbsp;&quot;repoUrl&quot;: &quot;https://github.com/user/repo&quot;,</div>
+                    <div>&nbsp;&nbsp;&quot;tags&quot;: [&quot;aptos&quot;, &quot;defi&quot;],</div>
+                    <div>&nbsp;&nbsp;&quot;status&quot;: &quot;live&quot;,</div>
+                    <div>&nbsp;&nbsp;&quot;creator&quot;: &quot;@username&quot;</div>
                     <div>&#125;</div>
                   </div>
                 </div>
@@ -222,7 +228,7 @@ export default function Submit() {
                   <h3 className="font-bold mb-2">REQUIREMENTS</h3>
                   <ul className="text-xs space-y-1">
                     <li>• <strong>Image:</strong> 400x300px, under 500KB</li>
-                    <li>• <strong>Status:</strong> "live", "development", or "concept"</li>
+                    <li>• <strong>Status:</strong> &quot;live&quot;, &quot;development&quot;, or &quot;concept&quot;</li>
                     <li>• <strong>Tags:</strong> Relevant categories (dApp, DeFi, NFT, etc.)</li>
                     <li>• <strong>Links:</strong> Working demo + GitHub repo</li>
                     <li>• <strong>Quality:</strong> Clean code, good documentation</li>
@@ -241,7 +247,7 @@ export default function Submit() {
               <p className="font-mono mb-6 text-sm leading-relaxed">
                 Got an innovative Aptos project to showcase?<br/>
                 Ready to inspire the community?<br/>
-                Let's build the ecosystem together!
+                Let&apos;s build the ecosystem together!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
@@ -259,9 +265,7 @@ export default function Submit() {
                   [VIEW_DOCS]
                 </Link>
               </div>
-              <div className="mt-6 font-mono text-xs text-gray-600 dark:text-gray-400">
-                // Building the future, one vibe at a time
-              </div>
+              {/* Final action comment */}
             </div>
           </div>
         </div>

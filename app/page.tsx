@@ -21,10 +21,6 @@ interface Project {
   dateAdded: string;
 }
 
-interface ProjectWithVibeScore extends Project {
-  vibeScore: number;
-}
-
 const projects: Project[] = projectsData as Project[];
 
 const getStatusSymbol = (status: Project['status']) => {
@@ -139,16 +135,18 @@ export default function Home() {
       <header className="container mx-auto px-6 py-8">
         <div className="flex justify-between items-start mb-8">
           <div className="flex gap-4">
-            <a 
-              href="#readme"
+            <Link 
+              href="/readme"
               className="retro-button px-4 py-2 no-underline"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-              }}
             >
               [README]
-            </a>
+            </Link>
+            <Link 
+              href="/how-to-mcp"
+              className="retro-button px-4 py-2 no-underline"
+            >
+              [HOW TO MCP]
+            </Link>
             <Link 
               href="/submit"
               className="retro-button px-4 py-2 no-underline"
@@ -182,9 +180,9 @@ export default function Home() {
             </p>
           </div>
           <p className="text-lg font-mono max-w-4xl mx-auto leading-relaxed">
-            // Company-wide Vibe Coding Hackathon for all Aptos employees<br/>
-            // Labs + Foundation welcome! Ship something fun, useful, weird, or lovable<br/>
-            // Join #vibe-hack-2025 on Slack to chat and solicit votes!
+            {/* Company-wide Vibe Coding Hackathon for all Aptos employees */}<br/>
+            {/* Labs + Foundation welcome! Ship something fun, useful, weird, or lovable */}<br/>
+            {/* Join #vibe-hack-2025 on Slack to chat and solicit votes! */}
           </p>
         </div>
       </header>
@@ -415,7 +413,6 @@ export default function Home() {
                 <div className="border-t-2 border-black dark:border-white pt-4">
                   <VotingSystemWrapper 
                     projectId={project.id} 
-                    projectTitle={project.title}
                     onVibeScoreUpdate={updateVibeScore}
                   />
                 </div>
@@ -478,113 +475,6 @@ export default function Home() {
 
 
       </main>
-
-      {/* README Section */}
-      <section id="readme" className="border-t-4 border-black dark:border-white bg-white dark:bg-black">
-        <div className="container mx-auto px-6 py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold font-mono mb-4 retro-typewriter">
-              &gt; README.TXT
-            </h2>
-            <div className="border-2 border-black dark:border-white p-6 bg-white dark:bg-black max-w-4xl mx-auto">
-              <p className="text-lg font-mono">
-                APTOS VIBE HACK 2025 DOCUMENTATION
-              </p>
-              <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mt-2">
-                INTERNAL COMPANY HACKATHON GUIDE AND RULES
-              </p>
-            </div>
-          </div>
-
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-            <div className="retro-card p-6">
-              <h3 className="text-xl font-bold font-mono mb-4">[HACKATHON_RULES]</h3>
-              <ul className="font-mono text-sm space-y-2">
-                <li>✅ Use only Vibe Coding</li>
-                <li>✅ Deploy DApp to testnet</li>
-                <li>✅ Submit via this portal</li>
-                <li>🗳️ All employees can vote</li>
-                <li>🏁 Deadline: Aug 01, 10AM PT</li>
-                <li>🏆 Prize: 100 APT</li>
-              </ul>
-            </div>
-
-            <div className="retro-card p-6">
-              <h3 className="text-xl font-bold font-mono mb-4">[TIMELINE]</h3>
-              <div className="font-mono text-sm space-y-2">
-                <div className="flex justify-between">
-                  <span>Vibe Days:</span>
-                  <span>7/28 - 3/31</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Voting Ends:</span>
-                  <span>08/01 09:59 AM PT</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Winner Announced:</span>
-                  <span>08/01 10:00 AM PT</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="retro-card p-6">
-              <h3 className="text-xl font-bold font-mono mb-4">[RESOURCES]</h3>
-              <div className="space-y-2">
-                <a 
-                  href="https://github.com/aptos-labs/aptos-npm-mcp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block font-mono text-sm hover:underline"
-                >
-                  &gt; Aptos NPM MCP Guide
-                </a>
-                <a 
-                  href="https://www.notion.so/MCP-Feedback-22b8b846eb7280debf3ad4ab2046674f"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block font-mono text-sm hover:underline"
-                >
-                  &gt; MCP Feedback Form
-                </a>
-                <a 
-                  href="https://aptos.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block font-mono text-sm hover:underline"
-                >
-                  &gt; Aptos Documentation
-                </a>
-              </div>
-            </div>
-
-            <div className="retro-card p-6">
-              <h3 className="text-xl font-bold font-mono mb-4">[SUPPORT]</h3>
-              <div className="font-mono text-sm space-y-2">
-                <div>💬 Slack: #vibe-hack-2025</div>
-                <div>🛠️ MCP Support: Feedback Form</div>
-                <div>🆘 Technical Issues: Dev Team</div>
-                <div>📝 Submissions: Organizers</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-8 max-w-4xl mx-auto">
-              <p className="text-2xl font-mono font-bold mb-4">
-                🎉 LET'S BUILD SOMETHING AMAZING! 🎉
-              </p>
-              <p className="font-mono text-sm">
-                This is your chance to showcase creativity, learn new tech, and compete for awesome prizes!<br/>
-                Whether you're building your first DApp or you're a blockchain veteran,<br/>
-                we can't wait to see what you create with Vibe Coding on Aptos!
-              </p>
-              <p className="font-mono text-lg mt-4 font-bold">
-                GOOD LUCK, AND MAY THE BEST VIBES WIN! 🚀
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="border-t-4 border-black dark:border-white bg-white dark:bg-black">

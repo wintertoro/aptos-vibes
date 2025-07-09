@@ -59,7 +59,7 @@ For feedback and support: **[MCP Feedback Form](https://www.notion.so/MCP-Feedba
 
 ### 🎨 Creative Expression
 - Express creativity through unique UI/UX design
-- Innovative smart contract patterns  
+- Innovative smart contract patterns
 - Novel blockchain interactions
 - Artistic and functional harmony
 
@@ -128,7 +128,7 @@ The voting system is powered by a fully on-chain Move smart contract deployed on
 
 #### 🗳️ Voting Functions
 - `upvote(project_id)` - Cast upvote for a project
-- `downvote(project_id)` - Cast downvote for a project  
+- `downvote(project_id)` - Cast downvote for a project
 - `remove_vote(project_id)` - Remove your vote
 
 #### 📈 View Functions
@@ -147,7 +147,7 @@ The voting system is powered by a fully on-chain Move smart contract deployed on
 ## 🚀 Getting Started with Development
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 18+ 
 - Aptos CLI
 - Aptos wallet (Petra/Martian)
 - Access to Vibe Coding tools

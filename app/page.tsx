@@ -155,18 +155,15 @@ export default function Home() {
               APTOS INTERNAL VIBE CODING HACKATHON 2025
             </p>
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400">
-              🏆 100 APT PRIZE | 7/28-3/31 VIBE DAYS | 08/01 10AM PT DEADLINE
+              🏆 100 APT PRIZE | 7/28-3/31 VIBE DAYS | VOTING DEADLINE: 08/01 10AM PT
             </p>
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mt-2">
               STATUS: [OPEN] | SUBMISSIONS: {projects.length} | NETWORK: APTOS_TESTNET
             </p>
           </div>
           <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-6 mb-6">
-            <p className="text-lg font-mono mb-4">
-              💡 7/28-3/31 VIBE DAYS | 08/01 10AM PT - HIGHEST VOTES WIN
-            </p>
             <p className="text-2xl font-mono font-bold">
-              🎉 100 APT PRIZE!!! BRAGGING RIGHTS! FAME! GLORY! FUN! 🎉
+              🎉 HIGHEST VOTES WIN! BRAGGING RIGHTS! FAME! GLORY! FUN! 🎉
             </p>
           </div>
           <p className="text-lg font-mono max-w-4xl mx-auto leading-relaxed">

@@ -142,19 +142,19 @@ export default function ReadmePage() {
               </p>
 
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h3 className="text-lg font-bold font-mono mb-3">[CREATIVE_EXPRESSION]</h3>
                   <p className="font-mono text-sm">
                     Express creativity through unique UI/UX design, innovative smart contract patterns, and novel blockchain interactions.
                   </p>
                 </div>
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h3 className="text-lg font-bold font-mono mb-3">[TECHNICAL_EXCELLENCE]</h3>
                   <p className="font-mono text-sm">
                     Maintain high technical standards while leveraging Aptos&apos; Move language and advanced blockchain features.
                   </p>
                 </div>
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h3 className="text-lg font-bold font-mono mb-3">[COMMUNITY_IMPACT]</h3>
                   <p className="font-mono text-sm">
                     Build something that inspires, provides educational value, and drives innovation forward.
@@ -166,7 +166,7 @@ export default function ReadmePage() {
 
           {/* Resources */}
           <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
               <h2 className="text-2xl font-bold font-mono">
                 C:\HACKATHON&gt; DIR RESOURCES
               </h2>
@@ -199,7 +199,7 @@ export default function ReadmePage() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="border border-black dark:border-white p-4">
+                <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[OFFICIAL_DOCS]</h4>
                   <p className="text-xs font-mono mb-3">
                     Comprehensive guides and API references
@@ -212,7 +212,7 @@ export default function ReadmePage() {
                     &gt; VISIT_APTOS_DOCS
                   </Link>
                 </div>
-                <div className="border border-black dark:border-white p-4">
+                <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[COMMUNITY]</h4>
                   <p className="text-xs font-mono mb-3">
                     Join the developer community
@@ -225,7 +225,7 @@ export default function ReadmePage() {
                     &gt; JOIN_DISCORD
                   </Link>
                 </div>
-                <div className="border border-black dark:border-white p-4">
+                <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[GITHUB]</h4>
                   <p className="text-xs font-mono mb-3">
                     Core Aptos blockchain source code
@@ -244,7 +244,7 @@ export default function ReadmePage() {
 
           {/* Support & Contact */}
           <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
               <h2 className="text-2xl font-bold font-mono">
                 C:\HACKATHON&gt; TYPE SUPPORT.TXT
               </h2>

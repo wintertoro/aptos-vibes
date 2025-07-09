@@ -121,21 +121,21 @@ export default function HowToMCPPage() {
                 <div>
                   <h3 className="text-xl font-bold font-mono mb-4">[REQUIRED_SOFTWARE]</h3>
                   <div className="space-y-3">
-                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
+                    <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Node.js 18+</h4>
                       <p className="font-mono text-xs">JavaScript runtime for development tools</p>
                       <Link href="https://nodejs.org" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Node.js
                       </Link>
                     </div>
-                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
+                    <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Git</h4>
                       <p className="font-mono text-xs">Version control for cloning MCP repository</p>
                       <Link href="https://git-scm.com" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Git
                       </Link>
                     </div>
-                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
+                    <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Aptos CLI</h4>
                       <p className="font-mono text-xs">Command-line tool for Aptos development</p>
                       <Link href="https://aptos.dev/tools/install-cli" target="_blank" className="font-mono text-xs hover:underline">
@@ -147,14 +147,14 @@ export default function HowToMCPPage() {
                 <div>
                   <h3 className="text-xl font-bold font-mono mb-4">[AI_ASSISTANT]</h3>
                   <div className="space-y-3">
-                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
+                    <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Cursor IDE (Recommended)</h4>
                       <p className="font-mono text-xs">Official AI-powered code editor with MCP support</p>
                       <Link href="https://cursor.sh" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Cursor
                       </Link>
                     </div>
-                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
+                    <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Claude Desktop (Alternative)</h4>
                       <p className="font-mono text-xs">Anthropic&apos;s AI assistant with MCP support</p>
                       <Link href="https://claude.ai/download" target="_blank" className="font-mono text-xs hover:underline">
@@ -220,17 +220,17 @@ export default function HowToMCPPage() {
 
                 <h3 className="text-xl font-bold font-mono mb-4 mt-8">[STEP 3: VERIFY CURSOR MCP CONNECTION]</h3>
                 <div className="space-y-4">
-                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">1. Check Cursor Settings</h4>
                     <p className="font-mono text-xs mb-2">Navigate to: Cursor → Settings → Cursor Settings</p>
                     <p className="font-mono text-xs">Look for &quot;MCP&quot; or &quot;Tools &amp; Integrations&quot; section</p>
                   </div>
-                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">2. Enable MCP</h4>
                     <p className="font-mono text-xs mb-2">Ensure MCP is enabled with green indicator</p>
                     <p className="font-mono text-xs">Click refresh icon to update MCP servers</p>
                   </div>
-                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">3. Test Connection</h4>
                     <p className="font-mono text-xs mb-2">Set AI dropdown to &quot;Agent&quot; and &quot;claude-4-sonnet&quot;</p>
                     <p className="font-mono text-xs">Ask: &quot;are you using mcp?&quot; to verify connection</p>
@@ -348,7 +348,7 @@ export default function HowToMCPPage() {
               <div className="mb-8">
                 <h3 className="text-xl font-bold font-mono mb-4">[BEST PRACTICES FOR PROMPTING]</h3>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-3">✅ DO THIS</h4>
                     <ul className="font-mono text-xs space-y-1">
                       <li>• Be specific about your dApp functionality</li>
@@ -358,7 +358,7 @@ export default function HowToMCPPage() {
                       <li>• Specify if you need testnet deployment</li>
                     </ul>
                   </div>
-                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-3">❌ AVOID THIS</h4>
                     <ul className="font-mono text-xs space-y-1">
                       <li>• Generic &quot;build me a dApp&quot; requests</li>
@@ -443,7 +443,7 @@ export default function HowToMCPPage() {
             <div className="retro-card p-8">
               
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
+                <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[OFFICIAL_DOCS]</h4>
                   <div className="space-y-2">
                     <Link 
@@ -463,7 +463,7 @@ export default function HowToMCPPage() {
                   </div>
                 </div>
 
-                <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
+                <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[HACKATHON_SUPPORT]</h4>
                   <div className="space-y-2">
                     <div className="font-mono text-xs">💬 Slack: #vibe-hack-2025</div>
@@ -477,7 +477,7 @@ export default function HowToMCPPage() {
                   </div>
                 </div>
 
-                <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
+                <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[COMMUNITY]</h4>
                   <div className="space-y-2">
                     <Link 

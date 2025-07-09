@@ -48,11 +48,11 @@ export default function Submit() {
           <h1 className="text-4xl md:text-6xl font-bold font-mono mb-4 retro-typewriter">
             &gt; SUBMIT_PROJECT.EXE
           </h1>
-          <div className="border-2 border-black dark:border-white p-6 mb-6 bg-white dark:bg-black">
+          <div className="border-2 border-black dark:border-white p-6 mb-6 bg-white dark:bg-black text-black dark:text-stone-100">
             <p className="text-xl font-mono mb-2">
               SYSTEM: PROJECT_SUBMISSION_PROTOCOL
             </p>
-            <p className="text-sm font-mono text-gray-600 dark:text-gray-400">
+            <p className="text-sm font-mono text-gray-600 dark:text-stone-300">
               STATUS: [ACCEPTING_ENTRIES] | QUEUE: OPEN | TARGET: APTOS_ECOSYSTEM
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function Submit() {
 
         {/* Submission Guidelines */}
         <div className="max-w-4xl mx-auto mb-12">
-          <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
+          <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-8 mb-8">
             <div className="font-mono text-sm mb-6">
               <span className="text-green-600 dark:text-green-400">submit@aptos:~$</span> cat submission_guidelines.txt
             </div>
@@ -91,7 +91,7 @@ export default function Submit() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h3 className="font-bold text-green-600 dark:text-green-400 mb-2">✅ WHAT WE ACCEPT</h3>
                     <ul className="text-xs space-y-1">
                       <li>• Aptos-based dApps and smart contracts</li>
@@ -102,7 +102,7 @@ export default function Submit() {
                     </ul>
                   </div>
 
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h3 className="font-bold text-blue-600 dark:text-blue-400 mb-2">🎯 SUBMISSION CRITERIA</h3>
                     <ul className="text-xs space-y-1">
                       <li className="flex items-start gap-2">
@@ -126,7 +126,7 @@ export default function Submit() {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h3 className="font-bold text-purple-600 dark:text-purple-400 mb-2">📝 REQUIRED INFO</h3>
                     <ul className="text-xs space-y-1">
                       <li>• Project name and description</li>
@@ -137,7 +137,7 @@ export default function Submit() {
                     </ul>
                   </div>
 
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                     <h3 className="font-bold text-red-600 dark:text-red-400 mb-2">⚡ AUTOMATED PROCESS</h3>
                     <ul className="text-xs space-y-1">
                       <li>• Fill out the submission form below</li>
@@ -196,7 +196,7 @@ export default function Submit() {
 
         <div className="max-w-4xl mx-auto mt-12">
           {/* Quick Technical Guide */}
-          <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-8 mb-8">
+          <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-8 mb-8">
             <div className="font-mono text-sm mb-6">
               <span className="text-green-600 dark:text-green-400">submit@aptos:~$</span> cat quick_guide.md
             </div>
@@ -240,7 +240,7 @@ export default function Submit() {
 
           {/* Final CTA */}
           <div className="text-center">
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-8 inline-block max-w-2xl">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-8 inline-block max-w-2xl">
               <h2 className="text-xl font-bold font-mono mb-4 uppercase">
                 &gt; READY_TO_SUBMIT.EXE
               </h2>

@@ -267,8 +267,8 @@ export function SubmissionForm() {
 
           {/* Submit Status */}
           {submitStatus === 'success' && (
-            <div className="border-2 border-green-500 bg-green-50 dark:bg-green-900 p-4">
-              <div className="font-mono text-sm text-green-700 dark:text-green-300">
+            <div className="border-2 border-green-500 bg-green-50 dark:bg-green-900 text-green-700 dark:text-green-300 p-4">
+              <div className="font-mono text-sm">
                 ✅ PROJECT_SUBMITTED_SUCCESSFULLY!<br/>
                 A pull request has been created for review. Your project will appear on the main page once approved.
                 {pullRequestUrl && (
@@ -289,8 +289,8 @@ export function SubmissionForm() {
           )}
 
           {submitStatus === 'error' && (
-            <div className="border-2 border-red-500 bg-red-50 dark:bg-red-900 p-4">
-              <div className="font-mono text-sm text-red-700 dark:text-red-300">
+            <div className="border-2 border-red-500 bg-red-50 dark:bg-red-900 text-red-700 dark:text-red-300 p-4">
+              <div className="font-mono text-sm">
                 ❌ SUBMISSION_ERROR:<br/>
                 {errorMessage}
               </div>

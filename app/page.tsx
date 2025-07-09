@@ -150,14 +150,14 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-bold font-mono mb-4 retro-typewriter">
             &gt; HACKATHON_SUBMISSIONS.EXE
           </h1>
-          <div className="border-2 border-black dark:border-white p-6 mb-6 bg-white dark:bg-black">
+          <div className="border-2 border-black dark:border-white p-6 mb-6 bg-white dark:bg-black text-black dark:text-stone-100">
             <p className="text-xl font-mono mb-2">
               APTOS INTERNAL VIBE CODING HACKATHON 2025
             </p>
-            <p className="text-sm font-mono text-gray-600 dark:text-gray-400">
+            <p className="text-sm font-mono text-gray-600 dark:text-stone-300">
               🏆 100 APT PRIZE | 7/28-3/31 VIBE DAYS | VOTING DEADLINE: 08/01 10AM PT
             </p>
-            <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mt-2">
+            <p className="text-sm font-mono text-gray-600 dark:text-stone-300 mt-2">
               STATUS: [OPEN] | SUBMISSIONS: {projects.length} | NETWORK: APTOS_TESTNET
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function Home() {
           <div className="font-mono text-sm flex justify-between items-center">
             {/* Left side - Section Header */}
             <div className="flex items-center">
-              <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
+              <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 px-2 py-1">
                 <h2 className="text-sm font-bold font-mono">
                   C:\HACKATHON_SUBMISSIONS&gt; DIR /W
                 </h2>
@@ -191,7 +191,7 @@ export default function Home() {
             {/* Right side - Sort and Filter Controls */}
             <div className="flex items-center gap-2">
               {/* Sort Control */}
-              <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
+              <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 px-2 py-1">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs">SORT:</span>
                   <select
@@ -212,7 +212,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Status Filter */}
-              <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
+              <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 px-2 py-1">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs">STATUS:</span>
                   <select

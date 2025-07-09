@@ -48,11 +48,11 @@ export default function HowToMCPPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-mono mb-4 retro-typewriter">
             &gt; HOW_TO_MCP.EXE
           </h1>
-          <div className="border-2 border-black dark:border-white p-6 bg-white dark:bg-black max-w-4xl mx-auto">
+          <div className="border-2 border-black dark:border-white p-6 bg-white dark:bg-black text-black dark:text-stone-100 max-w-4xl mx-auto">
             <p className="text-lg font-mono">
               MODEL CONTEXT PROTOCOL SETUP GUIDE
             </p>
-            <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mt-2">
+            <p className="text-sm font-mono text-gray-600 dark:text-stone-300 mt-2">
               STEP-BY-STEP INSTRUCTIONS FOR APTOS VIBE CODING
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function HowToMCPPage() {
           
           {/* What is MCP */}
           <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
               <h2 className="text-2xl font-bold font-mono">
                 C:\MCP&gt; TYPE WHAT_IS_MCP.TXT
               </h2>
@@ -87,19 +87,19 @@ export default function HowToMCPPage() {
               </p>
 
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h3 className="text-lg font-bold font-mono mb-3">[AI_INTEGRATION]</h3>
                   <p className="font-mono text-sm">
                     Connect your AI assistant to Aptos development tools, documentation, and smart contract templates.
                   </p>
                 </div>
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h3 className="text-lg font-bold font-mono mb-3">[RAPID_DEVELOPMENT]</h3>
                   <p className="font-mono text-sm">
                     Generate boilerplate code, deploy contracts, and build DApps faster with AI assistance.
                   </p>
                 </div>
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                   <h3 className="text-lg font-bold font-mono mb-3">[BEST_PRACTICES]</h3>
                   <p className="font-mono text-sm">
                     Follow Aptos development patterns and security guidelines automatically.
@@ -111,7 +111,7 @@ export default function HowToMCPPage() {
 
           {/* Prerequisites */}
           <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
               <h2 className="text-2xl font-bold font-mono">
                 C:\MCP&gt; TYPE PREREQUISITES.TXT
               </h2>
@@ -121,21 +121,21 @@ export default function HowToMCPPage() {
                 <div>
                   <h3 className="text-xl font-bold font-mono mb-4">[REQUIRED_SOFTWARE]</h3>
                   <div className="space-y-3">
-                    <div className="border border-black dark:border-white p-3">
+                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Node.js 18+</h4>
                       <p className="font-mono text-xs">JavaScript runtime for development tools</p>
                       <Link href="https://nodejs.org" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Node.js
                       </Link>
                     </div>
-                    <div className="border border-black dark:border-white p-3">
+                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Git</h4>
                       <p className="font-mono text-xs">Version control for cloning MCP repository</p>
                       <Link href="https://git-scm.com" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Git
                       </Link>
                     </div>
-                    <div className="border border-black dark:border-white p-3">
+                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Aptos CLI</h4>
                       <p className="font-mono text-xs">Command-line tool for Aptos development</p>
                       <Link href="https://aptos.dev/tools/install-cli" target="_blank" className="font-mono text-xs hover:underline">
@@ -147,14 +147,14 @@ export default function HowToMCPPage() {
                 <div>
                   <h3 className="text-xl font-bold font-mono mb-4">[AI_ASSISTANT]</h3>
                   <div className="space-y-3">
-                    <div className="border border-black dark:border-white p-3">
+                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Cursor IDE (Recommended)</h4>
                       <p className="font-mono text-xs">Official AI-powered code editor with MCP support</p>
                       <Link href="https://cursor.sh" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Cursor
                       </Link>
                     </div>
-                    <div className="border border-black dark:border-white p-3">
+                    <div className="border border-black dark:border-white text-black dark:text-stone-100 p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Claude Desktop (Alternative)</h4>
                       <p className="font-mono text-xs">Anthropic&apos;s AI assistant with MCP support</p>
                       <Link href="https://claude.ai/download" target="_blank" className="font-mono text-xs hover:underline">
@@ -169,7 +169,7 @@ export default function HowToMCPPage() {
 
           {/* Setup Instructions */}
           <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
               <h2 className="text-2xl font-bold font-mono">
                 C:\MCP&gt; RUN SETUP_INSTRUCTIONS.BAT
               </h2>
@@ -178,7 +178,7 @@ export default function HowToMCPPage() {
               
               {/* Cursor IDE Setup (Official) */}
               <div className="mb-12">
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
                   <h3 className="text-xl font-bold font-mono mb-2">🎯 OFFICIAL CURSOR IDE SETUP</h3>
                   <p className="font-mono text-sm">
                     Recommended method from the official Aptos NPM MCP repository
@@ -213,24 +213,24 @@ export default function HowToMCPPage() {
                   <div className="text-white">&#125;</div>
                 </div>
                 <div className="border-l-4 border-black dark:border-white pl-4 mb-6">
-                  <p className="font-mono text-xs">
+                  <p className="font-mono text-xs text-black dark:text-stone-100">
                     ⚠️ Replace &lt;path-to-mcp-server&gt; with the actual path to your cloned MCP repository
                   </p>
                 </div>
 
                 <h3 className="text-xl font-bold font-mono mb-4 mt-8">[STEP 3: VERIFY CURSOR MCP CONNECTION]</h3>
                 <div className="space-y-4">
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">1. Check Cursor Settings</h4>
                     <p className="font-mono text-xs mb-2">Navigate to: Cursor → Settings → Cursor Settings</p>
                     <p className="font-mono text-xs">Look for &quot;MCP&quot; or &quot;Tools &amp; Integrations&quot; section</p>
                   </div>
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">2. Enable MCP</h4>
                     <p className="font-mono text-xs mb-2">Ensure MCP is enabled with green indicator</p>
                     <p className="font-mono text-xs">Click refresh icon to update MCP servers</p>
                   </div>
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">3. Test Connection</h4>
                     <p className="font-mono text-xs mb-2">Set AI dropdown to &quot;Agent&quot; and &quot;claude-4-sonnet&quot;</p>
                     <p className="font-mono text-xs">Ask: &quot;are you using mcp?&quot; to verify connection</p>
@@ -240,7 +240,7 @@ export default function HowToMCPPage() {
 
               {/* Claude Desktop Setup (Alternative) */}
               <div className="mb-8">
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
                   <h3 className="text-xl font-bold font-mono mb-2">🔧 CLAUDE DESKTOP SETUP (ALTERNATIVE)</h3>
                   <p className="font-mono text-sm">
                     Alternative method using NPM package installation
@@ -273,7 +273,7 @@ export default function HowToMCPPage() {
                   <div className="text-white">&#125;</div>
                 </div>
 
-                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4 mt-6">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mt-6">
                   <h4 className="font-bold font-mono text-sm mb-2">✅ SUCCESS INDICATORS:</h4>
                   <ul className="font-mono text-xs space-y-1">
                     <li>• MCP tool icon appears in interface</li>
@@ -289,7 +289,7 @@ export default function HowToMCPPage() {
 
           {/* Usage Examples */}
           <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
               <h2 className="text-2xl font-bold font-mono">
                 C:\MCP&gt; TYPE USAGE_EXAMPLES.TXT
               </h2>
@@ -305,7 +305,7 @@ export default function HowToMCPPage() {
                 <div className="space-y-6">
                   <div className="border border-black dark:border-white p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">[FULL END-TO-END DAPP]</h4>
-                    <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
+                    <div className="bg-gray-100 dark:bg-gray-800 text-black dark:text-stone-100 p-3 font-mono text-xs mb-2">
                       &quot;Help me build a todo list dapp on Aptos. Build the smart contract to handle the dapp logic and help me with deploying the contract, the frontend for the UI and wallet connection for users to be able to connect with their wallet.&quot;
                     </div>
                     <p className="font-mono text-xs">
@@ -315,7 +315,7 @@ export default function HowToMCPPage() {
 
                   <div className="border border-black dark:border-white p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">[FRONTEND ONLY]</h4>
-                    <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
+                    <div className="bg-gray-100 dark:bg-gray-800 text-black dark:text-stone-100 p-3 font-mono text-xs mb-2">
                       &quot;Help me build a frontend for a todo list dapp on Aptos. Build the UI and wallet connection for users to be able to connect with their wallet.&quot;
                     </div>
                     <p className="font-mono text-xs">
@@ -325,7 +325,7 @@ export default function HowToMCPPage() {
 
                   <div className="border border-black dark:border-white p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">[SMART CONTRACT ONLY]</h4>
-                    <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
+                    <div className="bg-gray-100 dark:bg-gray-800 text-black dark:text-stone-100 p-3 font-mono text-xs mb-2">
                       &quot;Help me build a smart contract for a todo list dapp on Aptos. Build the smart contract to handle the dapp logic. Also, help with deploying the contract.&quot;
                     </div>
                     <p className="font-mono text-xs">
@@ -335,7 +335,7 @@ export default function HowToMCPPage() {
 
                   <div className="border border-black dark:border-white p-4">
                     <h4 className="font-bold font-mono text-sm mb-2">[HACKATHON EXAMPLES]</h4>
-                    <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
+                    <div className="bg-gray-100 dark:bg-gray-800 text-black dark:text-stone-100 p-3 font-mono text-xs mb-2">
                       &quot;Help me build an employee recognition dapp on Aptos with token rewards for achievements and peer nominations.&quot;
                     </div>
                     <p className="font-mono text-xs">
@@ -348,7 +348,7 @@ export default function HowToMCPPage() {
               <div className="mb-8">
                 <h3 className="text-xl font-bold font-mono mb-4">[BEST PRACTICES FOR PROMPTING]</h3>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-3">✅ DO THIS</h4>
                     <ul className="font-mono text-xs space-y-1">
                       <li>• Be specific about your dApp functionality</li>
@@ -358,7 +358,7 @@ export default function HowToMCPPage() {
                       <li>• Specify if you need testnet deployment</li>
                     </ul>
                   </div>
-                  <div className="border border-black dark:border-white p-4">
+                  <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
                     <h4 className="font-bold font-mono text-sm mb-3">❌ AVOID THIS</h4>
                     <ul className="font-mono text-xs space-y-1">
                       <li>• Generic &quot;build me a dApp&quot; requests</li>
@@ -376,7 +376,7 @@ export default function HowToMCPPage() {
 
           {/* Troubleshooting */}
           <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
               <h2 className="text-2xl font-bold font-mono">
                 C:\MCP&gt; TYPE TROUBLESHOOTING.TXT
               </h2>
@@ -387,7 +387,7 @@ export default function HowToMCPPage() {
                 <div>
                   <h3 className="text-xl font-bold font-mono mb-4">[COMMON_ISSUES]</h3>
                   <div className="space-y-4">
-                    <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                    <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                       <h4 className="font-bold font-mono text-sm mb-2">❌ MCP NOT CONNECTING</h4>
                       <ul className="font-mono text-xs space-y-1">
                         <li>• Check Node.js version (18+ required)</li>
@@ -397,7 +397,7 @@ export default function HowToMCPPage() {
                       </ul>
                     </div>
 
-                    <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                    <div className="border-2 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
                       <h4 className="font-bold font-mono text-sm mb-2">⚠️ PERMISSION ERRORS</h4>
                       <ul className="font-mono text-xs space-y-1">
                         <li>• Run npm with sudo on macOS/Linux</li>
@@ -435,7 +435,7 @@ export default function HowToMCPPage() {
 
           {/* Support Resources */}
           <section>
-            <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+            <div className="border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4 mb-6">
               <h2 className="text-2xl font-bold font-mono">
                 C:\MCP&gt; DIR SUPPORT_RESOURCES
               </h2>
@@ -443,7 +443,7 @@ export default function HowToMCPPage() {
             <div className="retro-card p-8">
               
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="border border-black dark:border-white p-4">
+                <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[OFFICIAL_DOCS]</h4>
                   <div className="space-y-2">
                     <Link 
@@ -463,7 +463,7 @@ export default function HowToMCPPage() {
                   </div>
                 </div>
 
-                <div className="border border-black dark:border-white p-4">
+                <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[HACKATHON_SUPPORT]</h4>
                   <div className="space-y-2">
                     <div className="font-mono text-xs">💬 Slack: #vibe-hack-2025</div>
@@ -477,7 +477,7 @@ export default function HowToMCPPage() {
                   </div>
                 </div>
 
-                <div className="border border-black dark:border-white p-4">
+                <div className="border border-black dark:border-white text-black dark:text-stone-100 p-4">
                   <h4 className="font-bold font-mono mb-2">[COMMUNITY]</h4>
                   <div className="space-y-2">
                     <Link 

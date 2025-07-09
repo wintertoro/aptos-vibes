@@ -124,21 +124,21 @@ export default function HowToMCPPage() {
                     <div className="border border-black dark:border-white p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Node.js 18+</h4>
                       <p className="font-mono text-xs">JavaScript runtime for development tools</p>
-                      <Link href="https://nodejs.org" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                      <Link href="https://nodejs.org" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Node.js
                       </Link>
                     </div>
                     <div className="border border-black dark:border-white p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Git</h4>
                       <p className="font-mono text-xs">Version control for cloning MCP repository</p>
-                      <Link href="https://git-scm.com" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                      <Link href="https://git-scm.com" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Git
                       </Link>
                     </div>
                     <div className="border border-black dark:border-white p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Aptos CLI</h4>
                       <p className="font-mono text-xs">Command-line tool for Aptos development</p>
-                      <Link href="https://aptos.dev/tools/install-cli" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                      <Link href="https://aptos.dev/tools/install-cli" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Install Aptos CLI
                       </Link>
                     </div>
@@ -150,14 +150,14 @@ export default function HowToMCPPage() {
                     <div className="border border-black dark:border-white p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Cursor IDE (Recommended)</h4>
                       <p className="font-mono text-xs">Official AI-powered code editor with MCP support</p>
-                      <Link href="https://cursor.sh" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                      <Link href="https://cursor.sh" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Cursor
                       </Link>
                     </div>
                     <div className="border border-black dark:border-white p-3">
                       <h4 className="font-bold font-mono text-sm mb-1">Claude Desktop (Alternative)</h4>
                       <p className="font-mono text-xs">Anthropic&apos;s AI assistant with MCP support</p>
-                      <Link href="https://claude.ai/download" target="_blank" className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                      <Link href="https://claude.ai/download" target="_blank" className="font-mono text-xs hover:underline">
                         &gt; Download Claude
                       </Link>
                     </div>
@@ -178,15 +178,15 @@ export default function HowToMCPPage() {
               
               {/* Cursor IDE Setup (Official) */}
               <div className="mb-12">
-                <div className="border-2 border-green-500 bg-green-50 dark:bg-green-900 p-4 mb-6">
-                  <h3 className="text-xl font-bold font-mono mb-2 text-green-700 dark:text-green-300">🎯 OFFICIAL CURSOR IDE SETUP</h3>
-                  <p className="font-mono text-sm text-green-700 dark:text-green-300">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+                  <h3 className="text-xl font-bold font-mono mb-2">🎯 OFFICIAL CURSOR IDE SETUP</h3>
+                  <p className="font-mono text-sm">
                     Recommended method from the official Aptos NPM MCP repository
                   </p>
                 </div>
 
                 <h3 className="text-xl font-bold font-mono mb-4">[STEP 1: CLONE THE MCP REPOSITORY]</h3>
-                <div className="bg-black text-green-400 p-4 font-mono text-sm mb-4 overflow-x-auto">
+                <div className="bg-black text-white p-4 font-mono text-sm mb-4 overflow-x-auto">
                   <div className="mb-2 text-gray-400"># Clone the official Aptos NPM MCP repository</div>
                   <div className="text-white">git clone git@github.com:aptos-labs/aptos-npm-mcp.git</div>
                   <div className="text-white">cd aptos-npm-mcp</div>
@@ -197,7 +197,7 @@ export default function HowToMCPPage() {
                 <p className="font-mono text-sm mb-4">
                   Create MCP configuration in your project directory:
                 </p>
-                <div className="bg-black text-green-400 p-4 font-mono text-xs mb-4 overflow-x-auto">
+                <div className="bg-black text-white p-4 font-mono text-xs mb-4 overflow-x-auto">
                   <div className="mb-1 text-gray-400"># In your project root folder, create .cursor directory</div>
                   <div className="text-white">mkdir .cursor</div>
                   <div className="mb-3 text-gray-400"># Create mcp.json configuration file</div>
@@ -212,8 +212,8 @@ export default function HowToMCPPage() {
                   <div className="text-white">&nbsp;&nbsp;&#125;</div>
                   <div className="text-white">&#125;</div>
                 </div>
-                <div className="border-l-4 border-yellow-500 pl-4 mb-6">
-                  <p className="font-mono text-xs text-yellow-700 dark:text-yellow-300">
+                <div className="border-l-4 border-black dark:border-white pl-4 mb-6">
+                  <p className="font-mono text-xs">
                     ⚠️ Replace &lt;path-to-mcp-server&gt; with the actual path to your cloned MCP repository
                   </p>
                 </div>
@@ -240,15 +240,15 @@ export default function HowToMCPPage() {
 
               {/* Claude Desktop Setup (Alternative) */}
               <div className="mb-8">
-                <div className="border-2 border-blue-500 bg-blue-50 dark:bg-blue-900 p-4 mb-6">
-                  <h3 className="text-xl font-bold font-mono mb-2 text-blue-700 dark:text-blue-300">🔧 CLAUDE DESKTOP SETUP (ALTERNATIVE)</h3>
-                  <p className="font-mono text-sm text-blue-700 dark:text-blue-300">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4 mb-6">
+                  <h3 className="text-xl font-bold font-mono mb-2">🔧 CLAUDE DESKTOP SETUP (ALTERNATIVE)</h3>
+                  <p className="font-mono text-sm">
                     Alternative method using NPM package installation
                   </p>
                 </div>
 
                 <h3 className="text-xl font-bold font-mono mb-4">[STEP A: INSTALL APTOS NPM MCP]</h3>
-                <div className="bg-black text-green-400 p-4 font-mono text-sm mb-4 overflow-x-auto">
+                <div className="bg-black text-white p-4 font-mono text-sm mb-4 overflow-x-auto">
                   <div className="mb-2 text-gray-400"># Install globally via npm</div>
                   <div className="text-white">npm install -g @aptos-labs/aptos-npm-mcp</div>
                 </div>
@@ -257,7 +257,7 @@ export default function HowToMCPPage() {
                 <p className="font-mono text-sm mb-4">
                   Add configuration to Claude Desktop config file:
                 </p>
-                <div className="bg-black text-green-400 p-4 font-mono text-xs mb-4 overflow-x-auto">
+                <div className="bg-black text-white p-4 font-mono text-xs mb-4 overflow-x-auto">
                   <div className="mb-1 text-gray-400"># Config file locations:</div>
                   <div className="mb-1 text-gray-400"># macOS: ~/Library/Application Support/Claude/claude_desktop_config.json</div>
                   <div className="mb-1 text-gray-400"># Windows: %APPDATA%\Claude\claude_desktop_config.json</div>
@@ -273,9 +273,9 @@ export default function HowToMCPPage() {
                   <div className="text-white">&#125;</div>
                 </div>
 
-                <div className="border-2 border-green-500 bg-green-50 dark:bg-green-900 p-4 mt-6">
-                  <h4 className="font-bold font-mono text-sm text-green-700 dark:text-green-300 mb-2">✅ SUCCESS INDICATORS:</h4>
-                  <ul className="font-mono text-xs text-green-700 dark:text-green-300 space-y-1">
+                <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4 mt-6">
+                  <h4 className="font-bold font-mono text-sm mb-2">✅ SUCCESS INDICATORS:</h4>
+                  <ul className="font-mono text-xs space-y-1">
                     <li>• MCP tool icon appears in interface</li>
                     <li>• AI can access Aptos documentation</li>
                     <li>• Smart contract templates available</li>
@@ -304,7 +304,7 @@ export default function HowToMCPPage() {
                 
                 <div className="space-y-6">
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-2 text-green-600 dark:text-green-400">[FULL END-TO-END DAPP]</h4>
+                    <h4 className="font-bold font-mono text-sm mb-2">[FULL END-TO-END DAPP]</h4>
                     <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
                       &quot;Help me build a todo list dapp on Aptos. Build the smart contract to handle the dapp logic and help me with deploying the contract, the frontend for the UI and wallet connection for users to be able to connect with their wallet.&quot;
                     </div>
@@ -314,7 +314,7 @@ export default function HowToMCPPage() {
                   </div>
 
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-2 text-blue-600 dark:text-blue-400">[FRONTEND ONLY]</h4>
+                    <h4 className="font-bold font-mono text-sm mb-2">[FRONTEND ONLY]</h4>
                     <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
                       &quot;Help me build a frontend for a todo list dapp on Aptos. Build the UI and wallet connection for users to be able to connect with their wallet.&quot;
                     </div>
@@ -324,7 +324,7 @@ export default function HowToMCPPage() {
                   </div>
 
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-2 text-purple-600 dark:text-purple-400">[SMART CONTRACT ONLY]</h4>
+                    <h4 className="font-bold font-mono text-sm mb-2">[SMART CONTRACT ONLY]</h4>
                     <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
                       &quot;Help me build a smart contract for a todo list dapp on Aptos. Build the smart contract to handle the dapp logic. Also, help with deploying the contract.&quot;
                     </div>
@@ -334,7 +334,7 @@ export default function HowToMCPPage() {
                   </div>
 
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-2 text-red-600 dark:text-red-400">[HACKATHON EXAMPLES]</h4>
+                    <h4 className="font-bold font-mono text-sm mb-2">[HACKATHON EXAMPLES]</h4>
                     <div className="bg-gray-100 dark:bg-gray-800 p-3 font-mono text-xs mb-2">
                       &quot;Help me build an employee recognition dapp on Aptos with token rewards for achievements and peer nominations.&quot;
                     </div>
@@ -349,7 +349,7 @@ export default function HowToMCPPage() {
                 <h3 className="text-xl font-bold font-mono mb-4">[BEST PRACTICES FOR PROMPTING]</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-3 text-green-600 dark:text-green-400">✅ DO THIS</h4>
+                    <h4 className="font-bold font-mono text-sm mb-3">✅ DO THIS</h4>
                     <ul className="font-mono text-xs space-y-1">
                       <li>• Be specific about your dApp functionality</li>
                       <li>• Mention both frontend and smart contract needs</li>
@@ -359,7 +359,7 @@ export default function HowToMCPPage() {
                     </ul>
                   </div>
                   <div className="border border-black dark:border-white p-4">
-                    <h4 className="font-bold font-mono text-sm mb-3 text-red-600 dark:text-red-400">❌ AVOID THIS</h4>
+                    <h4 className="font-bold font-mono text-sm mb-3">❌ AVOID THIS</h4>
                     <ul className="font-mono text-xs space-y-1">
                       <li>• Generic &quot;build me a dApp&quot; requests</li>
                       <li>• Asking for mainnet deployment</li>
@@ -387,9 +387,9 @@ export default function HowToMCPPage() {
                 <div>
                   <h3 className="text-xl font-bold font-mono mb-4">[COMMON_ISSUES]</h3>
                   <div className="space-y-4">
-                    <div className="border-2 border-red-500 bg-red-50 dark:bg-red-900 p-4">
-                      <h4 className="font-bold font-mono text-sm text-red-700 dark:text-red-300 mb-2">❌ MCP NOT CONNECTING</h4>
-                      <ul className="font-mono text-xs text-red-700 dark:text-red-300 space-y-1">
+                    <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                      <h4 className="font-bold font-mono text-sm mb-2">❌ MCP NOT CONNECTING</h4>
+                      <ul className="font-mono text-xs space-y-1">
                         <li>• Check Node.js version (18+ required)</li>
                         <li>• Verify config file path and syntax</li>
                         <li>• Restart Claude completely</li>
@@ -397,9 +397,9 @@ export default function HowToMCPPage() {
                       </ul>
                     </div>
 
-                    <div className="border-2 border-yellow-500 bg-yellow-50 dark:bg-yellow-900 p-4">
-                      <h4 className="font-bold font-mono text-sm text-yellow-700 dark:text-yellow-300 mb-2">⚠️ PERMISSION ERRORS</h4>
-                      <ul className="font-mono text-xs text-yellow-700 dark:text-yellow-300 space-y-1">
+                    <div className="border-2 border-black dark:border-white bg-white dark:bg-black p-4">
+                      <h4 className="font-bold font-mono text-sm mb-2">⚠️ PERMISSION ERRORS</h4>
+                      <ul className="font-mono text-xs space-y-1">
                         <li>• Run npm with sudo on macOS/Linux</li>
                         <li>• Use admin prompt on Windows</li>
                         <li>• Configure npm global prefix</li>
@@ -411,18 +411,18 @@ export default function HowToMCPPage() {
                 <div>
                   <h3 className="text-xl font-bold font-mono mb-4">[QUICK_FIXES]</h3>
                   <div className="space-y-4">
-                    <div className="bg-black text-green-400 p-4 font-mono text-xs">
+                    <div className="bg-black text-white p-4 font-mono text-xs">
                       <div className="mb-2 text-gray-400"># Reinstall if having issues</div>
                       <div className="text-white">npm uninstall -g @aptos-labs/aptos-npm-mcp</div>
                       <div className="text-white">npm install -g @aptos-labs/aptos-npm-mcp</div>
                     </div>
 
-                    <div className="bg-black text-green-400 p-4 font-mono text-xs">
+                    <div className="bg-black text-white p-4 font-mono text-xs">
                       <div className="mb-2 text-gray-400"># Check if MCP is installed</div>
                       <div className="text-white">npx @aptos-labs/aptos-npm-mcp --version</div>
                     </div>
 
-                    <div className="bg-black text-green-400 p-4 font-mono text-xs">
+                    <div className="bg-black text-white p-4 font-mono text-xs">
                       <div className="mb-2 text-gray-400"># Find config file location</div>
                       <div className="text-white">echo $HOME/Library/Application\\ Support/Claude/</div>
                     </div>

@@ -4,6 +4,7 @@
 
 [![Live Submissions](https://img.shields.io/badge/Submissions-Live-brightgreen)](https://aptos-vibes.vercel.app)
 [![Prize](https://img.shields.io/badge/Prize-100%20APT-orange)](https://aptos.dev)
+[![Instant Publishing](https://img.shields.io/badge/Publishing-Instant-blue)](#)
 [![Deadline](https://img.shields.io/badge/Deadline-Aug%2001%2010AM%20PT-red)](#)
 
 ---
@@ -32,7 +33,8 @@ This is your chance to get creative and ship something **fun, useful, weird, or 
 
 - ✅ **Use only Vibe Coding** (Engineers, we're looking at you!)
 - ✅ Must **deploy your DApp to testnet**
-- ✅ Submit your project to: https://aptos-vibes.vercel.app/
+- ✅ Submit your project to: https://aptos-vibes.vercel.app/submit
+- ⚡ **Instant Publishing** - Projects appear immediately on the site
 - 🗳️ Voting will be **open to all Aptos employees**
 - 🏁 **Deadline for voting**: 09:59 AM PT, Aug **01**
 - 🏆 Highest voted project wins **100 APT**
@@ -95,8 +97,14 @@ UP:15 - DN:3 = SCORE:+12
 
 ## 🤝 How to Submit Your Project
 
-### 📝 Submission Portal
-Visit our [submission portal](https://aptos-vibes.vercel.app/submit) and fill out the form with:
+### ⚡ Instant Automated Publishing
+Visit our [submission portal](https://aptos-vibes.vercel.app/submit) and your project will be **published instantly** - no waiting for approval!
+
+### 🚀 Submission Process
+1. **Fill out the form** with your project details
+2. **Click submit** - system validates everything
+3. **⚡ INSTANTLY published** to the main page
+4. **Start getting votes** immediately!
 
 ### 📋 Required Information
 - **Project Title** - Give it a memorable name
@@ -157,7 +165,7 @@ The voting system is powered by a fully on-chain Move smart contract deployed on
 2. **Set up Aptos configuration** for testnet
 3. **Build your DApp** with Move smart contracts
 4. **Deploy to testnet** using Aptos CLI
-5. **Submit your project** via the portal
+5. **Submit your project** via the portal for instant publishing
 
 ---
 
@@ -172,6 +180,7 @@ Before submitting, ensure you have:
 - [ ] 🔗 Verified all URLs are working
 - [ ] 📱 Tested wallet connectivity
 - [ ] 💬 Posted in #vibe-hack-2025 for visibility
+- [ ] ⚡ Ready for instant publishing!
 
 ---
 
@@ -194,10 +203,11 @@ Before submitting, ensure you have:
 - **Demo Video** - Show your project in action
 - **Clear Documentation** - Help others understand your work
 - **Engage Voters** - Respond to questions and comments
+- **Submit Early** - Get your project live and start collecting votes
 
 ---
 
-## 🏆 Judging Criteria
+## �� Judging Criteria
 
 Projects will be judged by **employee voting** based on:
 

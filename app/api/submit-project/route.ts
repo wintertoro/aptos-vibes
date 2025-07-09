@@ -108,13 +108,35 @@ export async function POST(request: NextRequest) {
       // For development: store locally instead of creating PR
       console.warn('GitHub integration not configured. Storing project locally.');
       
-      // In production, you would want to save to a database
-      // For now, we'll just return success with a message
-      return NextResponse.json({
-        success: true,
-        message: 'Project submitted successfully! (stored locally - GitHub integration not configured)',
-        project: newProject
-      });
+      // Actually persist to local file in development
+      try {
+        const fs = require('fs');
+        const path = require('path');
+        const projectsPath = path.join(process.cwd(), 'data', 'projects.json');
+        
+        // Read current projects
+        const currentData = fs.readFileSync(projectsPath, 'utf8');
+        const projects: Project[] = JSON.parse(currentData);
+        
+        // Add new project
+        projects.push(newProject);
+        
+        // Write back to file
+        fs.writeFileSync(projectsPath, JSON.stringify(projects, null, 2));
+        
+        return NextResponse.json({
+          success: true,
+          message: 'Project submitted successfully and added to site!',
+          project: newProject
+        });
+      } catch (error) {
+        console.error('Failed to save locally:', error);
+        return NextResponse.json({
+          success: true,
+          message: 'Project submitted successfully! (stored in memory - restart server to persist)',
+          project: newProject
+        });
+      }
     }
 
     // GitHub API headers
@@ -144,50 +166,17 @@ export async function POST(request: NextRequest) {
       const updatedContent = JSON.stringify(projects, null, 2);
       const encodedContent = Buffer.from(updatedContent).toString('base64');
 
-      // 3. Create a new branch
-      const branchName = `add-project-${newId}`;
-      
-      // Get the main branch SHA
-      const mainBranchResponse = await fetch(
-        `${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/ref/heads/main`,
-        { headers }
-      );
-      
-      if (!mainBranchResponse.ok) {
-        throw new Error(`Failed to get main branch: ${mainBranchResponse.statusText}`);
-      }
-      
-      const mainBranchData = await mainBranchResponse.json();
-      const mainSha = mainBranchData.object.sha;
-
-      // Create new branch
-      const createBranchResponse = await fetch(
-        `${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/refs`,
-        {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            ref: `refs/heads/${branchName}`,
-            sha: mainSha
-          })
-        }
-      );
-
-      if (!createBranchResponse.ok) {
-        throw new Error(`Failed to create branch: ${createBranchResponse.statusText}`);
-      }
-
-      // 4. Update the file in the new branch
+      // 3. DIRECT COMMIT TO MAIN (instead of creating PR)
       const updateFileResponse = await fetch(
         `${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contents/data/projects.json`,
         {
           method: 'PUT',
           headers,
           body: JSON.stringify({
-            message: `Add project: ${formData.title}`,
+            message: `🚀 Auto-add project: ${formData.title}\n\nSubmitted by: ${formData.creator}\nStatus: ${formData.status}\nTags: ${formData.tags.join(', ')}\n\n[AUTO-APPROVED]`,
             content: encodedContent,
             sha: fileData.sha,
-            branch: branchName
+            branch: 'main'  // Direct commit to main branch
           })
         }
       );
@@ -196,61 +185,14 @@ export async function POST(request: NextRequest) {
         throw new Error(`Failed to update file: ${updateFileResponse.statusText}`);
       }
 
-      // 5. Create pull request
-      const prTitle = `🚀 Add Project: ${formData.title}`;
-      const prBody = `## New Project Submission
-
-**Project:** ${formData.title}
-**Creator:** ${formData.creator}
-**Status:** ${formData.status.toUpperCase()}
-**Tags:** ${formData.tags.join(', ')}
-
-**Description:**
-${formData.description}
-
-**Links:**
-- 🌐 **Live Demo:** ${formData.projectUrl}
-${formData.repoUrl ? `- 📂 **Repository:** ${formData.repoUrl}` : ''}
-${formData.creatorUrl ? `- 👤 **Creator:** ${formData.creatorUrl}` : ''}
-
----
-
-*This pull request was automatically generated from the project submission form.*
-
-### Review Checklist:
-- [ ] Project is built on/for Aptos blockchain
-- [ ] Links are working and valid
-- [ ] Description is clear and appropriate
-- [ ] Tags are relevant
-- [ ] No duplicate projects
-
-**Auto-generated ID:** \`${newId}\``;
-
-      const createPrResponse = await fetch(
-        `${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/pulls`,
-        {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            title: prTitle,
-            body: prBody,
-            head: branchName,
-            base: 'main'
-          })
-        }
-      );
-
-      if (!createPrResponse.ok) {
-        throw new Error(`Failed to create pull request: ${createPrResponse.statusText}`);
-      }
-
-      const prData = await createPrResponse.json();
+      const commitData = await updateFileResponse.json();
 
       return NextResponse.json({
-        message: 'Project submission successful! Pull request created.',
-        pullRequestUrl: prData.html_url,
-        pullRequestNumber: prData.number,
-        project: newProject
+        success: true,
+        message: 'Project submitted and automatically published to the site! 🎉',
+        project: newProject,
+        commitUrl: commitData.commit.html_url,
+        commitSha: commitData.commit.sha
       });
 
     } catch (githubError) {

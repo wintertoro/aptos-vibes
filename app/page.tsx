@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { WalletButton } from "./components/WalletButton";
 import { VotingSystemWrapper } from "./components/VotingSystemWrapper";
-import projectsData from "../data/projects.json";
 
 interface Project {
   id: string;
@@ -19,8 +18,6 @@ interface Project {
   creatorUrl?: string;
   dateAdded: string;
 }
-
-const projects: Project[] = projectsData as Project[];
 
 const getStatusSymbol = (status: Project['status']) => {
   switch (status) {
@@ -36,6 +33,8 @@ const getStatusSymbol = (status: Project['status']) => {
 };
 
 export default function Home() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<'latest' | 'vibe'>('latest');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
@@ -43,6 +42,35 @@ export default function Home() {
   const [statusFilter, setStatusFilter] = useState<'all' | 'live' | 'development' | 'concept'>('all');
   const projectsPerPage = 6;
   
+  // Load projects data on component mount
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        // Use dynamic import to avoid webpack issues
+        const projectsData = await import('../data/projects.json');
+        setProjects(projectsData.default as Project[]);
+      } catch (error) {
+        console.error('Failed to load projects:', error);
+        setProjects([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProjects();
+  }, []);
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white retro-crt retro-scanlines flex items-center justify-center">
+        <div className="border-4 border-black dark:border-white bg-white dark:bg-black p-8">
+          <p className="text-xl font-mono">LOADING PROJECTS.JSON...</p>
+        </div>
+      </div>
+    );
+  }
+
   // Filter and sort projects based on selected criteria
   const filteredAndSortedProjects = [...projects]
     .filter(project => {

@@ -78,14 +78,14 @@ export default function Submit() {
               <div className="border-l-4 border-black dark:border-white pl-4 mb-6">
                 <p className="leading-relaxed">
                   {/* Submit your vibecoded Aptos project using our automated form below */}<br/>
-                  {/* Your submission will create a pull request for review */}<br/>
-                  {/* Projects appear on the main page once approved by maintainers */}
+                  {/* Your submission will be automatically published instantly */}<br/>
+                  {/* No manual review required - projects appear immediately on the main page */}
                 </p>
               </div>
 
               <div>
                 <h2 className="text-lg font-bold mb-4 uppercase">
-                  📋 AUTOMATED SUBMISSION PROCESS
+                  ⚡ INSTANT AUTOMATED PUBLISHING
                 </h2>
               </div>
 
@@ -138,13 +138,13 @@ export default function Submit() {
                   </div>
 
                   <div className="border border-black dark:border-white bg-white dark:bg-black text-black dark:text-stone-100 p-4">
-                    <h3 className="font-bold text-red-600 dark:text-red-400 mb-2">⚡ AUTOMATED PROCESS</h3>
+                    <h3 className="font-bold text-red-600 dark:text-red-400 mb-2">🚀 INSTANT PROCESS</h3>
                     <ul className="text-xs space-y-1">
                       <li>• Fill out the submission form below</li>
                       <li>• System validates your project data</li>
-                      <li>• Auto-creates GitHub pull request</li>
-                      <li>• Maintainers review and approve</li>
-                      <li>• Project appears on main page</li>
+                      <li>• ⚡ INSTANTLY published to main page</li>
+                      <li>• No manual review required</li>
+                      <li>• Project appears live immediately</li>
                     </ul>
                   </div>
                 </div>
@@ -152,9 +152,9 @@ export default function Submit() {
 
               {/* Quick Submit Guide */}
               <div className="border-4 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black p-6 mt-6">
-                <h4 className="font-bold font-mono mb-2">[AUTOMATED_SUBMISSION]</h4>
+                <h4 className="font-bold font-mono mb-2">[INSTANT_AUTOMATED_PUBLISHING]</h4>
                 <p className="font-mono text-sm mb-4">
-                  Submit your project instantly! Our system handles the GitHub integration automatically.
+                  Submit your project and see it live instantly! Zero wait time, no manual approval needed.
                 </p>
                 <div className="space-y-3 mb-4">
                   <div className="font-mono text-xs">
@@ -164,10 +164,10 @@ export default function Submit() {
                     <span className="font-bold">STEP 2:</span> Click submit - system validates everything
                   </div>
                   <div className="font-mono text-xs">
-                    <span className="font-bold">STEP 3:</span> Pull request auto-created for review
+                    <span className="font-bold">STEP 3:</span> ⚡ INSTANTLY published to main page
                   </div>
                   <div className="font-mono text-xs">
-                    <span className="font-bold">STEP 4:</span> Project goes live after approval ⚡
+                    <span className="font-bold">STEP 4:</span> Start getting votes immediately! 🎉
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2">
@@ -178,11 +178,10 @@ export default function Submit() {
                     [SCROLL_TO_FORM]
                   </Link>
                   <Link 
-                    href="https://github.com/wintertoro/aptos-vibes/pulls"
-                    target="_blank"
+                    href="/"
                     className="retro-button px-4 py-2 no-underline"
                   >
-                    [VIEW_SUBMISSIONS]
+                    [VIEW_LIVE_PROJECTS]
                   </Link>
                 </div>
               </div>

@@ -217,7 +217,7 @@ export default function Submit() {
                     <div>&nbsp;&nbsp;&quot;imageUrl&quot;: &quot;/thumbnail.png&quot;,</div>
                     <div>&nbsp;&nbsp;&quot;projectUrl&quot;: &quot;https://demo.com&quot;,</div>
                     <div>&nbsp;&nbsp;&quot;repoUrl&quot;: &quot;https://github.com/user/repo&quot;,</div>
-                    <div>&nbsp;&nbsp;&quot;tags&quot;: [&quot;aptos&quot;, &quot;defi&quot;],</div>
+
                     <div>&nbsp;&nbsp;&quot;status&quot;: &quot;live&quot;,</div>
                     <div>&nbsp;&nbsp;&quot;creator&quot;: &quot;@username&quot;</div>
                     <div>&#125;</div>
@@ -229,7 +229,7 @@ export default function Submit() {
                   <ul className="text-xs space-y-1">
                     <li>• <strong>Image:</strong> 400x300px, under 500KB</li>
                     <li>• <strong>Status:</strong> &quot;live&quot;, &quot;development&quot;, or &quot;concept&quot;</li>
-                    <li>• <strong>Tags:</strong> Relevant categories (dApp, DeFi, NFT, etc.)</li>
+  
                     <li>• <strong>Links:</strong> Working demo + GitHub repo</li>
                     <li>• <strong>Quality:</strong> Clean code, good documentation</li>
                   </ul>

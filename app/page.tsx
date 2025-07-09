@@ -14,7 +14,6 @@ interface Project {
   imageUrl: string;
   projectUrl: string;
   repoUrl: string;
-  tags: string[];
   status: 'live' | 'development' | 'concept';
   creator: string;
   creatorUrl?: string;
@@ -42,22 +41,13 @@ export default function Home() {
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const [projectVibeScores, setProjectVibeScores] = useState<Record<string, number>>({});
   const [statusFilter, setStatusFilter] = useState<'all' | 'live' | 'development' | 'concept'>('all');
-  const [tagFilter, setTagFilter] = useState<string>('all');
   const projectsPerPage = 6;
-  
-  // Get all unique tags for filter options
-  const allTags = Array.from(new Set(projects.flatMap(project => project.tags))).sort();
   
   // Filter and sort projects based on selected criteria
   const filteredAndSortedProjects = [...projects]
     .filter(project => {
       // Status filter
       if (statusFilter !== 'all' && project.status !== statusFilter) {
-        return false;
-      }
-      
-      // Tag filter
-      if (tagFilter !== 'all' && !project.tags.includes(tagFilter)) {
         return false;
       }
       
@@ -243,28 +233,7 @@ export default function Home() {
                   </select>
                 </div>
               </div>
-              
-              {/* Tag Filter */}
-              <div className="border border-black dark:border-white bg-white dark:bg-black px-2 py-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs">TAG:</span>
-                  <select
-                    value={tagFilter}
-                    onChange={(e) => {
-                      setTagFilter(e.target.value);
-                      setCurrentPage(1);
-                    }}
-                    className="font-mono text-xs bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white px-1 py-0 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
-                  >
-                    <option value="all">🏷️ ALL</option>
-                    {allTags.map(tag => (
-                      <option key={tag} value={tag}>
-                        {tag.toUpperCase()}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -354,20 +323,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                {/* Tags in Terminal Style */}
-                <div className="mb-4">
-                  <div className="font-mono text-xs mb-2">TAGS:</div>
-                  <div className="flex flex-wrap gap-1">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs font-mono border border-black dark:border-white bg-white dark:bg-black group-hover:bg-black group-hover:text-white group-hover:border-white"
-                      >
-                        {tag.toUpperCase()}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+
 
                 {/* Creator Field */}
                 <div className="mb-4">

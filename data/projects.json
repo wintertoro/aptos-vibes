@@ -6,16 +6,21 @@
     "imageUrl": "/tile1.png",
     "projectUrl": "https://fundraising-eta.vercel.app/",
     "repoUrl": "https://github.com/0xmaayan",
-    "tags": [
-      "dApp",
-      "DeFi", 
-      "Fundraising",
-      "Smart Contracts",
-      "Governance"
-    ],
     "status": "live",
     "creator": "@0xmaayan",
     "creatorUrl": "https://github.com/0xmaayan",
     "dateAdded": "2025-07-28"
+  },
+  {
+    "id": "2",
+    "title": "AptosTodo - Decentralized Task Management",
+    "description": "A beautiful Web3 todo application built on Aptos blockchain! Create, manage, and complete tasks with on-chain persistence, smart contract validation, and decentralized storage.",
+    "imageUrl": "/tile2.png",
+    "projectUrl": "https://todo-dapp-fe.vercel.app/",
+    "repoUrl": "https://github.com/wintertoro",
+    "status": "live",
+    "creator": "@wintertoro",
+    "creatorUrl": "https://github.com/wintertoro",
+    "dateAdded": "2025-07-29"
   }
 ]

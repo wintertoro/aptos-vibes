@@ -11,7 +11,6 @@ interface FormData {
   creator: string;
   creatorUrl: string;
   status: 'live' | 'development' | 'concept';
-  tags: string[];
 }
 
 export function SubmissionForm() {
@@ -23,8 +22,7 @@ export function SubmissionForm() {
     imageUrl: '',
     creator: '',
     creatorUrl: '',
-    status: 'live',
-    tags: []
+    status: 'live'
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,25 +30,11 @@ export function SubmissionForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const [pullRequestUrl, setPullRequestUrl] = useState('');
 
-  const availableTags = [
-    'DeFi', 'NFT', 'Gaming', 'DApp', 'Tool', 'Educational', 'Infrastructure', 
-    'Wallet', 'DEX', 'Marketplace', 'Social', 'Analytics', 'Bridge'
-  ];
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
-    }));
-  };
-
-  const handleTagToggle = (tag: string) => {
-    setFormData(prev => ({
-      ...prev,
-      tags: prev.tags.includes(tag) 
-        ? prev.tags.filter(t => t !== tag)
-        : [...prev.tags, tag]
     }));
   };
 
@@ -61,7 +45,7 @@ export function SubmissionForm() {
     if (!formData.projectUrl.trim()) errors.push('Project link is required');
     if (!formData.description.trim()) errors.push('Project description is required');
     if (!formData.creator.trim()) errors.push('Creator name is required');
-    if (formData.tags.length === 0) errors.push('At least one tag is required');
+
     
     // URL validation
     try {
@@ -125,8 +109,7 @@ export function SubmissionForm() {
           imageUrl: '',
           creator: '',
           creatorUrl: '',
-          status: 'live',
-          tags: []
+          status: 'live'
         });
       } else {
         const errorData = await response.json();
@@ -280,31 +263,7 @@ export function SubmissionForm() {
             </select>
           </div>
 
-          {/* Tags */}
-          <div>
-            <label className="block font-mono text-sm font-bold mb-2">
-              PROJECT_TAGS* <span className="text-red-500">[REQUIRED]</span>
-            </label>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-              {availableTags.map(tag => (
-                <button
-                  key={tag}
-                  type="button"
-                  onClick={() => handleTagToggle(tag)}
-                  className={`p-2 border-2 font-mono text-xs transition-colors ${
-                    formData.tags.includes(tag)
-                      ? 'border-black dark:border-white bg-black text-white dark:bg-white dark:text-black'
-                      : 'border-black dark:border-white bg-white text-black dark:bg-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-900'
-                  }`}
-                >
-                  {tag.toUpperCase()}
-                </button>
-              ))}
-            </div>
-            <div className="text-xs font-mono text-gray-500 mt-1">
-              Selected: {formData.tags.length > 0 ? formData.tags.join(', ') : 'None'}
-            </div>
-          </div>
+
 
           {/* Submit Status */}
           {submitStatus === 'success' && (

@@ -135,5 +135,20 @@
     "creator": "@0xmaayan",
     "creatorUrl": "",
     "dateAdded": "2025-07-07"
+  },
+  {
+    "id": "md7m2xi2-lj3dr",
+    "title": "Aptos Chess",
+    "description": "Play chess on Aptos",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://chess.dport.me/#/?network=testnet",
+    "repoUrl": "https://github.com/banool/aptos-chess",
+    "tags": [
+      "Gaming"
+    ],
+    "status": "live",
+    "creator": "@banool",
+    "creatorUrl": "https://github.com/banool",
+    "dateAdded": "2025-07-17"
   }
 ]

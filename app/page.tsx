@@ -183,7 +183,7 @@ export default function Home() {
               APTOS INTERNAL VIBE CODING HACKATHON 2025
             </p>
             <p className="text-sm font-mono text-gray-600 dark:text-stone-300">
-              🏆 100 APT PRIZE | 7/28-3/31 VIBE DAYS | VOTING DEADLINE: 08/01 10AM PT
+              🏆 100 APT PRIZE | 7/24-3/31 VIBE DAYS | VOTING DEADLINE: 08/01 10AM PT
             </p>
             <p className="text-sm font-mono text-gray-600 dark:text-stone-300 mt-2">
               STATUS: [OPEN] | SUBMISSIONS: {projects.length} | NETWORK: APTOS_TESTNET
@@ -408,6 +408,7 @@ export default function Home() {
             <div className="flex justify-center items-center gap-1 mb-2">
               {/* Previous Button */}
               <button
+                type="button"
                 onClick={goToPrevPage}
                 disabled={currentPage === 1}
                 className={`px-2 py-1 font-mono text-xs border transition-all ${
@@ -422,6 +423,7 @@ export default function Home() {
               {/* Page Numbers */}
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                 <button
+                  type="button"
                   key={page}
                   onClick={() => goToPage(page)}
                   className={`px-2 py-1 font-mono text-xs border transition-all ${
@@ -436,6 +438,7 @@ export default function Home() {
 
               {/* Next Button */}
               <button
+                type="button"
                 onClick={goToNextPage}
                 disabled={currentPage === totalPages}
                 className={`px-2 py-1 font-mono text-xs border transition-all ${

@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
 
 interface ProjectData {
   title: string;
@@ -110,8 +112,6 @@ export async function POST(request: NextRequest) {
       
       // Actually persist to local file in development
       try {
-        const fs = require('fs');
-        const path = require('path');
         const projectsPath = path.join(process.cwd(), 'data', 'projects.json');
         
         // Read current projects

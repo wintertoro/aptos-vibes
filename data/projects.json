@@ -35,5 +35,20 @@
     "creator": "@wintertoro",
     "creatorUrl": "https://github.com/wintertoro",
     "dateAdded": "2025-07-29"
+  },
+  {
+    "id": "mdoxbxqb-d3pkk",
+    "title": "test",
+    "description": "test",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://github.com/aptos-labs/aptos-npm-mcp",
+    "repoUrl": "https://github.com/aptos-labs/aptos-npm-mcp",
+    "tags": [
+      "general"
+    ],
+    "status": "live",
+    "creator": "@0xmaayan",
+    "creatorUrl": "",
+    "dateAdded": "2025-07-29"
   }
 ]

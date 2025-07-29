@@ -34,17 +34,39 @@ export function VotingSystemWrapper({
     useState<TransactionState>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
+  // Add at top of component
+  const [dataCache, setDataCache] = useState<
+    Map<string, { data: VoteData; timestamp: number }>
+  >(new Map());
+  const CACHE_DURATION = 30000; // 30 seconds
+
+  // Memoize onVibeScoreUpdate to prevent unnecessary re-renders
+  const stableOnVibeScoreUpdate = useCallback(onVibeScoreUpdate, []);
+
   // Initialize Aptos client with useMemo to prevent recreation on every render
   const aptos = useMemo(() => {
     const aptosConfig = new AptosConfig({
       network: Network.TESTNET,
       fullnode: NETWORK_CONFIG.NODE_URL,
+      clientConfig: {
+        API_KEY: "AG-LZA7AYNXBYRXBGQZDBOCEWAJT4PJFGTVC",
+      },
     });
     return new Aptos(aptosConfig);
   }, []); // Empty dependency array since config never changes
 
   // Load vote data from smart contract
   const loadVoteData = useCallback(async () => {
+    const cacheKey = `${projectId}-${account?.address || "anonymous"}`;
+    const cached = dataCache.get(cacheKey);
+
+    // Return cached data if recent
+    if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+      setVoteData(cached.data);
+      stableOnVibeScoreUpdate(projectId, cached.data.totalVotes);
+      return;
+    }
+
     try {
       if (!account) {
         // Load public vote counts without user vote
@@ -58,13 +80,22 @@ export function VotingSystemWrapper({
 
         const [upvotes, downvotes] = result as [number, number];
         const vibeScore = upvotes - downvotes;
-        setVoteData({
+        const finalVoteData = {
           upvotes,
           downvotes,
           totalVotes: vibeScore,
           userVote: null,
-        });
-        onVibeScoreUpdate(projectId, vibeScore);
+        };
+        setVoteData(finalVoteData);
+        stableOnVibeScoreUpdate(projectId, vibeScore);
+
+        // Cache the result
+        setDataCache((prev) =>
+          new Map(prev).set(cacheKey, {
+            data: finalVoteData,
+            timestamp: Date.now(),
+          })
+        );
         return;
       }
 
@@ -101,13 +132,22 @@ export function VotingSystemWrapper({
       }
 
       const vibeScore = upvotes - downvotes;
-      setVoteData({
+      const finalVoteData = {
         upvotes,
         downvotes,
         totalVotes: vibeScore,
         userVote,
-      });
-      onVibeScoreUpdate(projectId, vibeScore);
+      };
+      setVoteData(finalVoteData);
+      stableOnVibeScoreUpdate(projectId, vibeScore);
+
+      // Cache the result
+      setDataCache((prev) =>
+        new Map(prev).set(cacheKey, {
+          data: finalVoteData,
+          timestamp: Date.now(),
+        })
+      );
     } catch (error) {
       console.error("Error loading vote data:", error);
       // Fallback to zero values if contract not initialized
@@ -117,9 +157,9 @@ export function VotingSystemWrapper({
         totalVotes: 0,
         userVote: null,
       });
-      onVibeScoreUpdate(projectId, 0);
+      stableOnVibeScoreUpdate(projectId, 0);
     }
-  }, [account, projectId, aptos, onVibeScoreUpdate]);
+  }, [account, projectId, aptos, stableOnVibeScoreUpdate, dataCache]);
 
   // Handle voting transactions
   const handleVote = async (voteType: "up" | "down") => {

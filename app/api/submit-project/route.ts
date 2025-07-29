@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
       imageUrl: formData.imageUrl?.trim() || "/api/placeholder/400/300",
       projectUrl: formData.projectUrl.trim(),
       repoUrl: formData.repoUrl?.trim() || formData.projectUrl.trim(),
-      tags: formData.tags,
+      tags: formData.tags || ["general"], // provide default tags
       status: formData.status,
       creator: formData.creator.trim(),
       creatorUrl: formData.creatorUrl?.trim() || "",
@@ -183,9 +183,9 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify({
             message: `🚀 Auto-add project: ${formData.title}\n\nSubmitted by: ${
               formData.creator
-            }\nStatus: ${formData.status}\nTags: ${formData.tags.join(
-              ", "
-            )}\n\n[AUTO-APPROVED]`,
+            }\nStatus: ${formData.status}\nTags: ${(
+              formData.tags || ["general"]
+            ).join(", ")}\n\n[AUTO-APPROVED]`,
             content: encodedContent,
             sha: fileData.sha,
             branch: "main", // Direct commit to main branch

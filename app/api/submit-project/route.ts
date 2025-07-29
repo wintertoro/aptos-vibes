@@ -42,12 +42,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!formData.tags || formData.tags.length === 0) {
-      return NextResponse.json(
-        { error: "At least one tag is required" },
-        { status: 400 }
-      );
-    }
+    // if (!formData.tags || formData.tags.length === 0) {
+    //   return NextResponse.json(
+    //     { error: "At least one tag is required" },
+    //     { status: 400 }
+    //   );
+    // }
 
     // Validate URLs
     try {

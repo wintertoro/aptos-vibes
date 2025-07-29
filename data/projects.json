@@ -6,13 +6,7 @@
     "imageUrl": "/tile3.png",
     "projectUrl": "https://fundraising-eta.vercel.app/",
     "repoUrl": "https://github.com/0xmaayan",
-    "tags": [
-      "dApp",
-      "DeFi",
-      "Fundraising",
-      "Smart Contracts",
-      "Governance"
-    ],
+    "tags": ["dApp", "DeFi", "Fundraising", "Smart Contracts", "Governance"],
     "status": "live",
     "creator": "@0xmaayan",
     "creatorUrl": "https://github.com/0xmaayan",
@@ -25,30 +19,10 @@
     "imageUrl": "/tile1.png",
     "projectUrl": "https://todo-dapp-fe.vercel.app/",
     "repoUrl": "https://github.com/wintertoro",
-    "tags": [
-      "dApp",
-      "Productivity",
-      "Task Management",
-      "Smart Contracts"
-    ],
+    "tags": ["dApp", "Productivity", "Task Management", "Smart Contracts"],
     "status": "live",
     "creator": "@wintertoro",
     "creatorUrl": "https://github.com/wintertoro",
-    "dateAdded": "2025-07-29"
-  },
-  {
-    "id": "mdoxbxqb-d3pkk",
-    "title": "test",
-    "description": "test",
-    "imageUrl": "/api/placeholder/400/300",
-    "projectUrl": "https://github.com/aptos-labs/aptos-npm-mcp",
-    "repoUrl": "https://github.com/aptos-labs/aptos-npm-mcp",
-    "tags": [
-      "general"
-    ],
-    "status": "live",
-    "creator": "@0xmaayan",
-    "creatorUrl": "",
     "dateAdded": "2025-07-29"
   }
 ]

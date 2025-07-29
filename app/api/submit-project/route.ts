@@ -111,36 +111,36 @@ export async function POST(request: NextRequest) {
         "GitHub integration not configured. Storing project locally."
       );
 
-      // Actually persist to local file in development
-      try {
-        const fs = require("fs");
-        const path = require("path");
-        const projectsPath = path.join(process.cwd(), "data", "projects.json");
+      // // Actually persist to local file in development
+      // try {
+      //   const fs = require("fs");
+      //   const path = require("path");
+      //   const projectsPath = path.join(process.cwd(), "data", "projects.json");
 
-        // Read current projects
-        const currentData = fs.readFileSync(projectsPath, "utf8");
-        const projects: Project[] = JSON.parse(currentData);
+      //   // Read current projects
+      //   const currentData = fs.readFileSync(projectsPath, "utf8");
+      //   const projects: Project[] = JSON.parse(currentData);
 
-        // Add new project
-        projects.push(newProject);
+      //   // Add new project
+      //   projects.push(newProject);
 
-        // Write back to file
-        fs.writeFileSync(projectsPath, JSON.stringify(projects, null, 2));
+      //   // Write back to file
+      //   fs.writeFileSync(projectsPath, JSON.stringify(projects, null, 2));
 
-        return NextResponse.json({
-          success: true,
-          message: "Project submitted successfully and added to site!",
-          project: newProject,
-        });
-      } catch (error) {
-        console.error("Failed to save locally:", error);
-        return NextResponse.json({
-          success: true,
-          message:
-            "Project submitted successfully! (stored in memory - restart server to persist)",
-          project: newProject,
-        });
-      }
+      //   return NextResponse.json({
+      //     success: true,
+      //     message: "Project submitted successfully and added to site!",
+      //     project: newProject,
+      //   });
+      // } catch (error) {
+      //   console.error("Failed to save locally:", error);
+      //   return NextResponse.json({
+      //     success: true,
+      //     message:
+      //       "Project submitted successfully! (stored in memory - restart server to persist)",
+      //     project: newProject,
+      //   });
+      // }
     }
 
     // GitHub API headers

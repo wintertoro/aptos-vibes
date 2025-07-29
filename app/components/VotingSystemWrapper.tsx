@@ -14,12 +14,15 @@ interface VoteData {
   upvotes: number;
   downvotes: number;
   totalVotes: number;
-  userVote: 'up' | 'down' | null;
+  userVote: "up" | "down" | null;
 }
 
-type TransactionState = 'idle' | 'pending' | 'success' | 'error';
+type TransactionState = "idle" | "pending" | "success" | "error";
 
-export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSystemWrapperProps) {
+export function VotingSystemWrapper({
+  projectId,
+  onVibeScoreUpdate,
+}: VotingSystemWrapperProps) {
   const { connected, account, signAndSubmitTransaction } = useWallet();
   const [voteData, setVoteData] = useState<VoteData>({
     upvotes: 0,
@@ -27,12 +30,13 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
     totalVotes: 0,
     userVote: null,
   });
-  const [transactionState, setTransactionState] = useState<TransactionState>('idle');
-  const [errorMessage, setErrorMessage] = useState<string>('');
-  
+  const [transactionState, setTransactionState] =
+    useState<TransactionState>("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
   // Initialize Aptos client with useMemo to prevent recreation on every render
   const aptos = useMemo(() => {
-    const aptosConfig = new AptosConfig({ 
+    const aptosConfig = new AptosConfig({
       network: Network.TESTNET,
       fullnode: NETWORK_CONFIG.NODE_URL,
     });
@@ -46,7 +50,8 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
         // Load public vote counts without user vote
         const result = await aptos.view({
           payload: {
-            function: `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::get_project_votes` as `${string}::${string}::${string}`,
+            function:
+              `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::get_project_votes` as `${string}::${string}::${string}`,
             functionArguments: [CONTRACT_CONFIG.MODULE_ADDRESS, projectId],
           },
         });
@@ -67,26 +72,32 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
       const [voteCountsResult, userVoteResult] = await Promise.all([
         aptos.view({
           payload: {
-            function: `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::get_project_votes` as `${string}::${string}::${string}`,
+            function:
+              `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::get_project_votes` as `${string}::${string}::${string}`,
             functionArguments: [CONTRACT_CONFIG.MODULE_ADDRESS, projectId],
           },
         }),
         aptos.view({
           payload: {
-            function: `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::get_user_vote` as `${string}::${string}::${string}`,
-            functionArguments: [CONTRACT_CONFIG.MODULE_ADDRESS, projectId, account.address],
+            function:
+              `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::get_user_vote` as `${string}::${string}::${string}`,
+            functionArguments: [
+              CONTRACT_CONFIG.MODULE_ADDRESS,
+              projectId,
+              account.address.toString(),
+            ],
           },
-        })
+        }),
       ]);
 
       const [upvotes, downvotes] = voteCountsResult as [number, number];
       const userVoteType = (userVoteResult as MoveValue[])[0] as number;
 
-      let userVote: 'up' | 'down' | null = null;
+      let userVote: "up" | "down" | null = null;
       if (userVoteType === CONTRACT_CONFIG.VOTE_TYPES.UP) {
-        userVote = 'up';
+        userVote = "up";
       } else if (userVoteType === CONTRACT_CONFIG.VOTE_TYPES.DOWN) {
-        userVote = 'down';
+        userVote = "down";
       }
 
       const vibeScore = upvotes - downvotes;
@@ -111,28 +122,30 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
   }, [account, projectId, aptos, onVibeScoreUpdate]);
 
   // Handle voting transactions
-  const handleVote = async (voteType: 'up' | 'down') => {
+  const handleVote = async (voteType: "up" | "down") => {
     if (!connected || !account || !signAndSubmitTransaction) {
       return;
     }
 
-    setTransactionState('pending');
-    setErrorMessage('');
+    setTransactionState("pending");
+    setErrorMessage("");
 
     try {
       // Determine if this is a toggle (remove vote) or switch vote
       const isSameVote = voteData.userVote === voteType;
-      
+
       let functionName: `${string}::${string}::${string}`;
 
       if (isSameVote) {
         // Remove vote if clicking same vote type
-        functionName = `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::remove_vote` as `${string}::${string}::${string}`;
+        functionName =
+          `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::remove_vote` as `${string}::${string}::${string}`;
       } else {
         // Cast new vote
-        functionName = voteType === 'up' 
-          ? `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::upvote` as `${string}::${string}::${string}`
-          : `${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::downvote` as `${string}::${string}::${string}`;
+        functionName =
+          voteType === "up"
+            ? (`${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::upvote` as `${string}::${string}::${string}`)
+            : (`${CONTRACT_CONFIG.MODULE_ADDRESS}::voting::downvote` as `${string}::${string}::${string}`);
       }
 
       const response = await signAndSubmitTransaction({
@@ -147,24 +160,24 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
         transactionHash: response.hash,
       });
 
-      setTransactionState('success');
-      
+      setTransactionState("success");
+
       // Reload vote data from contract
       await loadVoteData();
-      
-      // Reset transaction state after a delay
-      setTimeout(() => setTransactionState('idle'), 2000);
 
+      // Reset transaction state after a delay
+      setTimeout(() => setTransactionState("idle"), 2000);
     } catch (error: unknown) {
       console.error("Voting transaction failed:", error);
-      const errorMsg = error instanceof Error ? error.message : "Transaction failed";
+      const errorMsg =
+        error instanceof Error ? error.message : "Transaction failed";
       setErrorMessage(errorMsg);
-      setTransactionState('error');
-      
+      setTransactionState("error");
+
       // Reset error state after a delay
       setTimeout(() => {
-        setTransactionState('idle');
-        setErrorMessage('');
+        setTransactionState("idle");
+        setErrorMessage("");
       }, 3000);
     }
   };
@@ -175,15 +188,15 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
   }, [loadVoteData]);
 
   // Get button states
-  const getButtonState = (voteType: 'up' | 'down') => {
+  const getButtonState = (voteType: "up" | "down") => {
     const isActive = voteData.userVote === voteType;
-    const isDisabled = !connected || transactionState === 'pending';
-    
+    const isDisabled = !connected || transactionState === "pending";
+
     return { isActive, isDisabled };
   };
 
-  const upButtonState = getButtonState('up');
-  const downButtonState = getButtonState('down');
+  const upButtonState = getButtonState("up");
+  const downButtonState = getButtonState("down");
 
   return (
     <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
@@ -191,22 +204,27 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
         <div className="flex items-center gap-3">
           {/* Upvote Button */}
           <button
-            onClick={() => handleVote('up')}
+            onClick={() => handleVote("up")}
             disabled={upButtonState.isDisabled}
             className={`
               flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-all
-              ${upButtonState.isActive
-                ? 'bg-green-100 text-green-700 shadow-md dark:bg-green-900/30 dark:text-green-300'
-                : 'bg-gray-100 hover:bg-green-50 text-gray-600 hover:text-green-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-green-900/20 dark:hover:text-green-400'
+              ${
+                upButtonState.isActive
+                  ? "bg-green-100 text-green-700 shadow-md dark:bg-green-900/30 dark:text-green-300"
+                  : "bg-gray-100 hover:bg-green-50 text-gray-600 hover:text-green-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-green-900/20 dark:hover:text-green-400"
               }
-              ${upButtonState.isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}
+              ${
+                upButtonState.isDisabled
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:scale-105"
+              }
             `}
             title={
-              !connected 
+              !connected
                 ? "Connect wallet to vote"
-                : upButtonState.isActive 
-                  ? "Click to remove your upvote" 
-                  : "Click to upvote"
+                : upButtonState.isActive
+                ? "Click to remove your upvote"
+                : "Click to upvote"
             }
           >
             <span className="text-lg">👍</span>
@@ -215,22 +233,27 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
 
           {/* Downvote Button */}
           <button
-            onClick={() => handleVote('down')}
+            onClick={() => handleVote("down")}
             disabled={downButtonState.isDisabled}
             className={`
               flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-all
-              ${downButtonState.isActive
-                ? 'bg-red-100 text-red-700 shadow-md dark:bg-red-900/30 dark:text-red-300'
-                : 'bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-red-900/20 dark:hover:text-red-400'
+              ${
+                downButtonState.isActive
+                  ? "bg-red-100 text-red-700 shadow-md dark:bg-red-900/30 dark:text-red-300"
+                  : "bg-gray-100 hover:bg-red-50 text-gray-600 hover:text-red-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-red-900/20 dark:hover:text-red-400"
               }
-              ${downButtonState.isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}
+              ${
+                downButtonState.isDisabled
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:scale-105"
+              }
             `}
             title={
-              !connected 
+              !connected
                 ? "Connect wallet to vote"
-                : downButtonState.isActive 
-                  ? "Click to remove your downvote" 
-                  : "Click to downvote"
+                : downButtonState.isActive
+                ? "Click to remove your downvote"
+                : "Click to downvote"
             }
           >
             <span className="text-lg">👎</span>
@@ -240,12 +263,17 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
 
         {/* Vibe Score */}
         <div className="text-right">
-          <div className={`text-lg font-bold ${
-            voteData.totalVotes > 0 ? 'text-green-600 dark:text-green-400' : 
-            voteData.totalVotes < 0 ? 'text-red-600 dark:text-red-400' : 
-            'text-gray-600 dark:text-gray-400'
-          }`}>
-            Vibe Score: {voteData.totalVotes > 0 ? '+' : ''}{voteData.totalVotes}
+          <div
+            className={`text-lg font-bold ${
+              voteData.totalVotes > 0
+                ? "text-green-600 dark:text-green-400"
+                : voteData.totalVotes < 0
+                ? "text-red-600 dark:text-red-400"
+                : "text-gray-600 dark:text-gray-400"
+            }`}
+          >
+            Vibe Score: {voteData.totalVotes > 0 ? "+" : ""}
+            {voteData.totalVotes}
           </div>
           <div className="text-xs text-gray-500 dark:text-gray-400">
             ↑{voteData.upvotes} • ↓{voteData.downvotes}
@@ -254,22 +282,22 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
       </div>
 
       {/* Transaction Status */}
-      {transactionState !== 'idle' && (
+      {transactionState !== "idle" && (
         <div className="mt-3 p-2 rounded-lg text-sm">
-          {transactionState === 'pending' && (
+          {transactionState === "pending" && (
             <div className="text-blue-600 dark:text-blue-400 flex items-center gap-2">
               <div className="animate-spin h-4 w-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
               Processing transaction...
             </div>
           )}
-          {transactionState === 'success' && (
+          {transactionState === "success" && (
             <div className="text-green-600 dark:text-green-400">
               ✓ Vote recorded on-chain!
             </div>
           )}
-          {transactionState === 'error' && (
+          {transactionState === "error" && (
             <div className="text-red-600 dark:text-red-400">
-              ✗ {errorMessage || 'Transaction failed'}
+              ✗ {errorMessage || "Transaction failed"}
             </div>
           )}
         </div>
@@ -278,7 +306,8 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
       {/* User Vote Status */}
       {connected && voteData.userVote && (
         <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-          Your vote: {voteData.userVote === 'up' ? '👍' : '👎'} • Click same button to remove
+          Your vote: {voteData.userVote === "up" ? "👍" : "👎"} • Click same
+          button to remove
         </div>
       )}
 
@@ -290,4 +319,4 @@ export function VotingSystemWrapper({ projectId, onVibeScoreUpdate }: VotingSyst
       )}
     </div>
   );
-} 
+}

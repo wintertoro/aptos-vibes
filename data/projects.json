@@ -6,7 +6,13 @@
     "imageUrl": "/tile3.png",
     "projectUrl": "https://fundraising-eta.vercel.app/",
     "repoUrl": "https://github.com/0xmaayan",
-    "tags": ["dApp", "DeFi", "Fundraising", "Smart Contracts", "Governance"],
+    "tags": [
+      "dApp",
+      "DeFi",
+      "Fundraising",
+      "Smart Contracts",
+      "Governance"
+    ],
     "status": "live",
     "creator": "@0xmaayan",
     "creatorUrl": "https://github.com/0xmaayan",
@@ -19,10 +25,30 @@
     "imageUrl": "/tile1.png",
     "projectUrl": "https://todo-dapp-fe.vercel.app/",
     "repoUrl": "https://github.com/wintertoro",
-    "tags": ["dApp", "Productivity", "Task Management", "Smart Contracts"],
+    "tags": [
+      "dApp",
+      "Productivity",
+      "Task Management",
+      "Smart Contracts"
+    ],
     "status": "live",
     "creator": "@wintertoro",
     "creatorUrl": "https://github.com/wintertoro",
+    "dateAdded": "2025-07-29"
+  },
+  {
+    "id": "mdoy56jg-ej1gw",
+    "title": "On Aptos",
+    "description": "Real-time portfolio tracking for tokens, NFTs, and DeFi protocols across Aptos as well as dedicated analytics for Stablecoins, Bitcoin, and RWAs.",
+    "imageUrl": "https://github.com/zacharyr0th/on-aptos/blob/main/app/icon.png",
+    "projectUrl": "https://www.on-aptos.com/",
+    "repoUrl": "https://github.com/zacharyr0th/on-aptos",
+    "tags": [
+      "general"
+    ],
+    "status": "live",
+    "creator": "zacharyr0th",
+    "creatorUrl": "https://github.com/zacharyr0th",
     "dateAdded": "2025-07-29"
   }
 ]

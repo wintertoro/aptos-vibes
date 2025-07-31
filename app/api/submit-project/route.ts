@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { Account, Aptos, AptosConfig, Network } from "@aptos-labs/ts-sdk";
+import { CONTRACT_CONFIG, NETWORK_CONFIG } from "../../config/contract";
 
 interface ProjectData {
   title: string;
@@ -24,6 +26,9 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = "aptos-labs";
 const REPO_NAME = "vibe-hack-2025";
 const GITHUB_API_BASE = "https://api.github.com";
+
+// Aptos smart contract configuration
+const APTOS_PRIVATE_KEY = process.env.APTOS_PRIVATE_KEY;
 
 export async function POST(request: NextRequest) {
   try {
@@ -107,6 +112,61 @@ export async function POST(request: NextRequest) {
       dateAdded: new Date().toISOString().split("T")[0],
     };
 
+    // Initialize project in smart contract if private key is available
+    async function initializeProjectInContract(projectId: string) {
+      if (!APTOS_PRIVATE_KEY) {
+        console.warn("APTOS_PRIVATE_KEY not set, skipping smart contract initialization");
+        return { success: false, reason: "private_key_missing" };
+      }
+
+      try {
+        const config = new AptosConfig({ 
+          network: Network.TESTNET,
+          fullnode: NETWORK_CONFIG.NODE_URL,
+        });
+        const aptos = new Aptos(config);
+
+        const account = Account.fromPrivateKey({
+          privateKey: APTOS_PRIVATE_KEY,
+        });
+
+        console.log(`Initializing project ${projectId} in smart contract...`);
+
+        const transaction = await aptos.transaction.build.simple({
+          sender: account.accountAddress,
+          data: {
+            function: `${CONTRACT_CONFIG.MODULE_ADDRESS}::vibe_voting::initialize_project`,
+            functionArguments: [projectId],
+          },
+        });
+
+        const response = await aptos.signAndSubmitTransaction({
+          signer: account,
+          transaction,
+        });
+
+        await aptos.waitForTransaction({
+          transactionHash: response.hash,
+        });
+
+        console.log(`✅ Project ${projectId} initialized in smart contract`);
+        console.log(`📄 Transaction: https://explorer.aptoslabs.com/txn/${response.hash}?network=testnet`);
+
+        return { 
+          success: true, 
+          transactionHash: response.hash,
+          explorerUrl: `https://explorer.aptoslabs.com/txn/${response.hash}?network=testnet`
+        };
+      } catch (error) {
+        console.error(`Failed to initialize project ${projectId} in smart contract:`, error);
+        return { 
+          success: false, 
+          reason: "transaction_failed", 
+          error: error instanceof Error ? error.message : "Unknown error" 
+        };
+      }
+    }
+
     if (!GITHUB_TOKEN) {
       // For development: store locally instead of creating PR
       console.warn(
@@ -127,10 +187,16 @@ export async function POST(request: NextRequest) {
         // Write back to file
         fs.writeFileSync(projectsPath, JSON.stringify(projects, null, 2));
 
+        // Initialize project in smart contract
+        const contractResult = await initializeProjectInContract(newProject.id);
+
         return NextResponse.json({
           success: true,
-          message: "Project submitted successfully and added to site!",
+          message: contractResult.success 
+            ? "Project submitted successfully and added to site! Smart contract initialized." 
+            : "Project submitted successfully and added to site! (Smart contract initialization pending)",
           project: newProject,
+          contractInitialization: contractResult,
         });
       } catch (error) {
         console.error("Failed to save locally:", error);
@@ -201,13 +267,18 @@ export async function POST(request: NextRequest) {
 
       const commitData = await updateFileResponse.json();
 
+      // Initialize project in smart contract
+      const contractResult = await initializeProjectInContract(newProject.id);
+
       return NextResponse.json({
         success: true,
-        message:
-          "Project submitted and automatically published to the site! 🎉",
+        message: contractResult.success
+          ? "Project submitted and automatically published to the site! Smart contract initialized. 🎉"
+          : "Project submitted and automatically published to the site! (Smart contract initialization pending) 🎉",
         project: newProject,
         commitUrl: commitData.commit.html_url,
         commitSha: commitData.commit.sha,
+        contractInitialization: contractResult,
       });
     } catch (githubError) {
       console.error("GitHub API error:", githubError);

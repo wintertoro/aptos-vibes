@@ -50,5 +50,20 @@
     "creator": "zacharyr0th",
     "creatorUrl": "https://github.com/zacharyr0th",
     "dateAdded": "2025-07-29"
+  },
+  {
+    "id": "mdrmvoex-hx59o",
+    "title": "aptos-feature-explorer",
+    "description": "You can check the current feature status on mainnet, testnet, and devnet.",
+    "imageUrl": "/api/placeholder/400/300",
+    "projectUrl": "https://wgb5445.github.io/aptos-feature-explorer/",
+    "repoUrl": "https://github.com/WGB5445/aptos-feature-explorer",
+    "tags": [
+      "general"
+    ],
+    "status": "live",
+    "creator": "Logan.wang",
+    "creatorUrl": "",
+    "dateAdded": "2025-07-31"
   }
 ]

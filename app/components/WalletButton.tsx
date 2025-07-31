@@ -9,9 +9,11 @@ export function WalletButton() {
   const handleConnect = async () => {
     try {
       if (wallets && wallets.length > 0) {
-        await connect(wallets[0].name);
+        await connect("Petra");
       } else {
-        alert("No Aptos wallet found. Please install Petra or another Aptos wallet.");
+        alert(
+          "No Aptos wallet found. Please install Petra or another Aptos wallet."
+        );
       }
     } catch (error) {
       console.error("Failed to connect wallet:", error);
@@ -49,12 +51,12 @@ export function WalletButton() {
       className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors inline-flex items-center gap-2"
     >
       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M21 18v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13z"/>
-        <path d="M21 9H3"/>
-        <path d="M7 3v6"/>
-        <path d="M17 3v6"/>
+        <path d="M21 18v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13z" />
+        <path d="M21 9H3" />
+        <path d="M7 3v6" />
+        <path d="M17 3v6" />
       </svg>
       Connect Wallet
     </button>
   );
-} 
+}

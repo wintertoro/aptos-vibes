@@ -17,7 +17,7 @@ Hey everyone! We're thrilled to launch our **company-wide Vibe Coding Hackathon*
 
 ### 💡 Timeline & Prize
 
-**7/28-3/31 Vibe Days | 08/01 10AM PT - Highest Votes Win**
+**7/24-7/31 Vibe Days | 08/01 10AM PT - Highest Votes Win**
 
 ***🎉 100 APT PRIZE!!! BRAGGING RIGHTS! FAME! GLORY! FUN! 🎉***
 

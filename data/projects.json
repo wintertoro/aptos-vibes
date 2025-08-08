@@ -150,5 +150,22 @@
     "creator": "@banool",
     "creatorUrl": "https://github.com/banool",
     "dateAdded": "2025-07-17"
+  },
+  {
+    "id": "aptos-nft-generator",
+    "title": "Aptos NFT Generator",
+    "description": "Mint 80s-style NFTs instantly using a shared collection architecture on Aptos testnet. Optimized for low gas, mobile, and mass adoption.",
+    "imageUrl": "/icon.png",
+    "projectUrl": "https://www.aptosnft.com/",
+    "repoUrl": "https://github.com/jjaw/Aptos-NFT-generator",
+    "tags": [
+      "NFT",
+      "dApp",
+      "Educational"
+    ],
+    "status": "live",
+    "creator": "@willjaw",
+    "creatorUrl": "https://github.com/jjaw",
+    "dateAdded": "2025-08-07"
   }
 ]

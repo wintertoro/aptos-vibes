@@ -6,7 +6,11 @@
     "imageUrl": "/tile1.png",
     "projectUrl": "https://todo-dapp-fe.vercel.app/",
     "repoUrl": "https://github.com/wintertoro/todo-dapp-fe",
-    "tags": ["dApp", "Productivity", "Move"],
+    "tags": [
+      "dApp",
+      "Productivity",
+      "Move"
+    ],
     "status": "live",
     "creator": "@wintertoro",
     "dateAdded": "2024-01-15"
@@ -18,7 +22,12 @@
     "imageUrl": "/tile2.png",
     "projectUrl": "https://aptos-billboard.vercel.app/",
     "repoUrl": "https://github.com/tippi-fifestarr/aptos-billboard",
-    "tags": ["dApp", "Messaging", "Social", "Interactive"],
+    "tags": [
+      "dApp",
+      "Messaging",
+      "Social",
+      "Interactive"
+    ],
     "status": "live",
     "creator": "@tippi-fifestarr",
     "creatorUrl": "https://github.com/tippi-fifestarr/",
@@ -31,7 +40,12 @@
     "imageUrl": "/tile3.png",
     "projectUrl": "https://confidential.aptoslabs.com/dashboard",
     "repoUrl": "https://aptos.dev/en/build/smart-contracts/confidential-asset",
-    "tags": ["Confidential", "Security", "Dashboard", "Aptos Labs"],
+    "tags": [
+      "Confidential",
+      "Security",
+      "Dashboard",
+      "Aptos Labs"
+    ],
     "status": "live",
     "creator": "@dport",
     "creatorUrl": "https://github.com/banool",
@@ -44,7 +58,12 @@
     "imageUrl": "/tile4.png",
     "projectUrl": "https://nft-demo-aggregator.vercel.app/",
     "repoUrl": "https://github.com/yuunlimm/nft-demo-aggregator",
-    "tags": ["NFT", "Aggregator", "Marketplace", "Demo"],
+    "tags": [
+      "NFT",
+      "Aggregator",
+      "Marketplace",
+      "Demo"
+    ],
     "status": "live",
     "creator": "@yuunlimm",
     "creatorUrl": "https://github.com/yuunlimm",
@@ -57,7 +76,12 @@
     "imageUrl": "/tile5.png",
     "projectUrl": "https://hack-and-hang-june-2025.vercel.app/",
     "repoUrl": "https://github.com/aptos-labs/hack-and-hang-june-2025",
-    "tags": ["Game", "Dice", "Interactive", "Move"],
+    "tags": [
+      "Game",
+      "Dice",
+      "Interactive",
+      "Move"
+    ],
     "status": "live",
     "creator": "@gregnazario",
     "creatorUrl": "https://github.com/gregnazario",
@@ -70,7 +94,11 @@
     "imageUrl": "/api/placeholder/400/300",
     "projectUrl": "https://github.com/aptos-vibes/governance-hub",
     "repoUrl": "https://github.com/aptos-vibes/governance-hub",
-    "tags": ["Governance", "DAO", "Community"],
+    "tags": [
+      "Governance",
+      "DAO",
+      "Community"
+    ],
     "status": "concept",
     "creator": "placeholder",
     "dateAdded": "2024-05-12"
@@ -82,7 +110,12 @@
     "imageUrl": "/api/placeholder/400/300",
     "projectUrl": "https://github.com/aptos-vibes/defi-pool",
     "repoUrl": "https://github.com/aptos-vibes/defi-pool",
-    "tags": ["DeFi", "AMM", "Liquidity", "Swap"],
+    "tags": [
+      "DeFi",
+      "AMM",
+      "Liquidity",
+      "Swap"
+    ],
     "status": "concept",
     "creator": "@defi-builder",
     "dateAdded": "2024-06-26"
@@ -94,7 +127,10 @@
     "imageUrl": "/api/placeholder/400/300",
     "projectUrl": "https://fundraising-eta.vercel.app/",
     "repoUrl": "https://fundraising-eta.vercel.app/",
-    "tags": ["Marketplace", "DApp"],
+    "tags": [
+      "Marketplace",
+      "DApp"
+    ],
     "status": "live",
     "creator": "@0xmaayan",
     "creatorUrl": "",
@@ -107,7 +143,9 @@
     "imageUrl": "/api/placeholder/400/300",
     "projectUrl": "https://chess.dport.me/#/?network=testnet",
     "repoUrl": "https://github.com/banool/aptos-chess",
-    "tags": ["Gaming"],
+    "tags": [
+      "Gaming"
+    ],
     "status": "live",
     "creator": "@banool",
     "creatorUrl": "https://github.com/banool",
@@ -116,13 +154,18 @@
   {
     "id": "aptos-nft-generator",
     "title": "Aptos NFT Generator",
-    "description": "Mint 80s-themed NFTs instantly with neon backgrounds, rare geometric shapes, and cyberpunk word combos. Built using Aptos Digital Asset Standard and shared collection architecture with 73% gas savings.",
+    "description": "Mint 80s-style NFTs instantly using a shared collection architecture on Aptos testnet. Optimized for low gas, mobile, and mass adoption.",
     "imageUrl": "/icon.png",
     "projectUrl": "https://www.aptosnft.com/",
     "repoUrl": "https://github.com/jjaw/Aptos-NFT-generator",
-    "tags": ["NFT", "dApp", "Educational"],
+    "tags": [
+      "NFT",
+      "dApp",
+      "Educational"
+    ],
     "status": "live",
-    "creator": "@jjaw",
+    "creator": "@willjaw",
+    "creatorUrl": "https://github.com/jjaw",
     "dateAdded": "2025-08-07"
   }
 ]
